@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:high_fashion/features/authentication/login/ui/screens/loginScreen.dart';
 import 'package:high_fashion/ui/screens/home%20screen.dart';
-import 'package:high_fashion/ui/screens/splash_screen.dart';
 import 'package:high_fashion/ui/screens/welcome_screen.dart';
 import 'package:high_fashion/utils/theme/theme.dart';
 
@@ -21,10 +20,10 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       darkTheme: highFashionDarkTheme(),
       theme: highFashionLightTheme(),
-      initialRoute: '/welcome',
+     home: const LoginScreen(),
+     // initialRoute: '/welcome',
       getPages: [
-        GetPage(name: '/', page: () => const SplashScreen()),
-        GetPage(name: '/welcome', page: () => WelcomeScreen()),
+        GetPage(name: '/welcome', page: () => const WelcomeScreen()),
         GetPage(name: '/home', page: () => const HomeScreen()),
       ],
     );

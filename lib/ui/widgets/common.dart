@@ -5,7 +5,7 @@ import '../../utils/constanst/colors.dart';
 
 
 ///   WIDGETS
-GestureDetector largeBtn(bool isLightMode, String label, void Function() todo) {
+GestureDetector largeBtn(bool isLightMode, String label, Function() todo) {
   return GestureDetector(
     onTap: todo,
     child: Container(
@@ -25,6 +25,29 @@ GestureDetector largeBtn(bool isLightMode, String label, void Function() todo) {
     ),
   );
 }
+
+
+GestureDetector largeAppBtn(bool isLightMode, String label, Function() todo) {
+  return GestureDetector(
+    onTap: todo,
+    child: Container(
+      height: 60,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: isLightMode ? lightWidgetColorBackground : darkWidgetColorBackground,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: const Center(
+          child: Text("Login",
+              style: TextStyle(
+                  fontFamily: interExtraBold,
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold))),
+    ),
+  );
+}
+
 
 Container imgContainer(double height, double width,double radius , String imgPath) {
   return Container(

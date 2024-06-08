@@ -7,6 +7,12 @@ import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 
+bool isIos(){
+  return Platform.isIOS;
+}
+bool isAndroid(){
+  return Platform.isAndroid;
+}
 
 void hideKeyboard(BuildContext context){
   return FocusScope.of(context).requestFocus(FocusNode());

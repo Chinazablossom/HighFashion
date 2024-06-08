@@ -1,21 +1,27 @@
+import 'dart:async';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class OnboardingController extends GetxController {
-  var currentIndex = 0.obs;
-
-  void nextPage() {
-    if (currentIndex < 2) {
-      currentIndex++;
-    }
+class WelcomeScreenController extends GetxController {
+  static WelcomeScreenController get instance  =>Get.find();
+  @override
+  void onInit() {
+    super.onInit();
+    _checkFirstLaunch();
   }
 
-  void previousPage() {
-    if (currentIndex > 0) {
-      currentIndex--;
-    }
-  }
+  Future<void> _checkFirstLaunch() async {
+    await Future.delayed(const Duration(seconds: 6));
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool isFirstLaunch = prefs.getBool("isFirstLaunch") ?? true;
 
-  void skipToLast() {
-    currentIndex.value = 2;
+    if (isFirstLaunch) {
+      await prefs.setBool("isFirstLaunch", false);
+      Get.offAllNamed('/welcome');
+    } else {
+      Get.offAllNamed("/home");
+    }
+
   }
 }
+

@@ -13,6 +13,8 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+  //  Get.put(WelcomeScreenController());
+
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -73,10 +75,13 @@ class WelcomeScreen extends StatelessWidget {
                 RichText(
                     textAlign: TextAlign.center,
                     text: TextSpan(children: [
-                      const TextSpan(
+                       TextSpan(
                           text:
                               "Embrace Elegance Discover The Latest Trends In ",
                           style: TextStyle(
+                            color:  isLightMode(context)
+                                ?  Colors.black
+                                : Colors.white,
                             fontFamily: interBold,
                             fontSize: 22,
                           )),
@@ -111,13 +116,10 @@ class WelcomeScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    RichText(
-                        text: const TextSpan(children: [
-                      TextSpan(
-                          text: "Already have an account?",
-                          style: TextStyle(
-                              fontFamily: interMedium)),
-                    ])),
+                      const Text(
+                           "Already have an account?",
+                          style: TextStyle(fontFamily: interSemiBold)),
+
                     const SizedBox(width: 6,),
                     GestureDetector(
                       onTap: () {},
@@ -126,7 +128,7 @@ class WelcomeScreen extends StatelessWidget {
                               color: isLightMode(context)
                                   ?  lightWidgetColorBackground
                                   : darkWidgetColorBackground,
-                              fontFamily: interExtraBold,
+                              fontFamily: interBold,
                               decoration: TextDecoration.underline)),
                     )
 

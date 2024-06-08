@@ -20,5 +20,6 @@ class SplashController extends GetxController {
     } else {
       Get.offAllNamed("/home");
     }
+
   }
 }

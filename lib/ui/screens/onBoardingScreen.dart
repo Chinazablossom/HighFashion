@@ -33,7 +33,7 @@ class OnBoardingScreen extends StatelessWidget {
       next: iconContainer(
           45, 45, Icons.arrow_forward_rounded, isLightMode(context)),
       done: Text(
-        "Lets Get Started",
+        "Lets Go",
         style: TextStyle(
           fontFamily: interBold,
           color: isLightMode(context)
@@ -45,7 +45,7 @@ class OnBoardingScreen extends StatelessWidget {
           activeColor: isLightMode(context)
               ? lightWidgetColorBackground
               : darkWidgetColorBackground,
-          activeSize: const Size(20, 10),
+          activeSize: const Size(30, 10),
           activeShape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(70)),
           size: const Size(10, 5)),

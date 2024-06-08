@@ -6,6 +6,7 @@ import '../constanst/colors.dart';
 ThemeData highFashionLightTheme() {
   return ThemeData.light(useMaterial3: true,).copyWith(
 
+
       scaffoldBackgroundColor: lightBackground,
 
       appBarTheme:  const AppBarTheme().copyWith(
@@ -38,7 +39,7 @@ ThemeData highFashionLightTheme() {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
           checkColor: MaterialStateProperty.resolveWith((states) {
             if(states.contains(MaterialState.selected)){
-              return lightWidgetColorBackground;
+              return Colors.white;
             }else {
               return Colors.black;
             }
@@ -81,7 +82,7 @@ ThemeData highFashionLightTheme() {
         headlineMedium: const TextStyle().copyWith(fontSize: 28, fontWeight: FontWeight.w600, color: Colors.black),
         headlineSmall: const TextStyle().copyWith(fontSize: 22, fontWeight: FontWeight.w600, color: Colors.black),
         bodyLarge: const TextStyle().copyWith(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
-        bodyMedium: const TextStyle().copyWith(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black),
+        bodyMedium: const TextStyle().copyWith(fontSize: 16, color: Colors.black),
         bodySmall: const TextStyle().copyWith(fontSize: 14, fontWeight: FontWeight.normal, color: Colors.black),
         titleLarge: const TextStyle().copyWith(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
         titleMedium: const TextStyle().copyWith(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.black),
@@ -92,9 +93,10 @@ ThemeData highFashionLightTheme() {
       ),
 
    inputDecorationTheme: const InputDecorationTheme().copyWith(
-     prefixIconColor: lightWidgetColorBackground,
-     suffixIconColor: lightWidgetColorBackground,
-     labelStyle: const TextStyle().copyWith(fontSize: 14,color: Colors.black),
+     prefixIconColor: Colors.black,
+     suffixIconColor: Colors.black,
+
+     labelStyle: const TextStyle().copyWith(fontSize: 14,color: Colors.black,fontWeight: FontWeight.normal),
      hintStyle: const TextStyle().copyWith(fontSize: 14,color: Colors.black),
      floatingLabelStyle: const TextStyle().copyWith(fontSize: 12,color: Colors.black.withOpacity(0.8)),
      border: OutlineInputBorder(
@@ -103,7 +105,7 @@ ThemeData highFashionLightTheme() {
      ),
      enabledBorder: OutlineInputBorder(
          borderRadius: BorderRadius.circular(16),
-       borderSide: const BorderSide(color: lightWidgetColorBackground,strokeAlign: 1)
+       borderSide: const BorderSide(color: Colors.black,strokeAlign: 1)
      ),
      focusedBorder: OutlineInputBorder(
          borderRadius: BorderRadius.circular(16),
@@ -169,7 +171,7 @@ ThemeData highFashionDarkTheme() {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
           checkColor: MaterialStateProperty.resolveWith((states) {
             if(states.contains(MaterialState.selected)){
-              return darkWidgetColorBackground;
+              return Colors.white;
             }else {
               return Colors.white;
             }
@@ -217,18 +219,18 @@ ThemeData highFashionDarkTheme() {
 
 
       inputDecorationTheme: const InputDecorationTheme().copyWith(
-        prefixIconColor: lightWidgetColorBackground,
-        suffixIconColor: lightWidgetColorBackground,
-        labelStyle: const TextStyle().copyWith(fontSize: 14,color: Colors.black),
-        hintStyle: const TextStyle().copyWith(fontSize: 14,color: Colors.black),
-        floatingLabelStyle: const TextStyle().copyWith(fontSize: 12,color: Colors.black.withOpacity(0.8)),
+        prefixIconColor: Colors.white,
+        suffixIconColor: Colors.white,
+        labelStyle: const TextStyle().copyWith(fontSize: 14,color: Colors.white),
+        hintStyle: const TextStyle().copyWith(fontSize: 14,color: Colors.white),
+        floatingLabelStyle: const TextStyle().copyWith(fontSize: 12,color: Colors.white),
         border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
             borderSide: const BorderSide(color: Colors.grey,strokeAlign: 1)
         ),
         enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
-            borderSide: const BorderSide(color: darkWidgetColorBackground,strokeAlign: 1)
+            borderSide: const BorderSide(color: Colors.white,strokeAlign: 1)
         ),
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:high_fashion/utils/constanst/assetsPaths.dart';
 import 'package:lottie/lottie.dart';
-import '../../controllers/splash_screen_controller.dart';
 import '../../utils/helper-functions/helper-functions.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -35,7 +34,11 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
       end: Offset.zero,
     ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
 
-    Get.put(SplashController());
+    Get.offAllNamed('/welcome');
+
+    // Get.put(SplashController());
+
+
   }
 
 /*
@@ -89,7 +92,7 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
           children: [
             SlideTransition(
               position: _animationLeftToRight,
-              child: Lottie.asset(girlWalkingLottiePath,
+              child: Lottie.asset(isLightMode(context) ? appIcon : appIconDark,
                   width: isPortraitMode(context) ? 300 : 200, height: isPortraitMode(context) ? 300 : 200, fit: BoxFit.contain, repeat: true),
             ),
             const SizedBox(
