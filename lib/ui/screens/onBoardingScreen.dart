@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:high_fashion/ui/widgets/common.dart';
+import 'package:high_fashion/ui/widgets/reuseableWidgets.dart';
 import 'package:high_fashion/utils/constanst/assetsPaths.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 
-import '../../features/authentication/signUp/ui/screens/SignUpScreen.dart';
+import '../../features/authentication/signUp/SignUpScreen.dart';
 import '../../utils/constanst/colors.dart';
 import '../../utils/helper-functions/helper-functions.dart';
 
@@ -30,7 +30,7 @@ class OnBoardingScreen extends StatelessWidget {
       showSkipButton: true,
       skipOrBackFlex: 0,
       nextFlex: 0,
-      next: iconContainer(
+      next: ReuseableWidgets().iconContainer(
           45, 45, Icons.arrow_forward_rounded, isLightMode(context)),
       done: Text(
         "Lets Go",
@@ -52,7 +52,7 @@ class OnBoardingScreen extends StatelessWidget {
       pages: [
         PageViewModel(
             title: "",
-            bodyWidget: pageView(
+            bodyWidget: ReuseableWidgets().pageView(
                 isLightMode(context),
                 "Welcome to ",
                 "High Fashion",
@@ -61,7 +61,7 @@ class OnBoardingScreen extends StatelessWidget {
                 0)),
         PageViewModel(
             title: "",
-            bodyWidget: pageView(
+            bodyWidget: ReuseableWidgets().pageView(
                 isLightMode(context),
                 "Swift and Reliable ",
                 "Delivery",
@@ -70,7 +70,7 @@ class OnBoardingScreen extends StatelessWidget {
                 1)),
         PageViewModel(
             title: "",
-            bodyWidget: pageView(
+            bodyWidget: ReuseableWidgets().pageView(
                 isLightMode(context),
                 "Start Your Style ",
                 "Journey",

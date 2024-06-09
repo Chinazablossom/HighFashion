@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:high_fashion/utils/constanst/assetsPaths.dart';
 
 import '../constanst/colors.dart';
 
@@ -15,7 +16,7 @@ ThemeData highFashionLightTheme() {
         surfaceTintColor: Colors.transparent,
         centerTitle: true,
         scrolledUnderElevation: 0,
-        actionsIconTheme: const IconThemeData(color: lightWidgetColorBackground,size: 40),
+        actionsIconTheme: const IconThemeData(color: lightWidgetColorBackground,size: 20),
         iconTheme: const IconThemeData(color: lightWidgetColorBackground,size: 40),
         titleTextStyle: const TextStyle(fontSize: 18,fontFamily: "InterBold",fontWeight: FontWeight.w600,color: Colors.black), ),
 
@@ -28,10 +29,11 @@ ThemeData highFashionLightTheme() {
 
       bottomSheetTheme: const BottomSheetThemeData().copyWith(
         backgroundColor: Colors.black,
-        modalBackgroundColor: Colors.black,
+        modalBackgroundColor: const Color(0xff000000),
         showDragHandle: true,
+        dragHandleColor: darkWidgetColorBackground,
+        dragHandleSize: const Size(100, 6),
         constraints: const BoxConstraints(minWidth: double.infinity),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(26))
       ),
 
 
@@ -81,7 +83,7 @@ ThemeData highFashionLightTheme() {
         headlineLarge: const TextStyle().copyWith(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black),
         headlineMedium: const TextStyle().copyWith(fontSize: 28, fontWeight: FontWeight.w600, color: Colors.black),
         headlineSmall: const TextStyle().copyWith(fontSize: 22, fontWeight: FontWeight.w600, color: Colors.black),
-        bodyLarge: const TextStyle().copyWith(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
+        bodyLarge: const TextStyle().copyWith(fontSize: 18, fontWeight: FontWeight.w500, color: Colors.black),
         bodyMedium: const TextStyle().copyWith(fontSize: 16, color: Colors.black),
         bodySmall: const TextStyle().copyWith(fontSize: 14, fontWeight: FontWeight.normal, color: Colors.black),
         titleLarge: const TextStyle().copyWith(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black),
@@ -95,29 +97,29 @@ ThemeData highFashionLightTheme() {
    inputDecorationTheme: const InputDecorationTheme().copyWith(
      prefixIconColor: Colors.black,
      suffixIconColor: Colors.black,
-
-     labelStyle: const TextStyle().copyWith(fontSize: 14,color: Colors.black,fontWeight: FontWeight.normal),
+     labelStyle: const TextStyle().copyWith(fontSize: 16,color: Colors.black,fontWeight: FontWeight.normal),
      hintStyle: const TextStyle().copyWith(fontSize: 14,color: Colors.black),
      floatingLabelStyle: const TextStyle().copyWith(fontSize: 12,color: Colors.black.withOpacity(0.8)),
+
      border: OutlineInputBorder(
          borderRadius: BorderRadius.circular(16),
-       borderSide: const BorderSide(color: Colors.grey,strokeAlign: 1)
+       borderSide: const BorderSide(color: Colors.grey,width: 1)
      ),
      enabledBorder: OutlineInputBorder(
          borderRadius: BorderRadius.circular(16),
-       borderSide: const BorderSide(color: Colors.black,strokeAlign: 1)
+       borderSide: const BorderSide(color: Colors.black,width: 1)
      ),
      focusedBorder: OutlineInputBorder(
          borderRadius: BorderRadius.circular(16),
-       borderSide: const BorderSide(color: Colors.black,strokeAlign: 1)
+       borderSide: const BorderSide(color: lightWidgetColorBackground,width: 1.8)
      ),
      errorBorder: OutlineInputBorder(
          borderRadius: BorderRadius.circular(16),
-       borderSide: const BorderSide(color: Colors.red,strokeAlign: 1)
+       borderSide: const BorderSide(color: Colors.red,width: 1)
      ),
      focusedErrorBorder: OutlineInputBorder(
          borderRadius: BorderRadius.circular(16),
-       borderSide: const BorderSide(color: Colors.redAccent,strokeAlign: 1)
+       borderSide: const BorderSide(color: Colors.redAccent,width: 1)
      ),
      errorMaxLines: 3,
    )
@@ -160,11 +162,14 @@ ThemeData highFashionDarkTheme() {
 
 
       bottomSheetTheme: const BottomSheetThemeData().copyWith(
-          backgroundColor: lightBackground,
-          modalBackgroundColor: lightBackground,
+          backgroundColor: Colors.white,
+          modalBackgroundColor: const Color(0xfff1f3f5),
           showDragHandle: true,
+          dragHandleColor: darkWidgetColorBackground,
+          dragHandleSize: const Size(100, 6),
           constraints: const BoxConstraints(minWidth: double.infinity),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(26))),
+
+      ),
 
 
       checkboxTheme: const CheckboxThemeData().copyWith(
@@ -198,6 +203,7 @@ ThemeData highFashionDarkTheme() {
 
           )
       ),
+
       floatingActionButtonTheme: const FloatingActionButtonThemeData(backgroundColor: Colors.white, foregroundColor: Colors.black),
 
       textButtonTheme: TextButtonThemeData(style: TextButton.styleFrom(foregroundColor: Colors.white70)),
@@ -206,8 +212,8 @@ ThemeData highFashionDarkTheme() {
         headlineLarge: const TextStyle().copyWith(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white),
         headlineMedium: const TextStyle().copyWith(fontSize: 28, fontWeight: FontWeight.w600, color: Colors.white),
         headlineSmall: const TextStyle().copyWith(fontSize: 22, fontWeight: FontWeight.w600, color: Colors.white),
-        bodyLarge: const TextStyle().copyWith(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
-        bodyMedium: const TextStyle().copyWith(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.white),
+        bodyLarge: const TextStyle().copyWith(fontSize: 18, fontWeight: FontWeight.w500, color: Colors.black),
+        bodyMedium: const TextStyle().copyWith(fontSize: 16, color: Colors.white),
         bodySmall: const TextStyle().copyWith(fontSize: 14, fontWeight: FontWeight.normal, color: Colors.white),
         titleLarge: const TextStyle().copyWith(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),
         titleMedium: const TextStyle().copyWith(fontSize: 16, fontWeight: FontWeight.w600, color: Colors.white),
@@ -221,28 +227,28 @@ ThemeData highFashionDarkTheme() {
       inputDecorationTheme: const InputDecorationTheme().copyWith(
         prefixIconColor: Colors.white,
         suffixIconColor: Colors.white,
-        labelStyle: const TextStyle().copyWith(fontSize: 14,color: Colors.white),
+        labelStyle: const TextStyle().copyWith(fontSize: 16,color: Colors.white,fontWeight: FontWeight.normal),
         hintStyle: const TextStyle().copyWith(fontSize: 14,color: Colors.white),
-        floatingLabelStyle: const TextStyle().copyWith(fontSize: 12,color: Colors.white),
+        floatingLabelStyle: const TextStyle().copyWith(fontSize: 12,color: Colors.white.withOpacity(0.8)),
         border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
-            borderSide: const BorderSide(color: Colors.grey,strokeAlign: 1)
+            borderSide: const BorderSide(color: Colors.grey,width: 1)
         ),
         enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
-            borderSide: const BorderSide(color: Colors.white,strokeAlign: 1)
+            borderSide: const BorderSide(color: Colors.grey,width: 1)
         ),
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
-            borderSide: const BorderSide(color: Colors.grey,strokeAlign: 1)
+            borderSide: const BorderSide(color: darkWidgetColorBackground,width: 1.5)
         ),
         errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
-            borderSide: const BorderSide(color: Colors.red,strokeAlign: 1)
+            borderSide: const BorderSide(color: Colors.red,width: 1)
         ),
         focusedErrorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
-            borderSide: const BorderSide(color: Colors.redAccent,strokeAlign: 1)
+            borderSide: const BorderSide(color: Colors.redAccent,width: 1)
         ),
         errorMaxLines: 3,
       )

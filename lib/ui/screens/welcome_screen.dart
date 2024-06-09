@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:high_fashion/features/authentication/login/loginScreen.dart';
 import 'package:high_fashion/ui/screens/onBoardingScreen.dart';
-import 'package:high_fashion/ui/widgets/common.dart';
+import 'package:high_fashion/ui/widgets/reuseableWidgets.dart';
 import 'package:high_fashion/utils/constanst/assetsPaths.dart';
 
 import '../../utils/constanst/colors.dart';
@@ -34,12 +35,12 @@ class WelcomeScreen extends StatelessWidget {
                           padding: const EdgeInsets.only(right: 16.0),
                           child: Column(
                             children: [
-                              imgContainer(
+                              ReuseableWidgets().imgContainer(
                                   250, 200, 70,ankaraImgPath),
                               const SizedBox(
                                 height: 16,
                               ),
-                              imgContainer(
+                              ReuseableWidgets().imgContainer(
                                   180, 200,70,maxiSkirtImgPath),
                             ],
                           ),
@@ -47,7 +48,7 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                       Flexible(
                           flex: 1,
-                          child: imgContainer(
+                          child: ReuseableWidgets().imgContainer(
                               350, 200, 70, classyLookImgPath )),
                       const SizedBox(
                         width: 16,
@@ -56,12 +57,12 @@ class WelcomeScreen extends StatelessWidget {
                         flex: 1,
                         child: Column(
                           children: [
-                            imgContainer(
+                            ReuseableWidgets().imgContainer(
                                 230, 200,70, jewelryAndNailImgPath),
                             const SizedBox(
                               height: 16,
                             ),
-                            imgContainer(
+                            ReuseableWidgets().imgContainer(
                                 180, 180,70, corsetImgPath),
                           ],
                         ),
@@ -107,22 +108,22 @@ class WelcomeScreen extends StatelessWidget {
                 const SizedBox(
                   height: 20,
                 ),
-                largeBtn(isLightMode(context), "Lets Get Started",(){
-                  Get.to(()=> const OnBoardingScreen());
+                ReuseableWidgets().largeBtn(isLightMode(context), "Lets Get Started",(){
+                  Get.to(()=> const OnBoardingScreen(),transition: Transition.circularReveal);
                 }),
                 const SizedBox(
-                  height: 16,
+                  height: 25,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                      const Text(
-                           "Already have an account?",
-                          style: TextStyle(fontFamily: interSemiBold)),
+                      const Text("Already have an account?",),
 
                     const SizedBox(width: 6,),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Get.offAll(() => const LoginScreen(),transition: Transition.circularReveal);
+                      },
                       child: Text("Login",
                           style: TextStyle(
                               color: isLightMode(context)

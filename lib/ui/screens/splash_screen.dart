@@ -93,7 +93,9 @@ class _SplashScreenState extends State<SplashScreen> with SingleTickerProviderSt
             SlideTransition(
               position: _animationLeftToRight,
               child: Lottie.asset(isLightMode(context) ? appIcon : appIconDark,
-                  width: isPortraitMode(context) ? 300 : 200, height: isPortraitMode(context) ? 300 : 200, fit: BoxFit.contain, repeat: true),
+                  width: isPortraitMode(context) ? 300 : 200,
+                  height: isPortraitMode(context) ? 300 : 200,
+                  fit: BoxFit.contain, repeat: true),
             ),
             const SizedBox(
               height: 30,
