@@ -30,7 +30,6 @@ class LoginScreen extends StatelessWidget {
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(lightBackgroundImg),
-                // Replace 'backgroundImg' with the actual path
                 fit: BoxFit.cover,
               ),
             ),
