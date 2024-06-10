@@ -96,22 +96,22 @@ flutter:
   fonts:
     - family: InterBlack
       fonts:
-       - asset: assets/fonts/Inter-Black.ttf
+        - asset: assets/fonts/Inter-Black.ttf
     - family: InterBold
       fonts:
-       - asset: assets/fonts/Inter-Bold.ttf
+        - asset: assets/fonts/Inter-Bold.ttf
     - family: InterExtraBold
       fonts:
-       - asset: assets/fonts/Inter-ExtraBold.ttf
+        - asset: assets/fonts/Inter-ExtraBold.ttf
     - family: InterMedium
       fonts:
-       - asset: assets/fonts/Inter-Medium.ttf
+        - asset: assets/fonts/Inter-Medium.ttf
     - family: InterRegular
       fonts:
-       - asset: assets/fonts/Inter-Regular.ttf
+        - asset: assets/fonts/Inter-Regular.ttf
     - family: InterSemiBold
       fonts:
-       - asset: assets/fonts/Inter-SemiBold.ttf
+        - asset: assets/fonts/Inter-SemiBold.ttf
     - family: Rubik
       fonts:
         - asset: assets/fonts/RubikMoonrocks-Regular.ttf

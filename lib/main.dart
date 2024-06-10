@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:high_fashion/features/authentication/login/loginScreen.dart';
-import 'package:high_fashion/features/authentication/signUp/SignUpScreen.dart';
-import 'package:high_fashion/ui/screens/home.dart';
-import 'package:high_fashion/ui/screens/welcome_screen.dart';
-import 'package:high_fashion/utils/theme/theme.dart';
+import 'package:high_fashion/features/authentication/verification/email/email-verification-screen.dart';
+
+import 'core/theme/theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,12 +19,12 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       darkTheme: highFashionDarkTheme(),
       theme: highFashionLightTheme(),
-      home: const SignUpScreen(),
+      home: const EmailVerificationScreen(),
       //initialRoute: '/welcome',
-      getPages: [
+      /*getPages: [
         GetPage(name: '/welcome', page: () => const WelcomeScreen()),
         GetPage(name: '/home', page: () => const Home()),
-      ],
+      ],*/
     );
   }
 }
