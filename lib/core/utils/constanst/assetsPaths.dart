@@ -4,9 +4,9 @@ const corsetImgPath = "assets/images/IMG_5142.png";
 const jewelryAndNailImgPath = "assets/images/IMG_5144.png";
 const maxiSkirtImgPath = "assets/images/IMG_5147.jpg";
 const classyLookImgPath = "assets/images/IMG_5148.jpg";
-const lightBackgroundImg = "assets/images/light_background.png";
-const header = "assets/images/header.png";
-const headerDark = "assets/images/header_dark.png";
+const header = "assets/images/headerColored.png";
+const headerBlack = "assets/images/headerBlack.png";
+const headerColoredBlur = "assets/images/header_blurred_Color.png";
 
 // Icons
 const appIcon = "assets/icons/fashion_icon.png";

@@ -1,7 +1,8 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:high_fashion/core/utils/constanst/assetsPaths.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../core/utils/constanst/colors.dart';
@@ -17,37 +18,25 @@ class Home extends StatelessWidget {
 
     return Scaffold(
       bottomNavigationBar: Obx(
-        () => GNav(
-            backgroundColor: isLightMode(context)
-                ? lightWidgetColorBackground
-                : darkWidgetColorBackground,
-            color: Colors.grey.withOpacity(0.5),
-            activeColor: Colors.white,
-            tabBackgroundColor: Colors.white.withOpacity(0.1),
-            gap: 8,
-            iconSize: 20,
-            haptic: true,
-            curve: Curves.bounceIn,
-            selectedIndex: controller.selectedIndex.value,
-            onTabChange: (index) => controller.selectedIndex.value = index,
-            tabs: const [
-              GButton(icon: Iconsax.home, text: "Home Page"),
-              GButton(
-                icon: CupertinoIcons.heart_fill,
-                text: "Wishlist",
-              ),
-              GButton(
-                icon: CupertinoIcons.shopping_cart,
-                text: "Cart",
-              ),
-              GButton(
-                icon: CupertinoIcons.person_fill,
-                text: "Profile",
-              ),
+        () => CurvedNavigationBar(
+            backgroundColor:
+            isLightMode(context) ? lightBackground : darkBackground,
+            color: isLightMode(context) ? Colors.black : Colors.white,
+            buttonBackgroundColor: lightWidgetColorBackground,
+            animationCurve: Curves.easeIn,
+            animationDuration: const Duration(milliseconds: 550),
+            index: controller.selectedIndex.value,
+            onTap: (index) => controller.selectedIndex.value = index,
+            items: [
+              Icon(Iconsax.home, color: isLightMode(context) ? Colors.white : Colors.black),
+              Icon(CupertinoIcons.search, color: isLightMode(context) ? Colors.white : Colors.black),
+              Icon(Iconsax.shopping_cart, color: isLightMode(context) ? Colors.white : Colors.black),
+              Icon(CupertinoIcons.person_fill, color: isLightMode(context) ? Colors.white : Colors.black),
             ]),
       ),
-      body: SingleChildScrollView(
-          child: Obx(() => controller.screens[controller.selectedIndex.value])),
+      body: Scaffold(
+        body: Obx(() => controller.screens[controller.selectedIndex.value]),
+      ),
     );
   }
 }

@@ -7,7 +7,7 @@ import '../../../../core/utils/constanst/assetsPaths.dart';
 import '../../../../core/utils/constanst/colors.dart';
 import '../../../../core/utils/helper-functions/helper-functions.dart';
 import '../../../shared-widgets/reuseableWidgets.dart';
-import 'email-successful-screen.dart';
+import 'email-successful-sheet.dart';
 
 class EmailVerificationScreen extends StatelessWidget {
   const EmailVerificationScreen({super.key});
@@ -68,9 +68,10 @@ class EmailVerificationScreen extends StatelessWidget {
               ),
 
               //   RESEND VERIFICATION LINK BTN
-              TextButton(
+              TextButton.icon(
+                icon: const Icon(CupertinoIcons.arrow_clockwise,color: blueColor,),
                 onPressed: () {},
-                child: const Text(
+                label: const Text(
                   "Resend Verification Link",
                   style: TextStyle(
                       color: blueColor,

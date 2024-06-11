@@ -29,7 +29,7 @@ class WelcomeScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Visibility(
-                        visible: isPortraitMode(context) ? false : true,
+                        visible: isSmallScreen(context) ? false : true,
                         child: Padding(
                           padding: const EdgeInsets.only(right: 16.0),
                           child: Column(

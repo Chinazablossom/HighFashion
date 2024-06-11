@@ -16,27 +16,24 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(children: [
-        Container(
-          decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage(headerDark), fit: BoxFit.cover)),
-        ),
-        Positioned(
-          top: 120,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          child: Container(
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(lightBackgroundImg),
-                fit: BoxFit.cover,
-              ),
-            ),
-            child: SafeArea(
+      body: ReuseableWidgets().buildAppScreenBackGround(
+          headerImg: header,
+          bgTopPos: 120,
+          bgLeftPos: 0,
+          bgRightPos: 0,
+          bgBottomPos: 0,
+          child: ReuseableWidgets().buildBackgroundContainer(
+            lightBackground,
+            90,
+            0,
+            0,
+            0,
+            SafeArea(
               child: SingleChildScrollView(
-                padding: const EdgeInsets.all(16.0),
+                padding: EdgeInsets.only(
+                    left: isSmallScreen(context) ? 16 : 50,
+                    right: isSmallScreen(context) ? 16 : 50,
+                    bottom: isSmallScreen(context) ? 0 : 30),
                 child: Form(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -210,8 +207,7 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
           ),
-        ),
-      ]),
+          childOp: Container()),
     );
   }
 }

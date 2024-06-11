@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
+import 'package:high_fashion/features/cart/ui/cart-screen.dart';
+import 'package:high_fashion/features/search/search-screen.dart';
 
-import '../../chat/chat-screen.dart';
 import '../../profile/profile-screen.dart';
-import '../../wishlist/wishlist-screen.dart';
 import '../screens/home-page-screen.dart';
 
 class NavigationController extends GetxController {
@@ -10,8 +10,8 @@ class NavigationController extends GetxController {
 
   final screens = const [
     HomePageScreen(),
-    WishListScreen(),
-    ChatScreen(),
+    SearchScreen(),
+    CartScreen(),
     ProfileScreen(),
   ];
 }

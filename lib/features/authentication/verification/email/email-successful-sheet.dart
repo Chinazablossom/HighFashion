@@ -18,22 +18,18 @@ class EmailSuccessSheet {
                     const Image(
                       image: AssetImage(emailVerifiedAnimation),
                       fit: BoxFit.contain,
-                      height: 125,
+                      height: 100,
                     ),
-                    Text("Email Successfully Verified!",
+                    const Text("Email Successfully Verified!",
                         style: TextStyle(
-                            fontSize: 24,
+                            fontSize: 22,
                             fontFamily: interExtraBold,
-                            color: isLightMode(context)
-                                ? Colors.white
-                                : Colors.black)),
-                    Text(
-                        "Congratulations! Your email address has been successfully verified. You can now enjoy full access to High Fashion's features and explore the latest fashion trends.",
+                            color: Colors.black)),
+                    const Text(
+                        "Congratulations! Your email address has been successfully verified.You can now enjoy full access to High Fashion's features and explore the latest fashion trends.",
                         style: TextStyle(
                             fontSize: 14,
-                            color: isLightMode(context)
-                                ? Colors.white
-                                : Colors.black),
+                            color:Colors.black),
                         textAlign: TextAlign.center),
                     const SizedBox(
                       height: 20,

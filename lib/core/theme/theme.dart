@@ -8,16 +8,15 @@ ThemeData highFashionLightTheme() {
     useMaterial3: true,
   ).copyWith(
       scaffoldBackgroundColor: lightBackground,
+
       appBarTheme: const AppBarTheme().copyWith(
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.transparent,
         surfaceTintColor: Colors.transparent,
-        centerTitle: true,
+        centerTitle: false,
         scrolledUnderElevation: 0,
-        actionsIconTheme:
-            const IconThemeData(color: lightWidgetColorBackground, size: 20),
-        iconTheme:
-            const IconThemeData(color: lightWidgetColorBackground, size: 40),
+        actionsIconTheme: const IconThemeData(color: Colors.white, size: 30),
+        iconTheme: const IconThemeData(color: lightWidgetColorBackground, size: 40),
         titleTextStyle: const TextStyle(
             fontSize: 18,
             fontFamily: "InterBold",
@@ -31,9 +30,9 @@ ThemeData highFashionLightTheme() {
       ),
       bottomSheetTheme: const BottomSheetThemeData().copyWith(
         backgroundColor: Colors.black,
-        modalBackgroundColor: const Color(0xffe2e2e8),
+        modalBackgroundColor: const Color(0xfff1f3f5),
         showDragHandle: true,
-        dragHandleColor: darkWidgetColorBackground,
+        dragHandleColor: Colors.black,
         dragHandleSize: const Size(100, 6),
         constraints: const BoxConstraints(minWidth: double.infinity),
       ),
@@ -162,7 +161,7 @@ ThemeData highFashionDarkTheme() {
         backgroundColor: Colors.white,
         modalBackgroundColor: const Color(0xfff1f3f5),
         showDragHandle: true,
-        dragHandleColor: darkWidgetColorBackground,
+        dragHandleColor: Colors.black,
         dragHandleSize: const Size(100, 6),
         constraints: const BoxConstraints(minWidth: double.infinity),
       ),

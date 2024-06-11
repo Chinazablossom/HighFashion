@@ -91,8 +91,8 @@ class _SplashScreenState extends State<SplashScreen>
             SlideTransition(
               position: _animationLeftToRight,
               child: Lottie.asset(isLightMode(context) ? appIcon : appIconDark,
-                  width: isPortraitMode(context) ? 300 : 200,
-                  height: isPortraitMode(context) ? 300 : 200,
+                  width: isSmallScreen(context) ? 300 : 200,
+                  height: isSmallScreen(context) ? 300 : 200,
                   fit: BoxFit.contain,
                   repeat: true),
             ),

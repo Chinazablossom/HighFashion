@@ -10,7 +10,7 @@ bool isLightMode(BuildContext context) {
   return MediaQuery.of(context).platformBrightness == Brightness.light;
 }
 
-bool isPortraitMode(BuildContext context) {
+bool isSmallScreen(BuildContext context) {
   return MediaQuery.of(context).size.width.inRange(300, 600);
 }
 
