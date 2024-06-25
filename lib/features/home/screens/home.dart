@@ -19,19 +19,18 @@ class Home extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: Obx(
         () => CurvedNavigationBar(
-            backgroundColor:
-            isLightMode(context) ? lightBackground : darkBackground,
-            color: isLightMode(context) ? Colors.black : Colors.white,
+            backgroundColor: Colors.white,
+            color: Colors.black,
             buttonBackgroundColor: lightWidgetColorBackground,
             animationCurve: Curves.easeIn,
-            animationDuration: const Duration(milliseconds: 550),
+            animationDuration: const Duration(milliseconds: 350),
             index: controller.selectedIndex.value,
             onTap: (index) => controller.selectedIndex.value = index,
-            items: [
-              Icon(Iconsax.home, color: isLightMode(context) ? Colors.white : Colors.black),
-              Icon(CupertinoIcons.search, color: isLightMode(context) ? Colors.white : Colors.black),
-              Icon(Iconsax.shopping_cart, color: isLightMode(context) ? Colors.white : Colors.black),
-              Icon(CupertinoIcons.person_fill, color: isLightMode(context) ? Colors.white : Colors.black),
+            items: const [
+              Icon(Iconsax.home, color: Colors.white ),
+              Icon(CupertinoIcons.search, color:  Colors.white ),
+              Icon(Iconsax.shopping_cart, color: Colors.white),
+              Icon(CupertinoIcons.person_fill, color: Colors.white ),
             ]),
       ),
       body: Scaffold(

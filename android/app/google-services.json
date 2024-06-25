@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "930007302731",
+    "project_id": "high-fashion-6d56b",
+    "storage_bucket": "high-fashion-6d56b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:930007302731:android:73d3857b5a58d448b843ce",
+        "android_client_info": {
+          "package_name": "com.example.high_fashion"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0cQaW18FK5x7E4M7lFnqvdO4X_N_JuS4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:high_fashion/core/utils/constanst/assetsPaths.dart';
 
 import '../utils/constanst/colors.dart';
 
@@ -7,19 +8,16 @@ ThemeData highFashionLightTheme() {
   return ThemeData.light(
     useMaterial3: true,
   ).copyWith(
-      scaffoldBackgroundColor: lightBackground,
-
       appBarTheme: const AppBarTheme().copyWith(
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.transparent,
         surfaceTintColor: Colors.transparent,
-        centerTitle: false,
         scrolledUnderElevation: 0,
-        actionsIconTheme: const IconThemeData(color: Colors.white, size: 30),
-        iconTheme: const IconThemeData(color: lightWidgetColorBackground, size: 40),
+        actionsIconTheme: const IconThemeData(color: Colors.black, size: 27),
+        iconTheme: const IconThemeData(color: lightWidgetColorBackground ),
         titleTextStyle: const TextStyle(
-            fontSize: 18,
-            fontFamily: "InterBold",
+            fontSize: 20,
+            fontFamily: interBold,
             fontWeight: FontWeight.w600,
             color: Colors.black),
       ),
@@ -130,22 +128,20 @@ ThemeData highFashionLightTheme() {
 ///   DARK THEME
 ThemeData highFashionDarkTheme() {
   return ThemeData.dark(useMaterial3: true).copyWith(
-      scaffoldBackgroundColor: darkBackground,
+      scaffoldBackgroundColor: Colors.black,
+
       appBarTheme: const AppBarTheme().copyWith(
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.transparent,
         surfaceTintColor: Colors.transparent,
-        centerTitle: true,
         scrolledUnderElevation: 0,
-        actionsIconTheme:
-            const IconThemeData(color: darkWidgetColorBackground, size: 40),
-        iconTheme:
-            const IconThemeData(color: darkWidgetColorBackground, size: 40),
+        actionsIconTheme: const IconThemeData(color: Colors.black, size: 27),
+        iconTheme: const IconThemeData(color: darkWidgetColorBackground),
         titleTextStyle: const TextStyle(
             fontSize: 18,
             fontFamily: "InterBold",
             fontWeight: FontWeight.w600,
-            color: Colors.white),
+            color: Colors.black),
       ),
       cardTheme: const CardTheme().copyWith(
         color: Colors.black,

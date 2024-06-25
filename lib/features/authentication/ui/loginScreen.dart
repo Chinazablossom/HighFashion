@@ -24,7 +24,7 @@ class LoginScreen extends StatelessWidget {
           bgBottomPos: 0,
           child: ReuseableWidgets().buildBackgroundContainer(
             lightBackground,
-            90,
+            75,
             0,
             0,
             0,

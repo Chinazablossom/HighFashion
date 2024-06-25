@@ -22,7 +22,7 @@ class SignUpScreen extends StatelessWidget {
       bgBottomPos: 0,
       child: ReuseableWidgets().buildBackgroundContainer(
         lightBackground,
-        70,
+        75,
         0,
         0,
         0,

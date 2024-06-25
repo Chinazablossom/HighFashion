@@ -6,8 +6,7 @@ import 'package:http/http.dart' as https;
 class HttpHandler {
   static const _baseUrl = "https://base_url";
 
-  static Future<Map<String, dynamic>> postRequest(
-      String endpoint, dynamic data) async {
+  static Future<Map<String, dynamic>> postRequest(String endpoint, dynamic data) async {
     final response = await https.post(Uri.parse("$_baseUrl/$endpoint"),
         headers: {"Content-type": "application/json"}, body: json.encode(data));
 

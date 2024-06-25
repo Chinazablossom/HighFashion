@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:high_fashion/features/authentication/ui/loginScreen.dart';
@@ -7,8 +8,14 @@ import 'package:high_fashion/features/home/screens/home.dart';
 import 'package:high_fashion/features/home/screens/welcome_screen.dart';
 
 import 'core/theme/theme.dart';
+import 'firebase_options.dart';
 
-void main() {
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -24,11 +31,7 @@ class MyApp extends StatelessWidget {
       darkTheme: highFashionDarkTheme(),
       theme: highFashionLightTheme(),
       home: const Home(),
-      //initialRoute: '/welcome',
-      /*getPages: [
-        GetPage(name: '/welcome', page: () => const WelcomeScreen()),
-        GetPage(name: '/home', page: () => const Home()),
-      ],*/
+
     );
   }
 }
