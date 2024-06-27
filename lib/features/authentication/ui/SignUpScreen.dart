@@ -6,7 +6,7 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 import '../../../core/utils/constanst/assetsPaths.dart';
 import '../../../core/utils/constanst/colors.dart';
 import '../../../core/utils/helper-functions/helper-functions.dart';
-import '../../shared-widgets/reuseableWidgets.dart';
+import '../../shared-widgets/sharedWidgets.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
@@ -187,7 +187,7 @@ class SignUpScreen extends StatelessWidget {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Get.offAll(() => const LoginScreen());
+                          Get.offAll(() => const LoginScreen(),transition: Transition.native,duration: const Duration(seconds: 1 ));
                         },
                         child: Text("Login",
                             style: TextStyle(

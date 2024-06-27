@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -5,10 +7,10 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:high_fashion/core/utils/constanst/assetsPaths.dart';
 import 'package:high_fashion/features/home/controllers/count-down-controller.dart';
-import 'package:high_fashion/features/search/search-screen.dart';
-import 'package:high_fashion/features/shared-widgets/reuseableWidgets.dart';
+import 'package:high_fashion/features/shared-widgets/sharedWidgets.dart';
 
 import '../../../core/utils/helper-functions/helper-functions.dart';
+import '../../search/search-screen.dart';
 
 class HomePageScreen extends StatelessWidget {
   const HomePageScreen({super.key});
@@ -19,13 +21,13 @@ class HomePageScreen extends StatelessWidget {
         Get.put(CountDownController());
 
     return ReuseableWidgets().buildAppScreenBackGround(
-      headerImg: headerBlack,
+      headerImg: isLightMode(context) ? headerBlack : headerLight,
       bgTopPos: 85,
       bgLeftPos: 0,
       bgRightPos: 0,
       bgBottomPos: -0.1,
       child: ReuseableWidgets().buildBackgroundContainer(
-          Colors.white,
+          isLightMode(context) ? Colors.white : Colors.black,
           40,
           40,
           0,
@@ -73,13 +75,14 @@ class HomePageScreen extends StatelessWidget {
                   "Categories",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
                 ),
-                const Row(
+                Row(
                   children: [
                     Expanded(
                         child: SizedBox(
                             height: 100,
                             child: CategoriesList(
                               itemsList: catList,
+                              todo: () {},
                             ))),
                   ],
                 ),
@@ -111,11 +114,10 @@ class HomePageScreen extends StatelessWidget {
                         const Expanded(
                             child: Text(
                           "Flash Sale",
-                          style: TextStyle(
-                              color: Colors.black, fontFamily: interBold),
+                          style: TextStyle(fontFamily: interBold),
                         )),
                         const Text(
-                          "Closing in:",
+                          "Closing in: ",
                           style: TextStyle(
                               color: Colors.grey, fontWeight: FontWeight.w500),
                         ),
@@ -127,9 +129,7 @@ class HomePageScreen extends StatelessWidget {
                           width: 4,
                         ),
                         const Text(":",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w600)),
+                            style: TextStyle(fontWeight: FontWeight.w600)),
                         const SizedBox(
                           width: 4,
                         ),
@@ -138,9 +138,7 @@ class HomePageScreen extends StatelessWidget {
                           width: 4,
                         ),
                         const Text(":",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.w600)),
+                            style: TextStyle(fontWeight: FontWeight.w600)),
                         const SizedBox(
                           width: 4,
                         ),
@@ -184,9 +182,9 @@ class HomePageScreen extends StatelessWidget {
                     childCount: 14,
                     addAutomaticKeepAlives: true,
                     (context, index) {
-                      return const ProductItemCard(
-                          imgPath: "assets/images/image 53.png",
-                          price: 40.5,
+                      return ProductItemCard(
+                          imgPath: "assets/images/image 52.png",
+                          price: Random().nextInt(1000).toDouble(),
                           productName: "Top you Shirt");
                     },
                   ),
@@ -201,11 +199,24 @@ class HomePageScreen extends StatelessWidget {
           HAppBar(
             centerTilt: false,
             backArrowVisible: false,
+            automaticallyImplyLeading: false,
             title: ReuseableWidgets().buildSearchBar(
-                () => Get.to(() => const SearchScreen()), isLightMode(context)),
+                () => Get.to(() => const SearchScreen(),
+                    transition: Transition.rightToLeft,
+                    duration: const Duration(seconds: 1)),
+                () {
+                  Get.to(() => const SearchScreen(),
+                      transition: Transition.rightToLeft,
+                      duration: const Duration(seconds: 1));
+                },
+
+                isLightMode(context)),
             actions: [
               ReuseableWidgets().buildStackNotificationIcon(
-                  63, Icon(CupertinoIcons.chat_bubble_text_fill,color: Colors.white), () => null),
+                  63,
+                  const Icon(CupertinoIcons.chat_bubble_text_fill,
+                      color: Colors.white),
+                  () => null),
             ],
           ),
           const SizedBox(

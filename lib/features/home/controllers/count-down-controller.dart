@@ -25,7 +25,7 @@ class CountDownController extends GetxController{
   }
 
   void resetTimer(){
-    remaingTime.value = const Duration(days: 5);
+    remaingTime.value = const Duration(hours: 5);
     startTimer();
   }
 

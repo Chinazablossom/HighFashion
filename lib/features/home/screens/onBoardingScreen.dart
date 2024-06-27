@@ -6,7 +6,7 @@ import '../../../core/utils/constanst/assetsPaths.dart';
 import '../../../core/utils/constanst/colors.dart';
 import '../../../core/utils/helper-functions/helper-functions.dart';
 import '../../authentication/ui/SignUpScreen.dart';
-import '../../shared-widgets/reuseableWidgets.dart';
+import '../../shared-widgets/sharedWidgets.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});

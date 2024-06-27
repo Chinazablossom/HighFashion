@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/utils/constanst/assetsPaths.dart';
 import '../../../../core/utils/helper-functions/helper-functions.dart';
-import '../../../shared-widgets/reuseableWidgets.dart';
+import '../../../shared-widgets/sharedWidgets.dart';
 
 class EmailSuccessSheet {
   Future<dynamic> buildShowModalBottomSheet(BuildContext context) {

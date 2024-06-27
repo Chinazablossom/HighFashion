@@ -7,7 +7,7 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../core/utils/constanst/assetsPaths.dart';
 import '../../../core/utils/helper-functions/helper-functions.dart';
-import '../../shared-widgets/reuseableWidgets.dart';
+import '../../shared-widgets/sharedWidgets.dart';
 import '../ui/loginScreen.dart';
 
 class ForgotPhoneScreen extends StatelessWidget {
@@ -81,7 +81,7 @@ class ForgotPhoneScreen extends StatelessWidget {
                       children: [
                         IconButton(
                             onPressed: () {
-                              Get.offAll(const LoginScreen());
+                              Get.offAll(const LoginScreen(),transition: Transition.leftToRightWithFade,duration: const Duration(seconds: 1 ));
                             },
                             icon: const Icon(
                               color: Colors.white,

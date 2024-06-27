@@ -6,7 +6,7 @@ import 'package:high_fashion/features/authentication/ui/loginScreen.dart';
 import '../../../../core/utils/constanst/assetsPaths.dart';
 import '../../../../core/utils/constanst/colors.dart';
 import '../../../../core/utils/helper-functions/helper-functions.dart';
-import '../../../shared-widgets/reuseableWidgets.dart';
+import '../../../shared-widgets/sharedWidgets.dart';
 import 'email-successful-sheet.dart';
 
 class EmailVerificationScreen extends StatelessWidget {

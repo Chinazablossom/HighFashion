@@ -4,7 +4,7 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../core/utils/constanst/assetsPaths.dart';
 import '../../../core/utils/helper-functions/helper-functions.dart';
-import '../../shared-widgets/reuseableWidgets.dart';
+import '../../shared-widgets/sharedWidgets.dart';
 import 'forgot-mail-screen.dart';
 import 'forgot-password-phone-screen.dart';
 
@@ -31,7 +31,7 @@ class ForgotPasswordBottomSheet {
                   ReuseableWidgets()
                       .largeAppIconBtn(isLightMode(context), Iconsax.call, () {
                     Navigator.pop(context);
-                    Get.to(() => const ForgotPhoneScreen());
+                    Get.to(() => const ForgotPhoneScreen(),transition: Transition.rightToLeft,duration: const Duration(seconds: 1 ));
                   }),
                   const SizedBox(
                     height: 30,
@@ -39,7 +39,7 @@ class ForgotPasswordBottomSheet {
                   ReuseableWidgets()
                       .largeAppIconBtn(isLightMode(context), Iconsax.sms, () {
                     Navigator.pop(context);
-                    Get.to(() => const ForgotMailScreen());
+                    Get.to(() => const ForgotMailScreen(),transition: Transition.rightToLeft,duration: const Duration(seconds: 1 ));
                   })
                 ],
               ),

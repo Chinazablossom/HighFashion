@@ -5,7 +5,7 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
 import '../../../../core/utils/constanst/assetsPaths.dart';
 import '../../../../core/utils/helper-functions/helper-functions.dart';
-import '../../../shared-widgets/reuseableWidgets.dart';
+import '../../../shared-widgets/sharedWidgets.dart';
 
 class OTPBottomSheet {
   var otp;

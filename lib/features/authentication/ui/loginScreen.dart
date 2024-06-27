@@ -6,7 +6,7 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 import '../../../core/utils/constanst/assetsPaths.dart';
 import '../../../core/utils/constanst/colors.dart';
 import '../../../core/utils/helper-functions/helper-functions.dart';
-import '../../shared-widgets/reuseableWidgets.dart';
+import '../../shared-widgets/sharedWidgets.dart';
 import '../forgot_password/forgot-password-sheet.dart';
 import 'SignUpScreen.dart';
 
@@ -86,6 +86,8 @@ class LoginScreen extends StatelessWidget {
                               ],
                             ),
                           ),
+
+                          /// FORGOT PASSWORD
                           TextButton(
                               onPressed: () {
                                 ForgotPasswordBottomSheet()
@@ -107,7 +109,9 @@ class LoginScreen extends StatelessWidget {
                       ReuseableWidgets().largeAppBtn(
                         isLightMode(context),
                         "Login",
-                        () {},
+                        () {
+
+                        },
                       ),
                       const SizedBox(
                         height: 35,
@@ -189,7 +193,7 @@ class LoginScreen extends StatelessWidget {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Get.offAll(() => const SignUpScreen());
+                              Get.offAll(() => const SignUpScreen(),transition: Transition.native,duration: const Duration(seconds: 1 ));
                             },
                             child: Text("Sign Up",
                                 style: TextStyle(

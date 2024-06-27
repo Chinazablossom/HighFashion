@@ -21,6 +21,9 @@ ThemeData highFashionLightTheme() {
             fontWeight: FontWeight.w600,
             color: Colors.black),
       ),
+
+
+
       cardTheme: const CardTheme().copyWith(
         color: const Color(0xfff4f3fd),
         surfaceTintColor: Colors.white70,
@@ -135,13 +138,13 @@ ThemeData highFashionDarkTheme() {
         foregroundColor: Colors.transparent,
         surfaceTintColor: Colors.transparent,
         scrolledUnderElevation: 0,
-        actionsIconTheme: const IconThemeData(color: Colors.black, size: 27),
+        actionsIconTheme: const IconThemeData(color: Colors.white, size: 27),
         iconTheme: const IconThemeData(color: darkWidgetColorBackground),
         titleTextStyle: const TextStyle(
             fontSize: 18,
             fontFamily: "InterBold",
             fontWeight: FontWeight.w600,
-            color: Colors.black),
+            color: Colors.white),
       ),
       cardTheme: const CardTheme().copyWith(
         color: Colors.black,
