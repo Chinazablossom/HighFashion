@@ -5,20 +5,24 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
+import 'package:high_fashion/core/models/product_model.dart';
 import 'package:high_fashion/core/utils/constanst/assetsPaths.dart';
 import 'package:high_fashion/features/home/controllers/count-down-controller.dart';
 import 'package:high_fashion/features/shared-widgets/sharedWidgets.dart';
+import 'package:high_fashion/features/wishlist/wishlist-screen.dart';
 
 import '../../../core/utils/helper-functions/helper-functions.dart';
 import '../../search/search-screen.dart';
+import '../../wishlist/controller/wishlist_controller.dart';
 
 class HomePageScreen extends StatelessWidget {
   const HomePageScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final CountDownController countDownTimerController =
-        Get.put(CountDownController());
+    final CountDownController countDownTimerController = Get.put(CountDownController());
+    final FavoritesController favoritesController = Get.put(FavoritesController());
+
 
     return ReuseableWidgets().buildAppScreenBackGround(
       headerImg: isLightMode(context) ? headerBlack : headerLight,
@@ -62,7 +66,6 @@ class HomePageScreen extends StatelessWidget {
                                   : i == 3
                                       ? newBeachCollectionImg
                                       : newSummerCollectionImg,
-                      isNetworkImage: false,
                     );
                   }).toList(),
                 ),
@@ -183,9 +186,8 @@ class HomePageScreen extends StatelessWidget {
                     addAutomaticKeepAlives: true,
                     (context, index) {
                       return ProductItemCard(
-                          imgPath: "assets/images/image 52.png",
-                          price: Random().nextInt(1000).toDouble(),
-                          productName: "Top you Shirt");
+                        product: Product(image: "assets/images/image 52.png",name: "Classy Top",price:Random().nextInt(1000).toDouble()
+                      ));
                     },
                   ),
                   shrinkWrap: true,
@@ -216,7 +218,10 @@ class HomePageScreen extends StatelessWidget {
                   63,
                   const Icon(CupertinoIcons.chat_bubble_text_fill,
                       color: Colors.white),
-                  () => null),
+                  () => Get.to(() => const WishListScreen(), transition: Transition.rightToLeft, duration: const Duration(seconds: 1)
+                  )
+              ),
+
             ],
           ),
           const SizedBox(

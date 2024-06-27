@@ -8,6 +8,8 @@ import 'package:high_fashion/core/utils/constanst/colors.dart';
 import 'package:high_fashion/core/utils/helper-functions/helper-functions.dart';
 import 'package:high_fashion/features/shared-widgets/sharedWidgets.dart';
 
+import '../../core/models/product_model.dart';
+
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
 
@@ -151,9 +153,9 @@ class SearchScreen extends StatelessWidget {
                           addAutomaticKeepAlives: true,
                               (context, index) {
                             return ProductItemCard(
-                                imgPath: "assets/images/image 52.png",
-                                price: Random().nextInt(1000).toDouble(),
-                                productName: "Top you Shirt");
+                                product: Product(image: "assets/images/image 52.png",name: "Classy Top",price:Random().nextInt(1000).toDouble()
+                                )
+                            );
                           },
                         ),
                         shrinkWrap: true,
@@ -188,9 +190,8 @@ class SearchScreen extends StatelessWidget {
                           addAutomaticKeepAlives: true,
                               (context, index) {
                             return ProductItemCard(
-                                imgPath: "assets/images/image 52.png",
-                                price: Random().nextInt(1000).toDouble(),
-                                productName: "Top you Shirt");
+                                product: Product(image: "assets/images/image 52.png",name: "Classy Top",price:Random().nextInt(1000).toDouble())
+                            );
                           },
                         ),
                         shrinkWrap: true,
@@ -225,9 +226,8 @@ class SearchScreen extends StatelessWidget {
                           addAutomaticKeepAlives: true,
                               (context, index) {
                             return ProductItemCard(
-                                imgPath: "assets/images/image 52.png",
-                                price: Random().nextInt(1000).toDouble(),
-                                productName: "Top you Shirt");
+                                product: Product(image: "assets/images/image 52.png",name: "Classy Top",price:Random().nextInt(1000).toDouble())
+                            );
                           },
                         ),
                         shrinkWrap: true,
@@ -262,9 +262,8 @@ class SearchScreen extends StatelessWidget {
                           addAutomaticKeepAlives: true,
                               (context, index) {
                             return ProductItemCard(
-                                imgPath: "assets/images/image 52.png",
-                                price: Random().nextInt(1000).toDouble(),
-                                productName: "Top you Shirt");
+                                product: Product(image: "assets/images/image 52.png",name: "Classy Top",price:Random().nextInt(1000).toDouble())
+                            );
                           },
                         ),
                         shrinkWrap: true,
@@ -299,9 +298,8 @@ class SearchScreen extends StatelessWidget {
                           addAutomaticKeepAlives: true,
                               (context, index) {
                             return ProductItemCard(
-                                imgPath: "assets/images/image 52.png",
-                                price: Random().nextInt(1000).toDouble(),
-                                productName: "Top you Shirt");
+                                product: Product(image: "assets/images/image 52.png",name: "Classy Top",price:Random().nextInt(1000).toDouble())
+                            );
                           },
                         ),
                         shrinkWrap: true,
@@ -336,9 +334,8 @@ class SearchScreen extends StatelessWidget {
                           addAutomaticKeepAlives: true,
                               (context, index) {
                             return ProductItemCard(
-                                imgPath: "assets/images/image 52.png",
-                                price: Random().nextInt(1000).toDouble(),
-                                productName: "Top you Shirt");
+                                product: Product(image: "assets/images/image 52.png",name: "Classy Top",price:Random().nextInt(1000).toDouble())
+                            );
                           },
                         ),
                         shrinkWrap: true,
@@ -373,9 +370,8 @@ class SearchScreen extends StatelessWidget {
                           addAutomaticKeepAlives: true,
                               (context, index) {
                             return ProductItemCard(
-                                imgPath: "assets/images/image 52.png",
-                                price: Random().nextInt(1000).toDouble(),
-                                productName: "Top you Shirt");
+                                product: Product(image: "assets/images/image 52.png",name: "Classy Top",price:Random().nextInt(1000).toDouble())
+                            );
                           },
                         ),
                         shrinkWrap: true,
@@ -410,9 +406,8 @@ class SearchScreen extends StatelessWidget {
                           addAutomaticKeepAlives: true,
                               (context, index) {
                             return ProductItemCard(
-                                imgPath: "assets/images/image 52.png",
-                                price: Random().nextInt(1000).toDouble(),
-                                productName: "Top you Shirt");
+                                product: Product(image: "assets/images/image 52.png",name: "Classy Top",price:Random().nextInt(1000).toDouble())
+                            );
                           },
                         ),
                         shrinkWrap: true,

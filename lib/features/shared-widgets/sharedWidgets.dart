@@ -7,9 +7,10 @@ import 'package:high_fashion/core/utils/helper-functions/helper-functions.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:transparent_image/transparent_image.dart';
 
+import '../../core/models/product_model.dart';
 import '../../core/utils/constanst/assetsPaths.dart';
 import '../../core/utils/constanst/colors.dart';
-///   WIDGETS
+import '../wishlist/controller/wishlist_controller.dart';
 
 class ReuseableWidgets {
 
@@ -295,7 +296,6 @@ class HAppBar extends StatelessWidget implements PreferredSizeWidget {
         leading: backArrowVisible ? IconButton(onPressed: () { Get.back();},
                 icon: const Icon(
                   CupertinoIcons.back,
-                  color: Colors.white,
                   size: 30,
                 ))
             : leading,
@@ -328,20 +328,27 @@ Container buildCountTimer(String time,double width) {
 }
 
 class ProductItemCard extends StatelessWidget {
-  const ProductItemCard({super.key, required this.imgPath, required this.productName, required this.price, this.todo});
+  const ProductItemCard({super.key, this.onTap, required this.product,});
 
-  final String imgPath;
-  final String productName;
-  final double price;
-  final Function()? todo;
+  final Product product;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
+    final FavoritesController favoritesController = Get.put(FavoritesController());
+
     return InkWell(
-      splashColor: Colors.red,
-      onTap: () {
-        todo;
-      },
+      onTap: onTap,
+      onLongPress: (){
+    if (!favoritesController.isFavorite(product)) {
+    favoritesController.addToFavorites(product);
+    Get.snackbar("Item Added", "${product.name} added to favorites.");
+    }else {
+      favoritesController.removeFromFavorites(product);
+      Get.snackbar("Item Removed", "${product.name} removed from favorites.");
+    }
+     
+    },
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         clipBehavior: Clip.hardEdge,elevation: 5,
@@ -359,22 +366,24 @@ class ProductItemCard extends StatelessWidget {
                     child: FadeInImage(
                         fit: BoxFit.contain,
                         placeholder: MemoryImage(kTransparentImage) ,
-                        image: AssetImage(imgPath)  /* NetworkImage(meal.imageUrl)*/ ),
+                        image: AssetImage(product.image)  /* NetworkImage(meal.imageUrl)*/ ),
                   ),
                 ),
-                const Positioned(
+                 Positioned(
                   top: 8,
                   right: 4,
-                  child: CircleAvatar(
+                  child:  Obx(() => CircleAvatar(
                     backgroundColor: Colors.white54,
                     child: Icon(
-                      Iconsax.heart_copy,
+ //   favoritesController.favorites.contains(product)
+ //   favoritesController.favorites.any((item) => item.id == product.id)
+                      favoritesController.isFavorite(product)
+                          ? Iconsax.heart
+                          : Iconsax.heart_copy,
                       color: lightWidgetColorBackground,
                     ),
-                  ),
-                ),
-
-
+                  )),
+                 ),
               ],
             ),
             Padding(
@@ -383,9 +392,9 @@ class ProductItemCard extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(width: 160, child: Text(productName,style: const TextStyle(fontFamily: interMedium),maxLines: 1,overflow: TextOverflow.ellipsis)),
+                  SizedBox(width: 160, child: Text(product.name,style: const TextStyle(fontFamily: interMedium),maxLines: 1,overflow: TextOverflow.ellipsis)),
                   const SizedBox(height: 6,),
-                  Text("\$$price",style: const TextStyle(fontWeight: FontWeight.w700,fontSize: 20),),
+                  Text("\$${product.price}",style: const TextStyle(fontWeight: FontWeight.w700,fontSize: 20),),
 
 
                 ],
@@ -400,7 +409,7 @@ class ProductItemCard extends StatelessWidget {
           ],
         ),
       ),
-    ); ;
+    );
   }
 }
 
@@ -409,14 +418,12 @@ class carouselImg extends StatelessWidget {
   const carouselImg({
     super.key,
     required this.url,
-    required this.isNetworkImage,
     this.todo,
     this.height = 150,
     this.width = 320,
   });
 
   final String url;
-  final bool isNetworkImage;
   final Function()? todo;
   final double? height, width;
 
@@ -433,9 +440,7 @@ class carouselImg extends StatelessWidget {
         child: ClipRRect(
           borderRadius: BorderRadius.circular(18),
           child: Image(
-              image: isNetworkImage
-                  ? NetworkImage(url)
-                  : AssetImage(url) as ImageProvider,
+              image: AssetImage(url),
               fit: BoxFit.cover,
               filterQuality: FilterQuality.high),
         ),

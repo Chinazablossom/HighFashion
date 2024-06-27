@@ -33,12 +33,13 @@ const skirtIcon  =  "assets/icons/skirt.png";
 
 
 ///    ANIMATIONS
-const girlWalkingLottiePath = "assets/animations/high_fashion_girl.json";
-const pouchingLipsLottiePath = "assets/animations/lip_fashion.json";
 const emailSentAnimation = "assets/animations/email_sent.gif";
 const emailVerifiedAnimation = "assets/animations/email_verified.gif";
 const otpSentToPhoneAnimation = "assets/animations/otp_phone.gif";
 const otpSentToEmailAnimation = "assets/animations/otp_email.gif";
+const ghostAnimation = "assets/animations/ghost_animation.gif";
+
+
 
 ///     FONTS
 const interBlack = "InterBlack";
