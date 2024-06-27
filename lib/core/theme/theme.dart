@@ -23,12 +23,12 @@ ThemeData highFashionLightTheme() {
       ),
 
 
-
       cardTheme: const CardTheme().copyWith(
         color: const Color(0xfff4f3fd),
         surfaceTintColor: Colors.white70,
         shadowColor: Colors.black,
       ),
+
       bottomSheetTheme: const BottomSheetThemeData().copyWith(
         backgroundColor: Colors.black,
         modalBackgroundColor: const Color(0xfff1f3f5),
@@ -37,6 +37,7 @@ ThemeData highFashionLightTheme() {
         dragHandleSize: const Size(100, 6),
         constraints: const BoxConstraints(minWidth: double.infinity),
       ),
+
       checkboxTheme: const CheckboxThemeData().copyWith(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
           checkColor: MaterialStateProperty.resolveWith((states) {

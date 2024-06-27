@@ -25,7 +25,7 @@ class SearchScreen extends StatelessWidget {
             "Search",
             style: TextStyle(fontSize: 24),
           ),
-          centerTilt: false,
+          centerTiltle: false,
           actions: [
             ReuseableWidgets().buildStackNotificationIcon(
                 63, const Icon(CupertinoIcons.chat_bubble_text_fill), () => null),

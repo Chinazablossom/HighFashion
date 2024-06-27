@@ -276,13 +276,13 @@ class HAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.title,
     this.actions,
     required this.backArrowVisible,
-    this.onTapLeadingIcon, required this.centerTilt, this.automaticallyImplyLeading,
+    this.onTapLeadingIcon, required this.centerTiltle, this.automaticallyImplyLeading,
   });
 
   final Widget? leading;
   final void Function()? onTapLeadingIcon;
   final Widget? title;
-  final bool centerTilt;
+  final bool centerTiltle;
   final bool? automaticallyImplyLeading;
   final List<Widget>? actions;
   final bool backArrowVisible;
@@ -300,7 +300,7 @@ class HAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ))
             : leading,
         title: title,
-        centerTitle: centerTilt,
+        centerTitle: centerTiltle,
         actions: actions,
         titleSpacing: 6,
 

@@ -11,22 +11,22 @@ class WishListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final FavoritesController favoritesController = Get.put(FavoritesController());
-
+    final FavoritesController favoritesController =
+        Get.put(FavoritesController());
 
     return Scaffold(
         appBar: const HAppBar(
-          centerTilt: true,
+          centerTiltle: true,
           automaticallyImplyLeading: false,
           title: Text(
             "Wishlist",
-            style: TextStyle(fontFamily: interExtraBold, fontSize: 24),
+            style: TextStyle(fontFamily: interExtraBold, fontSize: 22),
           ),
           backArrowVisible: true,
         ),
         body: Obx(() {
-                return favoritesController.favorites.isEmpty
-                    ? const Center(
+          return favoritesController.favorites.isEmpty
+              ? const Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -37,7 +37,8 @@ class WishListScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                ) :  SingleChildScrollView(
+                )
+              : SingleChildScrollView(
                   padding: const EdgeInsets.only(top: 16, left: 10, right: 10),
                   child: SafeArea(
                     child: Expanded(
@@ -65,6 +66,6 @@ class WishListScreen extends StatelessWidget {
                     ),
                   ),
                 );
-              }));
+        }));
   }
 }

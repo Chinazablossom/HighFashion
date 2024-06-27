@@ -199,7 +199,7 @@ class HomePageScreen extends StatelessWidget {
       childOp: Column(
         children: [
           HAppBar(
-            centerTilt: false,
+            centerTiltle: false,
             backArrowVisible: false,
             automaticallyImplyLeading: false,
             title: ReuseableWidgets().buildSearchBar(
