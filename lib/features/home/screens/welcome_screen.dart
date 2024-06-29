@@ -107,10 +107,14 @@ class WelcomeScreen extends StatelessWidget {
                   height: 20,
                 ),
                 ReuseableWidgets()
-                    .largeBtn(isLightMode(context), "Lets Get Started", () {
+                    .largeAppBtn("Lets Get Started", () {
                   Get.to(() => const OnBoardingScreen(),
                       transition: Transition.circularReveal);
-                }),
+                },isLightMode(context)
+                    ? Colors.black
+                    : Colors.white,isLightMode(context)
+                    ? Colors.white
+                    : Colors.black,),
                 const SizedBox(
                   height: 25,
                 ),

@@ -103,9 +103,10 @@ class SignUpScreen extends StatelessWidget {
                     height: 13,
                   ),
                   ReuseableWidgets().largeAppBtn(
-                    isLightMode(context),
                     "Sign Up",
-                    () {},
+                    () {},isLightMode(context)
+                      ? lightWidgetColorBackground
+                      : darkWidgetColorBackground,Colors.white
                   ),
                   const SizedBox(
                     height: 20,

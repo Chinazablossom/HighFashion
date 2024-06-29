@@ -85,7 +85,7 @@ class SearchScreen extends StatelessWidget {
                             physics: const NeverScrollableScrollPhysics(),
                             itemCount: 4,
                             itemBuilder: (context, index) {
-                              return buildTopBrandContainer(
+                              return ReuseableWidgets().buildTopBrandContainer(
                                   logos[index],
                                   brandName[index],
                                   Random().nextInt(150),
@@ -134,7 +134,7 @@ class SearchScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text("Top Selling",style: TextStyle(fontFamily: interBold,fontSize: 20,),),
-                      buildProductDisplay(() => null, "Accessories", [
+                      ReuseableWidgets().buildProductDisplay(() => null, "Accessories", [
                         corsetImgPath,ankaraImgPath,jewelryAndNailImgPath,maxiSkirtImgPath
                       ]),
                       const Text("Trending",style: TextStyle(fontFamily: interBold,fontSize: 20,),),
@@ -171,7 +171,7 @@ class SearchScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text("Top Selling",style: TextStyle(fontFamily: interBold,fontSize: 20,),),
-                      buildProductDisplay(() => null, "BeachWear", [
+                      ReuseableWidgets().buildProductDisplay(() => null, "BeachWear", [
                         corsetImgPath,ankaraImgPath,jewelryAndNailImgPath,maxiSkirtImgPath
                       ]),
                       const Text("Trending",style: TextStyle(fontFamily: interBold,fontSize: 20,),),
@@ -207,7 +207,7 @@ class SearchScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text("Top Selling",style: TextStyle(fontFamily: interBold,fontSize: 20,),),
-                      buildProductDisplay(() => null, "Bags", [
+                      ReuseableWidgets().buildProductDisplay(() => null, "Bags", [
                         corsetImgPath,ankaraImgPath,jewelryAndNailImgPath,maxiSkirtImgPath
                       ]),
                       const Text("Trending",style: TextStyle(fontFamily: interBold,fontSize: 20,),),
@@ -243,7 +243,7 @@ class SearchScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text("Top Selling",style: TextStyle(fontFamily: interBold,fontSize: 20,),),
-                      buildProductDisplay(() => null, "Dresses", [
+                      ReuseableWidgets().buildProductDisplay(() => null, "Dresses", [
                         corsetImgPath,ankaraImgPath,jewelryAndNailImgPath,maxiSkirtImgPath
                       ]),
                       const Text("Trending",style: TextStyle(fontFamily: interBold,fontSize: 20,),),
@@ -279,7 +279,7 @@ class SearchScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text("Top Selling",style: TextStyle(fontFamily: interBold,fontSize: 20,),),
-                      buildProductDisplay(() => null, "Jewelry", [
+                      ReuseableWidgets().buildProductDisplay(() => null, "Jewelry", [
                         corsetImgPath,ankaraImgPath,jewelryAndNailImgPath,maxiSkirtImgPath
                       ]),
                       const Text("Trending",style: TextStyle(fontFamily: interBold,fontSize: 20,),),
@@ -315,7 +315,7 @@ class SearchScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text("Top Selling",style: TextStyle(fontFamily: interBold,fontSize: 20,),),
-                      buildProductDisplay(() => null, "Shoes", [
+                      ReuseableWidgets().buildProductDisplay(() => null, "Shoes", [
                         corsetImgPath,ankaraImgPath,jewelryAndNailImgPath,maxiSkirtImgPath
                       ]),
                       const Text("Trending",style: TextStyle(fontFamily: interBold,fontSize: 20,),),
@@ -351,7 +351,7 @@ class SearchScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text("Top Selling",style: TextStyle(fontFamily: interBold,fontSize: 20,),),
-                      buildProductDisplay(() => null, "Shirts", [
+                      ReuseableWidgets().buildProductDisplay(() => null, "Shirts", [
                         corsetImgPath,ankaraImgPath,jewelryAndNailImgPath,maxiSkirtImgPath
                       ]),
                       const Text("Trending",style: TextStyle(fontFamily: interBold,fontSize: 20,),),
@@ -387,7 +387,7 @@ class SearchScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Text("Top Selling",style: TextStyle(fontFamily: interBold,fontSize: 20,),),
-                      buildProductDisplay(() => null, "Skirts", [
+                      ReuseableWidgets().buildProductDisplay(() => null, "Skirts", [
                         corsetImgPath,ankaraImgPath,jewelryAndNailImgPath,maxiSkirtImgPath
                       ]),
                       const Text("Trending",style: TextStyle(fontFamily: interBold,fontSize: 20,),),

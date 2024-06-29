@@ -60,11 +60,14 @@ class ForgotMailScreen extends StatelessWidget {
                           const SizedBox(
                             height: 25,
                           ),
-                          ReuseableWidgets()
-                              .largeAppBtn(isLightMode(context), "Next", () {
+                          ReuseableWidgets().largeAppBtn("Next", () {
                             OTPBottomSheet()
                                 .buildShowModalBottomSheet(context, "email");
-                          })
+                          },
+                            isLightMode(context)
+                              ? lightWidgetColorBackground
+                              : darkWidgetColorBackground,Colors.white
+                          )
                         ],
                       ),
                     ),

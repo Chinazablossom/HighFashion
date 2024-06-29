@@ -106,12 +106,10 @@ class LoginScreen extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      ReuseableWidgets().largeAppBtn(
-                        isLightMode(context),
-                        "Login",
-                        () {
-
-                        },
+                      ReuseableWidgets().largeAppBtn("Login", () {
+                        },isLightMode(context)
+                          ? lightWidgetColorBackground
+                          : darkWidgetColorBackground,Colors.white
                       ),
                       const SizedBox(
                         height: 35,

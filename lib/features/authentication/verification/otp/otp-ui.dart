@@ -4,6 +4,7 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
 
 import '../../../../core/utils/constanst/assetsPaths.dart';
+import '../../../../core/utils/constanst/colors.dart';
 import '../../../../core/utils/helper-functions/helper-functions.dart';
 import '../../../shared-widgets/sharedWidgets.dart';
 
@@ -55,7 +56,9 @@ class OTPBottomSheet {
 
               //  VERIFICATION BTN
               ReuseableWidgets()
-                  .largeAppBtn(isLightMode(context), "Verify", () => null),
+                  .largeAppBtn("Verify", () => null,isLightMode(context)
+                  ? lightWidgetColorBackground
+                  : darkWidgetColorBackground,Colors.white),
             ],
           ),
         ),

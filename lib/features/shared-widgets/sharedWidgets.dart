@@ -13,6 +13,7 @@ import '../../core/utils/constanst/colors.dart';
 import '../wishlist/controller/wishlist_controller.dart';
 
 class ReuseableWidgets {
+/*
 
   GestureDetector largeBtn(bool isLightMode, String label, Function() todo) {
     return GestureDetector(
@@ -34,25 +35,24 @@ class ReuseableWidgets {
       ),
     );
   }
+*/
 
 
-  GestureDetector largeAppBtn(bool isLightMode, String label, Function() todo) {
+  GestureDetector largeAppBtn(String label, Function() todo,Color color,Color txtColor) {
     return GestureDetector(
       onTap: todo,
       child: Container(
         height: 60,
         width: double.infinity,
         decoration: BoxDecoration(
-          color: isLightMode
-              ? lightWidgetColorBackground
-              : darkWidgetColorBackground,
+          color: color,
           borderRadius: BorderRadius.circular(20),
         ),
         child: Center(
             child: Text(label,
-                style: const TextStyle(
+                style:  TextStyle(
                     fontFamily: interExtraBold,
-                    color: Colors.white,
+                    color: txtColor,
                     fontSize: 18,
                     fontWeight: FontWeight.bold))),
       ),
@@ -263,7 +263,110 @@ class ReuseableWidgets {
 
 
 
+  InkWell buildTextRow(Function() todo, IconData iconStart,String label,IconData iconEnd,bool isLightMode) {
+    return InkWell(
+      onTap: todo,
+      splashColor: lightWidgetColorBackground.withOpacity(0.1),
+      borderRadius: BorderRadius.circular(20),
+      child: Column(
+        children: [
+          SizedBox(height: 8,),
+          Row(
+            children: [
+              Icon(iconStart,color: isLightMode ? lightWidgetColorBackground : darkWidgetColorBackground,size: 28),
+              SizedBox(width: 16,),
+              Expanded(flex:3,child: Text(label,style: TextStyle(fontSize: 18),)),
+              Icon(iconEnd,color: isLightMode ? lightWidgetColorBackground : darkWidgetColorBackground,size: 28),
 
+            ],
+          ),
+          SizedBox(height: 8,),
+          Row(
+            children: [
+              Flexible(
+                child: Divider(
+                  color: Colors.grey.withOpacity(0.5),
+                  indent: 0,
+                  endIndent: 0,
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+
+
+  Container buildTopBrandContainer(String imgPath, String brandName, int productsAvailable, double width, Color borderColor,
+      ) {
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          border: Border.all(color: borderColor)),
+      child: Padding(
+        padding: const EdgeInsets.all(8),
+        child: Row(
+          children: [
+            Image(height: 45, width: 45, image: AssetImage(imgPath)),
+            const SizedBox(
+              width: 8,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(brandName,
+                    style:
+                    const TextStyle(fontSize: 14, fontWeight: FontWeight.w700)),
+                SizedBox(
+                    width: width,
+                    child: Text(
+                      "$productsAvailable products available",
+                      style: const TextStyle(
+                          fontSize: 12,
+                          color: Colors.grey,
+                          overflow: TextOverflow.ellipsis),
+                    ))
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+  InkWell buildProductDisplay(Function()? todo, String tag, List<String> imgs,) {
+    final random = Random().nextInt(brandCategories[tag]!.length);
+
+    return InkWell(
+      onTap: todo,
+      child: Padding(
+        padding:  const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(color: lightWidgetColorBackground)),
+                child: Column(
+                  children: [
+                    buildTopBrandContainer(
+                        brandCategories[tag]![random].values.first,
+                        brandCategories[tag]![random].keys.first,
+                        Random().nextInt(1000), 200, Colors.transparent),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                          children: imgs.map((image) => displayedClothes(img: image)).toList()
+                      ),
+                    )
+                  ],
+                )),
+          ],
+        ),
+      ),
+    );
+  }
 
 
 
@@ -506,76 +609,6 @@ class CategoriesList extends StatelessWidget {
 };
 
 
-
-Container buildTopBrandContainer(String imgPath, String brandName, int productsAvailable, double width, Color borderColor,
-    ) {
-  return Container(
-    decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        border: Border.all(color: borderColor)),
-    child: Padding(
-      padding: const EdgeInsets.all(8),
-      child: Row(
-        children: [
-          Image(height: 45, width: 45, image: AssetImage(imgPath)),
-          const SizedBox(
-            width: 8,
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(brandName,
-                  style:
-                  const TextStyle(fontSize: 14, fontWeight: FontWeight.w700)),
-              SizedBox(
-                  width: width,
-                  child: Text(
-                    "$productsAvailable products available",
-                    style: const TextStyle(
-                        fontSize: 12,
-                        color: Colors.grey,
-                        overflow: TextOverflow.ellipsis),
-                  ))
-            ],
-          )
-        ],
-      ),
-    ),
-  );
-}
-InkWell buildProductDisplay(Function()? todo, String tag, List<String> imgs,) {
-  final random = Random().nextInt(brandCategories[tag]!.length);
-
-  return InkWell(
-    onTap: todo,
-    child: Padding(
-      padding:  const EdgeInsets.all(16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  border: Border.all(color: lightWidgetColorBackground)),
-              child: Column(
-                children: [
-                  buildTopBrandContainer(
-                      brandCategories[tag]![random].values.first,
-                      brandCategories[tag]![random].keys.first,
-                      Random().nextInt(1000), 200, Colors.transparent),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Row(
-                        children: imgs.map((image) => displayedClothes(img: image)).toList()
-                    ),
-                  )
-                ],
-              )),
-        ],
-      ),
-    ),
-  );
-}
 
 final Map<String,List<Map<String, String>>> brandCategories = {
   "Accessories": [

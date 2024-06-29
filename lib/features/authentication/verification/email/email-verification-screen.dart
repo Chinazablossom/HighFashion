@@ -57,11 +57,13 @@ class EmailVerificationScreen extends StatelessWidget {
                 height: 50,
               ),
 
-              ReuseableWidgets().largeAppBtn(isLightMode(context), "Continue",
+              ReuseableWidgets().largeAppBtn("Continue",
                   () {
                 /// if successful verify user
                 EmailSuccessSheet().buildShowModalBottomSheet(context);
-              }),
+              }, isLightMode(context)
+                    ? lightWidgetColorBackground
+                    : darkWidgetColorBackground,Colors.white  ),
 
               const SizedBox(
                 height: 18,

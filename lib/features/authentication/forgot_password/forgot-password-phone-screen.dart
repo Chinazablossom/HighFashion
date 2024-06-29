@@ -61,10 +61,12 @@ class ForgotPhoneScreen extends StatelessWidget {
                             height: 25,
                           ),
                           ReuseableWidgets()
-                              .largeAppBtn(isLightMode(context), "Next", () {
-                            OTPBottomSheet()
+                              .largeAppBtn("Next", () {OTPBottomSheet()
                                 .buildShowModalBottomSheet(context, "phone");
-                          })
+                          },isLightMode(context)
+                              ? lightWidgetColorBackground
+                              : darkWidgetColorBackground,Colors.white
+                          )
                         ],
                       ),
                     ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 
 import '../../../../core/utils/constanst/assetsPaths.dart';
+import '../../../../core/utils/constanst/colors.dart';
 import '../../../../core/utils/helper-functions/helper-functions.dart';
 import '../../../shared-widgets/sharedWidgets.dart';
 
@@ -35,7 +36,10 @@ class EmailSuccessSheet {
                       height: 20,
                     ),
                     ReuseableWidgets().largeAppBtn(
-                        isLightMode(context), "Start Shopping", () => null)
+                         "Start Shopping", () => null, isLightMode(context)
+                        ? lightWidgetColorBackground
+                        : darkWidgetColorBackground,
+                        Colors.white)
                   ],
                 ),
               ),

@@ -11,8 +11,7 @@ class WishListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final FavoritesController favoritesController =
-        Get.put(FavoritesController());
+    final FavoritesController favoritesController = Get.put(FavoritesController());
 
     return Scaffold(
         appBar: const HAppBar(
