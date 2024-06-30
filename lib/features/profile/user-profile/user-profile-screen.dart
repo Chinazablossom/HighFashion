@@ -16,7 +16,7 @@ class UserProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ReuseableWidgets().buildAppScreenBackGround(
-        headerImg: isLightMode(context) ? headerBlack : headerLight,
+        headerImg: headerBlack ,
         bgTopPos: 85,
         bgLeftPos: 0,
         bgRightPos: 0,
@@ -38,10 +38,10 @@ class UserProfileScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children:[
                       // User Image
-                      Center(
+                      const Center(
 
                         child:
-                          const Text("User Name",style: TextStyle(fontSize: 24,fontWeight: FontWeight.w600)),
+                          Text("User Name",style: TextStyle(fontSize: 24,fontWeight: FontWeight.w600)),
 
                       ),
                       Row(
@@ -55,19 +55,19 @@ class UserProfileScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 10,),
-                      Text(
+                      const SizedBox(height: 10,),
+                      const Text(
                         "Profile Information",
                         style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20,),
                       ),
-                      SizedBox(height: 8,),
+                      const SizedBox(height: 8,),
                       buildInkWellText((){
 
                       },"Name","User Name",CupertinoIcons.forward,context),
                       buildInkWellText((){
-                        Get.to(() => UpDateNameScreen(),transition: Transition.native,duration: Duration(seconds: 1));
+                        Get.to(() => const UpDateNameScreen(),transition: Transition.native,duration: const Duration(seconds: 1));
                       },"User Name","User Name",CupertinoIcons.forward,context),
-                      SizedBox(height: 10,),
+                      const SizedBox(height: 10,),
                       Row(
                         children: [
                           Flexible(
@@ -79,17 +79,17 @@ class UserProfileScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 10,),
-                      Text(
+                      const SizedBox(height: 10,),
+                      const Text(
                         "Personal Information",
                         style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20,),
                       ),
-                      SizedBox(height: 8,),
+                      const SizedBox(height: 8,),
                       buildInkWellText((){},"User ID","DBSDB3727",Iconsax.user_octagon_copy,context),
                       buildInkWellText((){},"Phone Number","+1 (987)-8796",CupertinoIcons.forward,context),
                       buildInkWellText((){},"E-mail","chinazablossom7@gmail.com",CupertinoIcons.forward,context),
                       buildInkWellText((){},"Gender","Female",CupertinoIcons.forward,context),
-                      SizedBox(height: 10,),
+                      const SizedBox(height: 10,),
                       Row(
                         children: [
                           Flexible(
@@ -101,7 +101,7 @@ class UserProfileScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 30,),
+                      const SizedBox(height: 30,),
                       ReuseableWidgets().largeAppBtn("Logout", () => null,
                       isLightMode(context) ? lightWidgetColorBackground : darkWidgetColorBackground,
                       Colors.white
@@ -118,16 +118,16 @@ class UserProfileScreen extends StatelessWidget {
               automaticallyImplyLeading: false,
               leading: IconButton(
                   onPressed: Get.back,
-                  icon: Icon(CupertinoIcons.back,
-                    color: isLightMode(context) ? Colors.white : Colors.black,
+                  icon: const Icon(CupertinoIcons.back,
+                    color: Colors.white,
                     size: 28,)
               ),
-              title: Text(
+              title: const Text(
                 "Your Profile",
                 style: TextStyle(
                     fontFamily: interBold,
                     fontSize: 24,
-                    color: isLightMode(context) ? Colors.white : Colors.black),
+                    color: Colors.white ),
               ),
             ),
             const SizedBox(
@@ -146,16 +146,16 @@ class UserProfileScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                       child: Column(
                         children: [
-                          SizedBox(height: 8,),
+                          const SizedBox(height: 8,),
                           Row(
                             children: [
-                              Expanded(flex: 2,child: Text(label,style: TextStyle(color: Colors.grey,fontSize: 16,fontWeight: FontWeight.w500),)),
-                              Expanded(flex: 5, child: Text(data,style: TextStyle(fontSize: 16),)),
+                              Expanded(flex: 2,child: Text(label,style: const TextStyle(color: Colors.grey,fontSize: 16,fontWeight: FontWeight.w500),)),
+                              Expanded(flex: 5, child: Text(data,style: const TextStyle(fontSize: 16),)),
                               Expanded(child: Icon(endIcon,color: isLightMode(context) ? lightWidgetColorBackground : darkWidgetColorBackground,size: 28)),
 
                             ],
                           ),
-                          SizedBox(height: 8,),
+                          const SizedBox(height: 8,),
                         ],
                       ),
                     );

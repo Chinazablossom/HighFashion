@@ -1,15 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:high_fashion/features/authentication/ui/loginScreen.dart';
-import 'package:high_fashion/features/authentication/verification/email/email-verification-screen.dart';
-import 'package:high_fashion/features/home/screens/home-page-screen.dart';
-import 'package:high_fashion/features/home/screens/home.dart';
-import 'package:high_fashion/features/home/screens/welcome_screen.dart';
+import 'package:high_fashion/features/product/product-detail.dart';
 
 import 'core/theme/theme.dart';
 import 'firebase_options.dart';
-
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,8 +25,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       darkTheme: highFashionDarkTheme(),
       theme: highFashionLightTheme(),
-      home: const Home(),
-
+      home: const ProductDetailScreen(),
     );
   }
 }

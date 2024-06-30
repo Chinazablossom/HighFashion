@@ -41,7 +41,7 @@ class ProfileScreen extends StatelessWidget {
             children: [
 
               //  PROFILE IMAGE
-              CircleAvatar(),
+              const CircleAvatar(),
               const Text("User Name",style: TextStyle(fontSize: 24,fontWeight: FontWeight.w600)),
               const SizedBox(height: 30,),
              ReuseableWidgets().buildTextRow((){

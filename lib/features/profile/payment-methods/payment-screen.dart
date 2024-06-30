@@ -9,7 +9,7 @@ class PaymentMethodScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return   Scaffold(
       appBar: HAppBar(
         centerTiltle: false,
         automaticallyImplyLeading: true,

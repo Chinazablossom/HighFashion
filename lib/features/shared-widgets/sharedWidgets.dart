@@ -13,30 +13,6 @@ import '../../core/utils/constanst/colors.dart';
 import '../wishlist/controller/wishlist_controller.dart';
 
 class ReuseableWidgets {
-/*
-
-  GestureDetector largeBtn(bool isLightMode, String label, Function() todo) {
-    return GestureDetector(
-      onTap: todo,
-      child: Container(
-        height: 60,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: isLightMode ? Colors.black : Colors.white,
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Center(
-            child: Text(label,
-                style: TextStyle(
-                    fontFamily: interExtraBold,
-                    color: isLightMode ? Colors.white : Colors.black,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold))),
-      ),
-    );
-  }
-*/
-
 
   GestureDetector largeAppBtn(String label, Function() todo,Color color,Color txtColor) {
     return GestureDetector(
@@ -298,8 +274,7 @@ class ReuseableWidgets {
   }
 
 
-  Container buildTopBrandContainer(String imgPath, String brandName, int productsAvailable, double width, Color borderColor,
-      ) {
+  Container buildTopBrandContainer(String imgPath, String brandName, int productsAvailable, double width, Color borderColor,) {
     return Container(
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
@@ -478,8 +453,6 @@ class ProductItemCard extends StatelessWidget {
                   child:  Obx(() => CircleAvatar(
                     backgroundColor: Colors.white54,
                     child: Icon(
- //   favoritesController.favorites.contains(product)
- //   favoritesController.favorites.any((item) => item.id == product.id)
                       favoritesController.isFavorite(product)
                           ? Iconsax.heart
                           : Iconsax.heart_copy,
