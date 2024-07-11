@@ -13,8 +13,8 @@ import '../../core/utils/constanst/colors.dart';
 import '../wishlist/controller/wishlist_controller.dart';
 
 class ReuseableWidgets {
-
-  GestureDetector largeAppBtn(String label, Function() todo,Color color,Color txtColor) {
+  GestureDetector largeAppBtn(
+      String label, Function() todo, Color color, Color txtColor) {
     return GestureDetector(
       onTap: todo,
       child: Container(
@@ -26,7 +26,7 @@ class ReuseableWidgets {
         ),
         child: Center(
             child: Text(label,
-                style:  TextStyle(
+                style: TextStyle(
                     fontFamily: interExtraBold,
                     color: txtColor,
                     fontSize: 18,
@@ -35,7 +35,8 @@ class ReuseableWidgets {
     );
   }
 
-  GestureDetector largeAppIconBtn(bool isLightMode, IconData icon, Function() todo) {
+  GestureDetector largeAppIconBtn(
+      bool isLightMode, IconData icon, Function() todo) {
     return GestureDetector(
       onTap: todo,
       child: Container(
@@ -54,14 +55,14 @@ class ReuseableWidgets {
     );
   }
 
-  Stack buildAppScreenBackGround({required String headerImg,
+  Stack buildAppScreenBackGround({
+    required String headerImg,
     required double? bgTopPos,
     required double? bgLeftPos,
     required double? bgRightPos,
     required double? bgBottomPos,
     required Widget child,
     required Widget childOp,
-
   }) {
     return Stack(children: [
       ReuseableWidgets().buildHeader(headerImg, null),
@@ -70,12 +71,12 @@ class ReuseableWidgets {
           left: bgLeftPos,
           right: bgRightPos,
           bottom: bgBottomPos,
-          child: Container(child: child,)),
-          childOp
-
+          child: Container(
+            child: child,
+          )),
+      childOp
     ]);
   }
-
 
   Container buildHeader(String imgPath, Widget? child) {
     return Container(
@@ -86,9 +87,8 @@ class ReuseableWidgets {
     );
   }
 
-
-
-  Container imgContainer(double height, double width, double radius, String imgPath) {
+  Container imgContainer(
+      double height, double width, double radius, String imgPath) {
     return Container(
       height: height,
       width: width,
@@ -108,9 +108,8 @@ class ReuseableWidgets {
     );
   }
 
-
-
-  Container iconContainer(double height, double width, IconData icon, bool isLightMode) {
+  Container iconContainer(
+      double height, double width, IconData icon, bool isLightMode) {
     return Container(
       height: height,
       width: width,
@@ -123,8 +122,6 @@ class ReuseableWidgets {
       child: Icon(icon, color: Colors.white),
     );
   }
-
-
 
   Column pageView(
     bool isLightMode,
@@ -175,8 +172,6 @@ class ReuseableWidgets {
     );
   }
 
-
-
   Container buildBackgroundContainer(
     Color containerColor,
     double topLeft,
@@ -197,66 +192,100 @@ class ReuseableWidgets {
     );
   }
 
-
-
-
-  SearchBar buildSearchBar(Function()? onTap ,Function()? onChange , bool isLightMode ) {
+  SearchBar buildSearchBar(
+      Function()? onTap, Function()? onChange, bool isLightMode) {
     return SearchBar(
-      backgroundColor:  MaterialStatePropertyAll<Color>(isLightMode ? lightBackground.withOpacity(0.9) : const Color(0xff1d1c1f)) ,
+      backgroundColor: MaterialStatePropertyAll<Color>(isLightMode
+          ? lightBackground.withOpacity(0.9)
+          : const Color(0xff1d1c1f)),
       hintText: "Search...",
-      hintStyle: MaterialStatePropertyAll(TextStyle(color: isLightMode ? const Color(0xff646060) : Colors.white)),
+      hintStyle: MaterialStatePropertyAll(TextStyle(
+          color: isLightMode ? const Color(0xff646060) : Colors.white)),
       onTap: onTap,
-      onChanged: (value){ onChange; },
-      leading:  Icon(CupertinoIcons.search,color: isLightMode ? lightWidgetColorBackground : Colors.white),
+      onChanged: (value) {
+        onChange;
+      },
+      leading: Icon(CupertinoIcons.search,
+          color: isLightMode ? lightWidgetColorBackground : Colors.white),
       trailing: [
-        IconButton(onPressed: (){},icon: Icon(CupertinoIcons.mic,color:isLightMode ? lightWidgetColorBackground : Colors.white))
+        IconButton(
+            onPressed: () {},
+            icon: Icon(CupertinoIcons.mic,
+                color: isLightMode ? lightWidgetColorBackground : Colors.white))
       ],
-
     );
   }
 
-  Stack buildStackNotificationIcon(int notifCount,Widget icon,Function() todo ) {
-    return Stack(
-        children: [
-          Positioned(
-              width: notifCount >= 100 ? 16 : notifCount >= 10 ? 22 : 17,
-              height: notifCount >= 100 ? 16 : notifCount >= 10 ? 19 : 18  ,
-              right: 0,
-              top: notifCount >= 100 ? 5 : 0,
-              child: Container(
-                decoration: BoxDecoration(
-                    color: Colors.red,
-                    borderRadius: BorderRadius.circular(100)
-                ),
-                child: Center(child: Text(notifCount >= 100 ? "" : notifCount.toString(),style: const TextStyle(color: Colors.white,fontWeight: FontWeight.w500,fontSize: 14),),),
-              )) ,
-
-          IconButton(
-              onPressed: todo,
-              icon: icon ),
-        ]);
+  Stack buildStackNotificationIcon(
+      int notifCount, Widget icon, Function() todo) {
+    return Stack(children: [
+      Positioned(
+          width: notifCount >= 100
+              ? 16
+              : notifCount >= 10
+                  ? 22
+                  : 17,
+          height: notifCount >= 100
+              ? 16
+              : notifCount >= 10
+                  ? 19
+                  : 18,
+          right: 0,
+          top: notifCount >= 100 ? 5 : 0,
+          child: Container(
+            decoration: BoxDecoration(
+                color: Colors.red, borderRadius: BorderRadius.circular(100)),
+            child: Center(
+              child: Text(
+                notifCount >= 100 ? "" : notifCount.toString(),
+                style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14),
+              ),
+            ),
+          )),
+      IconButton(onPressed: todo, icon: icon),
+    ]);
   }
 
-
-
-  InkWell buildTextRow(Function() todo, IconData iconStart,String label,IconData iconEnd,bool isLightMode) {
+  InkWell buildTextRow(Function() todo, IconData iconStart, String label,
+      IconData iconEnd, bool isLightMode) {
     return InkWell(
       onTap: todo,
       splashColor: lightWidgetColorBackground.withOpacity(0.1),
       borderRadius: BorderRadius.circular(20),
       child: Column(
         children: [
-          SizedBox(height: 8,),
+          const SizedBox(
+            height: 8,
+          ),
           Row(
             children: [
-              Icon(iconStart,color: isLightMode ? lightWidgetColorBackground : darkWidgetColorBackground,size: 28),
-              SizedBox(width: 16,),
-              Expanded(flex:3,child: Text(label,style: TextStyle(fontSize: 18),)),
-              Icon(iconEnd,color: isLightMode ? lightWidgetColorBackground : darkWidgetColorBackground,size: 28),
-
+              Icon(iconStart,
+                  color: isLightMode
+                      ? lightWidgetColorBackground
+                      : darkWidgetColorBackground,
+                  size: 28),
+              const SizedBox(
+                width: 16,
+              ),
+              Expanded(
+                  flex: 3,
+                  child: Text(
+                    label,
+                    style: const TextStyle(fontSize: 18),
+                  )),
+              Icon(iconEnd,
+                  color: isLightMode
+                      ? lightWidgetColorBackground
+                      : darkWidgetColorBackground,
+                  size: 28),
             ],
           ),
-          SizedBox(height: 8,),
+          const SizedBox(
+            height: 8,
+          ),
           Row(
             children: [
               Flexible(
@@ -273,8 +302,13 @@ class ReuseableWidgets {
     );
   }
 
-
-  Container buildTopBrandContainer(String imgPath, String brandName, int productsAvailable, double width, Color borderColor,) {
+  Container buildTopBrandContainer(
+    String imgPath,
+    String brandName,
+    int productsAvailable,
+    double width,
+    Color borderColor,
+  ) {
     return Container(
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
@@ -291,8 +325,8 @@ class ReuseableWidgets {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(brandName,
-                    style:
-                    const TextStyle(fontSize: 14, fontWeight: FontWeight.w700)),
+                    style: const TextStyle(
+                        fontSize: 14, fontWeight: FontWeight.w700)),
                 SizedBox(
                     width: width,
                     child: Text(
@@ -309,13 +343,18 @@ class ReuseableWidgets {
       ),
     );
   }
-  InkWell buildProductDisplay(Function()? todo, String tag, List<String> imgs,) {
+
+  InkWell buildProductDisplay(
+    Function()? todo,
+    String tag,
+    List<String> imgs,
+  ) {
     final random = Random().nextInt(brandCategories[tag]!.length);
 
     return InkWell(
       onTap: todo,
       child: Padding(
-        padding:  const EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -328,12 +367,15 @@ class ReuseableWidgets {
                     buildTopBrandContainer(
                         brandCategories[tag]![random].values.first,
                         brandCategories[tag]![random].keys.first,
-                        Random().nextInt(1000), 200, Colors.transparent),
+                        Random().nextInt(1000),
+                        200,
+                        Colors.transparent),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
-                          children: imgs.map((image) => displayedClothes(img: image)).toList()
-                      ),
+                          children: imgs
+                              .map((image) => displayedClothes(img: image))
+                              .toList()),
                     )
                   ],
                 )),
@@ -342,9 +384,6 @@ class ReuseableWidgets {
       ),
     );
   }
-
-
-
 }
 
 class HAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -353,8 +392,9 @@ class HAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.leading,
     this.title,
     this.actions,
-    required this.backArrowVisible,
-    this.onTapLeadingIcon, required this.centerTiltle, this.automaticallyImplyLeading,
+    this.onTapLeadingIcon,
+    required this.centerTiltle,
+    this.automaticallyImplyLeading,
   });
 
   final Widget? leading;
@@ -363,25 +403,19 @@ class HAppBar extends StatelessWidget implements PreferredSizeWidget {
   final bool centerTiltle;
   final bool? automaticallyImplyLeading;
   final List<Widget>? actions;
-  final bool backArrowVisible;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: AppBar(
-        automaticallyImplyLeading: automaticallyImplyLeading!,
-        leading: backArrowVisible ? IconButton(onPressed: () { Get.back();},
-                icon: const Icon(
-                  CupertinoIcons.back,
-                  size: 30,
-                ))
-            : leading,
+        automaticallyImplyLeading: automaticallyImplyLeading ?? false,
+        leading: leading,
+        leadingWidth: 4,
         title: title,
         centerTitle: centerTiltle,
         actions: actions,
         titleSpacing: 6,
-
       ),
     );
   }
@@ -390,105 +424,128 @@ class HAppBar extends StatelessWidget implements PreferredSizeWidget {
   Size get preferredSize => const Size(double.infinity, 50);
 }
 
-
-Container buildCountTimer(String time,double width) {
+Container buildCountTimer(String time, double width, bool isLightMode) {
   return Container(
     height: 30,
     width: width,
     decoration: BoxDecoration(
-        color: lightWidgetColorBackground.withOpacity(0.5),
+        color: isLightMode
+            ? lightWidgetColorBackground.withOpacity(0.2)
+            : lightWidgetColorBackground.withOpacity(0.5),
         shape: BoxShape.rectangle,
-        borderRadius: BorderRadius.circular(8)
-    ),
-    child: Center(child: Text(time,
-      style: const TextStyle(fontWeight: FontWeight.w500),)),
+        borderRadius: BorderRadius.circular(8)),
+    child: Center(
+        child: Text(
+      time,
+      style: const TextStyle(fontWeight: FontWeight.w500),
+    )),
   );
 }
 
 class ProductItemCard extends StatelessWidget {
-  const ProductItemCard({super.key, this.onTap, required this.product,});
+  const ProductItemCard({
+    super.key,
+    this.onTap,
+    required this.product,
+  });
 
   final Product product;
   final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
-    final FavoritesController favoritesController = Get.put(FavoritesController());
+    final FavoritesController favoritesController =
+        Get.put(FavoritesController());
 
     return InkWell(
       onTap: onTap,
-      onLongPress: (){
-    if (!favoritesController.isFavorite(product)) {
-    favoritesController.addToFavorites(product);
-    Get.snackbar("Item Added", "${product.name} added to favorites.");
-    }else {
-      favoritesController.removeFromFavorites(product);
-      Get.snackbar("Item Removed", "${product.name} removed from favorites.");
-    }
-     
-    },
-      child: Card(
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-        clipBehavior: Clip.hardEdge,elevation: 5,
-        color: isLightMode(context) ? lightBackground : Colors.white38,
+      onLongPress: () {
+        if (!favoritesController.isFavorite(product)) {
+          favoritesController.addToFavorites(product);
+          Get.snackbar("Item Added", "${product.name} added to favorites.");
+        } else {
+          favoritesController.removeFromFavorites(product);
+          Get.snackbar(
+              "Item Removed", "${product.name} removed from favorites.");
+        }
+      },
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+                color: isLightMode(context) ? Colors.black54 : Colors.white,
+                blurRadius: isLightMode(context) ? 3.0 : 1.5,
+                spreadRadius: 0.5,
+                blurStyle: BlurStyle.normal),
+          ],
+          color: isLightMode(context) ? Colors.white : Colors.black87,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Stack(
               children: [
                 ClipRRect(
-                  borderRadius: const BorderRadius.only(bottomLeft: Radius.circular(15),bottomRight: Radius.circular(35)),
+                  borderRadius: const BorderRadius.only(
+                      topLeft: Radius.circular(15),
+                      topRight: Radius.circular(15),
+                      bottomLeft: Radius.circular(15),
+                      bottomRight: Radius.circular(35)),
                   child: Container(
-                    height: 160 ,width: double.infinity,
+                    height: 160,
+                    width: double.infinity,
                     color: colorList[Random().nextInt(30)],
                     child: FadeInImage(
                         fit: BoxFit.contain,
-                        placeholder: MemoryImage(kTransparentImage) ,
-                        image: AssetImage(product.image)  /* NetworkImage(meal.imageUrl)*/ ),
+                        placeholder: MemoryImage(kTransparentImage),
+                        image: AssetImage(
+                            product.image) /* NetworkImage(meal.imageUrl)*/),
                   ),
                 ),
-                 Positioned(
+                Positioned(
                   top: 8,
                   right: 4,
-                  child:  Obx(() => CircleAvatar(
-                    backgroundColor: Colors.white54,
-                    child: Icon(
-                      favoritesController.isFavorite(product)
-                          ? Iconsax.heart
-                          : Iconsax.heart_copy,
-                      color: lightWidgetColorBackground,
-                    ),
-                  )),
-                 ),
+                  child: Obx(() => CircleAvatar(
+                        backgroundColor: Colors.white54,
+                        child: Icon(
+                          favoritesController.isFavorite(product)
+                              ? Iconsax.heart
+                              : Iconsax.heart_copy,
+                          color: lightWidgetColorBackground,
+                        ),
+                      )),
+                ),
               ],
             ),
             Padding(
               padding: const EdgeInsets.all(8),
-              child:
-              Column(
+              child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(width: 160, child: Text(product.name,style: const TextStyle(fontFamily: interMedium),maxLines: 1,overflow: TextOverflow.ellipsis)),
-                  const SizedBox(height: 6,),
-                  Text("\$${product.price}",style: const TextStyle(fontWeight: FontWeight.w700,fontSize: 20),),
-
-
+                  SizedBox(
+                      width: 160,
+                      child: Text(product.name,
+                          style: const TextStyle(fontFamily: interMedium),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis)),
+                  const SizedBox(
+                    height: 6,
+                  ),
+                  Text(
+                    "\$${product.price}",
+                    style: const TextStyle(
+                        fontWeight: FontWeight.w700, fontSize: 20),
+                  ),
                 ],
-
-
               ),
-
-
-
             ),
-
           ],
         ),
       ),
     );
   }
 }
-
 
 class carouselImg extends StatelessWidget {
   const carouselImg({
@@ -526,64 +583,95 @@ class carouselImg extends StatelessWidget {
 }
 
 class CategoriesList extends StatelessWidget {
-  const CategoriesList({super.key, required this.itemsList, required this.todo});
+  const CategoriesList({
+    super.key,
+    required this.itemsList,
+    required this.todo,
+    required this.radius,
+  });
 
-  final Map<String,String> itemsList;
+  final Map<String, String> itemsList;
+  final double radius;
   final Function() todo;
 
   @override
   Widget build(BuildContext context) {
-   return ListView.builder(
-     itemCount: itemsList.keys.length ,
-     scrollDirection: Axis.horizontal,
-     shrinkWrap: true,
-     itemBuilder: (context, index) {
-     return Padding(
-       padding: const EdgeInsets.only(left: 8.0,right: 8,top: 8),
-       child: InkWell(
-         onTap: todo,
-         splashColor: lightWidgetColorBackground,
-        splashFactory: InkSparkle.constantTurbulenceSeedSplashFactory ,
-         child: Column(
-             children: [
-               Container(
-                 height: 60,
-                 width: 60,
-                 padding: const EdgeInsets.all(16),
-                 decoration: BoxDecoration(
-                     color:  const Color(0xffe7e7ec),
-                     borderRadius: BorderRadius.circular(100)
-                 ),
-                 child: Image(height: 40,width: 40,image: AssetImage(itemsList.entries.elementAt(index).value)),
-               ),
-               const SizedBox(height: 6,),
-               Text(itemsList.entries.elementAt(index).key,style: const TextStyle(fontSize: 15),)
-             ],
-           ),
-       ),
-     );
-
-   },);
+    return ListView.builder(
+      itemCount: itemsList.keys.length,
+      scrollDirection: Axis.horizontal,
+      shrinkWrap: true,
+      itemBuilder: (context, index) {
+        return Padding(
+          padding: const EdgeInsets.only(left: 8.0, right: 8, top: 8),
+          child: InkWell(
+            onTap: todo,
+            splashColor: lightWidgetColorBackground,
+            splashFactory: InkSparkle.constantTurbulenceSeedSplashFactory,
+            child: Column(
+              children: [
+                Container(
+                  height: 60,
+                  width: 60,
+                  padding: const EdgeInsets.all(16),
+                  decoration: BoxDecoration(
+                      color: const Color(0xffe7e7ec),
+                      borderRadius: BorderRadius.circular(radius)),
+                  child: Image(
+                      height: 40,
+                      width: 40,
+                      image:
+                          AssetImage(itemsList.entries.elementAt(index).value)),
+                ),
+                const SizedBox(
+                  height: 6,
+                ),
+                Text(
+                  itemsList.entries.elementAt(index).key,
+                  style: const TextStyle(fontSize: 15),
+                )
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
-
-
 }
 
+class SizesList extends StatelessWidget {
+  const SizesList({
+    super.key,
+    required this.itemsList,
+  });
 
-  const catList = {
-    "Accessories" : eyeglassIcon,
-    "Beach wear": bikiniIcon,
-    "Bags" : bagsIcon,
-    "Dresses" : dressIcon,
-    "Jewelry" : earringsIcon,
-    "Shoes" : shoeIcon,
-    "Shirts" : shirtIcon,
-    "Skirts" : skirtIcon,
+  final List<Widget> itemsList;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: itemsList.length,
+      scrollDirection: Axis.horizontal,
+      shrinkWrap: true,
+      itemBuilder: (context, index) => Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        child: itemsList[index],
+      ),
+    );
+  }
+}
+
+const catList = {
+  "Accessories": eyeglassIcon,
+  "Beach wear": bikiniIcon,
+  "Bags": bagsIcon,
+  "Dresses": dressIcon,
+  "Jewelry": earringsIcon,
+  "Shoes": shoeIcon,
+  "Shirts": shirtIcon,
+  "Skirts": skirtIcon,
 };
 
-
-
-final Map<String,List<Map<String, String>>> brandCategories = {
+final Map<String, List<Map<String, String>>> brandCategories = {
   "Accessories": [
     {"Poki": pokiLogo},
     {"Sinteza": sintezaLogo},
@@ -673,6 +761,7 @@ final List<Map<String, String>> brands = [
   {"Tallalyw": tallalywLogo},
   {"Mirkd": mirkdLogo},
 ];
+
 final logos = [
   kixxLogo,
   loriemLogo,
@@ -712,7 +801,8 @@ final logos = [
   tallalywLogo,
   mirkdLogo
 ];
-final brandName = ["Kixx Shoes",
+final brandName = [
+  "Kixx Shoes",
   "Loriem Wears",
   "Magienty",
   "Sumxx Wears",
@@ -753,30 +843,41 @@ final brandName = ["Kixx Shoes",
 
 class displayedClothes extends StatelessWidget {
   const displayedClothes({
-    super.key, required this.img,
+    super.key,
+    required this.img,
   });
 
   final String img;
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Card(
-          color: isLightMode(context) ? lightBackground : Colors.grey,
-          child:
-          ReuseableWidgets().buildBackgroundContainer(
-            colorList[Random().nextInt(30)],
-            10,
-            10,
-            25,
-            10,
-            Image(
-              image: AssetImage(img),
-              height: 100,
-            ),
-          )),
+      child: Container(
+        margin: EdgeInsets.only(left: 2, right: 4),
+        padding: EdgeInsets.all(1),
+        decoration: BoxDecoration(boxShadow: [
+          BoxShadow(
+              color: isLightMode(context) ? Colors.black54 : Colors.white,
+              blurRadius: isLightMode(context) ? 2.0 : 1.5,
+              spreadRadius: 0.5,
+              blurStyle: BlurStyle.outer),
+        ], borderRadius: BorderRadius.all(Radius.circular(9))),
+        child: ReuseableWidgets().buildBackgroundContainer(
+          colorList[Random().nextInt(30)],
+          10,
+          10,
+          25,
+          10,
+          Image(
+            image: AssetImage(img),
+            height: 100,
+          ),
+        ),
+      ),
     );
   }
 }
+
 List<Color> colorList = [
   const Color(0xFF421220),
   const Color(0xFF203157),
@@ -810,4 +911,35 @@ List<Color> colorList = [
   const Color(0xFF1C4E4F),
 ];
 
-
+List<String> colorNames = [
+  "Burgundy",
+  "NavyBlue",
+  "DarkBrown",
+  "Teal",
+  "Plum",
+  "Charcoal",
+  "GoldenBrown",
+  "DarkGray",
+  "DarkRed",
+  "LightBrown",
+  "ForestGreen",
+  "DarkGreen",
+  "DarkBlue",
+  "Mauve",
+  "Sienna",
+  "Maroon",
+  "SeaGreen",
+  "SteelBlue",
+  "Violet",
+  "BurntOrange",
+  "Sage",
+  "DarkPurple",
+  "DarkMaroon",
+  "LightGolden",
+  "LightCream",
+  "Terracotta",
+  "LightGray",
+  "DarkCyan",
+  "DarkViolet",
+  "DarkTeal",
+];

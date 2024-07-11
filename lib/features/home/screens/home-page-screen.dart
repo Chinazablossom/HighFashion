@@ -10,18 +10,18 @@ import 'package:high_fashion/core/utils/constanst/assetsPaths.dart';
 import 'package:high_fashion/features/chat/chat-screen.dart';
 import 'package:high_fashion/features/home/controllers/count-down-controller.dart';
 import 'package:high_fashion/features/shared-widgets/sharedWidgets.dart';
-import 'package:high_fashion/features/wishlist/wishlist-screen.dart';
 
 import '../../../core/utils/helper-functions/helper-functions.dart';
+import '../../product/product-detail.dart';
 import '../../search/search-screen.dart';
-import '../../wishlist/controller/wishlist_controller.dart';
 
 class HomePageScreen extends StatelessWidget {
   const HomePageScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final CountDownController countDownTimerController = Get.put(CountDownController());
+    final CountDownController countDownTimerController =
+        Get.put(CountDownController());
 
     return ReuseableWidgets().buildAppScreenBackGround(
       headerImg: isLightMode(context) ? headerBlack : headerLight,
@@ -38,10 +38,10 @@ class HomePageScreen extends StatelessWidget {
           SafeArea(
               child: SingleChildScrollView(
             padding: EdgeInsets.only(
-                left: isSmallScreen(context) ? 16 : 50,
-                right: isSmallScreen(context) ? 16 : 50,
+                left: isSmallScreen(context) ? 12 : 50,
+                right: isSmallScreen(context) ? 12 : 50,
                 top: isSmallScreen(context) ? 0 : 20,
-                bottom: isSmallScreen(context) ? 0 : 30),
+                bottom: 30),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -85,6 +85,7 @@ class HomePageScreen extends StatelessWidget {
                             child: CategoriesList(
                               itemsList: catList,
                               todo: () {},
+                              radius: 100,
                             ))),
                   ],
                 ),
@@ -126,7 +127,8 @@ class HomePageScreen extends StatelessWidget {
                         const SizedBox(
                           width: 4,
                         ),
-                        buildCountTimer(days.toString().padLeft(2, "0"), 30),
+                        buildCountTimer(days.toString().padLeft(2, "0"), 30,
+                            isLightMode(context)),
                         const SizedBox(
                           width: 4,
                         ),
@@ -135,7 +137,8 @@ class HomePageScreen extends StatelessWidget {
                         const SizedBox(
                           width: 4,
                         ),
-                        buildCountTimer(hours.toString(), 30),
+                        buildCountTimer(
+                            hours.toString(), 30, isLightMode(context)),
                         const SizedBox(
                           width: 4,
                         ),
@@ -144,8 +147,10 @@ class HomePageScreen extends StatelessWidget {
                         const SizedBox(
                           width: 4,
                         ),
-                        buildCountTimer(minutes.toString().padRight(2),
-                            minutes.toString().length > 3 ? 50 : 30)
+                        buildCountTimer(
+                            minutes.toString().padRight(2),
+                            minutes.toString().length > 3 ? 50 : 30,
+                            isLightMode(context))
                       ],
                     );
                   },
@@ -173,7 +178,7 @@ class HomePageScreen extends StatelessWidget {
                 // PRODUCT LIST
                 GridView.custom(
                   gridDelegate: SliverStairedGridDelegate(
-                      crossAxisSpacing: 4,
+                      crossAxisSpacing: 8,
                       mainAxisSpacing: 20,
                       tileBottomSpace: 80,
                       pattern: [
@@ -185,8 +190,15 @@ class HomePageScreen extends StatelessWidget {
                     addAutomaticKeepAlives: true,
                     (context, index) {
                       return ProductItemCard(
-                        product: Product(image: "assets/images/image 52.png",name: "Classy Top",price:Random().nextInt(1000).toDouble()
-                      ));
+                          onTap: () {
+                            Get.to(() => ProductDetailScreen(),
+                                transition: Transition.fadeIn,
+                                duration: const Duration(seconds: 1));
+                          },
+                          product: Product(
+                              image: "assets/images/image 52.png",
+                              name: "Classy Top",
+                              price: Random().nextInt(1000).toDouble()));
                     },
                   ),
                   shrinkWrap: true,
@@ -199,27 +211,23 @@ class HomePageScreen extends StatelessWidget {
         children: [
           HAppBar(
             centerTiltle: false,
-            backArrowVisible: false,
             automaticallyImplyLeading: false,
             title: ReuseableWidgets().buildSearchBar(
                 () => Get.to(() => const SearchScreen(),
                     transition: Transition.rightToLeft,
-                    duration: const Duration(seconds: 1)),
-                () {
-                  Get.to(() => const SearchScreen(),
-                      transition: Transition.rightToLeft,
-                      duration: const Duration(seconds: 1));
-                },
-
-                isLightMode(context)),
+                    duration: const Duration(seconds: 1)), () {
+              Get.to(() => const SearchScreen(),
+                  transition: Transition.rightToLeft,
+                  duration: const Duration(seconds: 1));
+            }, isLightMode(context)),
             actions: [
               ReuseableWidgets().buildStackNotificationIcon(
                   63,
                   const Icon(CupertinoIcons.chat_bubble_text_fill,
                       color: Colors.white),
-                  () => Get.to(() => const ChatScreen(), transition: Transition.rightToLeft, duration: const Duration(seconds: 1)
-                  )
-              ),
+                  () => Get.to(() => const ChatScreen(),
+                      transition: Transition.rightToLeft,
+                      duration: const Duration(seconds: 1))),
             ],
           ),
           const SizedBox(

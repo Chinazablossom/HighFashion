@@ -18,17 +18,18 @@ class SearchScreen extends StatelessWidget {
     return DefaultTabController(
       length: 8,
       child: Scaffold(
-        appBar: HAppBar(
-          backArrowVisible: false,
-          automaticallyImplyLeading: true,
+        appBar: AppBar(
           title: const Text(
             "Search",
             style: TextStyle(fontSize: 24),
           ),
-          centerTiltle: false,
+          centerTitle: false,
           actions: [
-            ReuseableWidgets().buildStackNotificationIcon(
-                63, const Icon(CupertinoIcons.chat_bubble_text_fill), () => null),
+            Padding(
+              padding: const EdgeInsets.only(right: 16.0),
+              child: ReuseableWidgets().buildStackNotificationIcon(
+                  63, const Icon(CupertinoIcons.chat_bubble_text_fill), () => null),
+            ),
           ],
         ),
         body: NestedScrollView(
@@ -135,7 +136,7 @@ class SearchScreen extends StatelessWidget {
                     children: [
                       const Text("Top Selling",style: TextStyle(fontFamily: interBold,fontSize: 20,),),
                       ReuseableWidgets().buildProductDisplay(() => null, "Accessories", [
-                        corsetImgPath,ankaraImgPath,jewelryAndNailImgPath,maxiSkirtImgPath
+                        "assets/images/image 52.png","assets/images/image 108.png",jewelryAndNailImgPath,maxiSkirtImgPath
                       ]),
                       const Text("Trending",style: TextStyle(fontFamily: interBold,fontSize: 20,),),
                       const SizedBox(height: 8,),
@@ -190,7 +191,7 @@ class SearchScreen extends StatelessWidget {
                           addAutomaticKeepAlives: true,
                               (context, index) {
                             return ProductItemCard(
-                                product: Product(image: "assets/images/image 52.png",name: "Classy Top",price:Random().nextInt(1000).toDouble())
+                                product: Product(image: "assets/images/image 115.png",name: "Classy Top",price:Random().nextInt(1000).toDouble())
                             );
                           },
                         ),

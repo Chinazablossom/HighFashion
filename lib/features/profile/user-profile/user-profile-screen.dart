@@ -112,9 +112,8 @@ class UserProfileScreen extends StatelessWidget {
                 ))),
         childOp: Column(
           children: [
-            HAppBar(
-              centerTiltle: false,
-              backArrowVisible: false,
+            AppBar(
+              centerTitle: false,
               automaticallyImplyLeading: false,
               leading: IconButton(
                   onPressed: Get.back,

@@ -25,7 +25,7 @@ ThemeData highFashionLightTheme() {
 
       cardTheme: const CardTheme().copyWith(
         color: const Color(0xfff4f3fd),
-        surfaceTintColor: Colors.white70,
+        surfaceTintColor: Colors.white,
         shadowColor: Colors.black,
       ),
 
@@ -54,12 +54,16 @@ ThemeData highFashionLightTheme() {
               return Colors.transparent;
             }
           })),
+
       chipTheme: const ChipThemeData().copyWith(
           disabledColor: Colors.grey,
-          labelStyle: const TextStyle(color: Colors.black),
+          labelStyle: const TextStyle(fontSize: 16,color: Colors.black),
           selectedColor: lightWidgetColorBackground,
-          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
           checkmarkColor: Colors.white),
+
+
+
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
               elevation: 3,
@@ -74,6 +78,7 @@ ThemeData highFashionLightTheme() {
                   fontSize: 16,
                   color: Colors.white,
                   fontWeight: FontWeight.w600))),
+
       textTheme: const TextTheme().copyWith(
         headlineLarge: const TextStyle().copyWith(
             fontSize: 30, fontWeight: FontWeight.bold, color: Colors.black),
@@ -109,6 +114,7 @@ ThemeData highFashionLightTheme() {
             const TextStyle().copyWith(fontSize: 14, color: Colors.black),
         floatingLabelStyle: const TextStyle()
             .copyWith(fontSize: 12, color: Colors.black.withOpacity(0.8)),
+
         border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
             borderSide: const BorderSide(color: Colors.grey, width: 1)),
@@ -147,16 +153,20 @@ ThemeData highFashionDarkTheme() {
             fontWeight: FontWeight.w600,
             color: Colors.white),
       ),
+
       cardTheme: const CardTheme().copyWith(
         color: Colors.black,
-        surfaceTintColor: Colors.black,
+        surfaceTintColor: Colors.black,shadowColor: Colors.white
       ),
+
       chipTheme: const ChipThemeData().copyWith(
           disabledColor: Colors.grey,
           labelStyle: const TextStyle(color: Colors.white),
           selectedColor: darkWidgetColorBackground,
           padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
           checkmarkColor: Colors.white),
+
+
       bottomSheetTheme: const BottomSheetThemeData().copyWith(
         backgroundColor: Colors.white,
         modalBackgroundColor: const Color(0xfff1f3f5),
@@ -181,6 +191,7 @@ ThemeData highFashionDarkTheme() {
               return Colors.transparent;
             }
           })),
+
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
               elevation: 3,
@@ -195,6 +206,7 @@ ThemeData highFashionDarkTheme() {
                   fontSize: 16,
                   color: Colors.black,
                   fontWeight: FontWeight.w600))),
+
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
           backgroundColor: Colors.white, foregroundColor: Colors.black),
       textButtonTheme: TextButtonThemeData(

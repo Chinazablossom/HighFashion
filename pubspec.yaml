@@ -57,6 +57,7 @@ dependencies:
   firebase_core: ^2.27.0
   firebase_storage: ^11.6.9
   flutter_staggered_grid_view: ^0.7.0
+  flutter_pannable_rating_bar: ^2.7.2+1
 
 dev_dependencies:
   flutter_test:

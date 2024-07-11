@@ -1,4 +1,4 @@
-enum ItemSizes { XL, L, M, S, XS }
+enum ItemSizes { XS,S,M,L, XL, XXL, XXXL }
 
 enum DeliveryStatus { processing, shipped, delivered }
 

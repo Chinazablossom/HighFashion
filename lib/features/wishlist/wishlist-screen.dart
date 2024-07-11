@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
@@ -14,14 +15,22 @@ class WishListScreen extends StatelessWidget {
     final FavoritesController favoritesController = Get.put(FavoritesController());
 
     return Scaffold(
-        appBar: const HAppBar(
-          centerTiltle: true,
+        appBar:  AppBar(
+          centerTitle: false,
           automaticallyImplyLeading: false,
           title: Text(
             "Wishlist",
             style: TextStyle(fontFamily: interExtraBold, fontSize: 22),
           ),
-          backArrowVisible: true,
+          leading: GestureDetector(
+              onTap: (){
+                Navigator.pop(context) ;
+              },
+              child: const Icon(
+                CupertinoIcons.back,
+                size: 30,
+              )),
+
         ),
         body: Obx(() {
           return favoritesController.favorites.isEmpty
@@ -54,8 +63,7 @@ class WishListScreen extends StatelessWidget {
                           childCount: favoritesController.favorites.length,
                           addAutomaticKeepAlives: true,
                           (context, index) {
-                            final product =
-                                favoritesController.favorites[index];
+                            final product = favoritesController.favorites[index];
                             return ProductItemCard(product: product);
                           },
                         ),

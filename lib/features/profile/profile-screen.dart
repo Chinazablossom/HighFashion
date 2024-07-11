@@ -18,13 +18,22 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: HAppBar(
-        centerTiltle: false,
+      appBar: AppBar(
+        centerTitle: false,
         automaticallyImplyLeading: false,
         title: const Text(
           "Profile",
           style: TextStyle(fontFamily: interBold, fontSize: 26),
-        ), actions: [
+        ),
+        leading: GestureDetector(
+            onTap: (){
+              Navigator.pop(context) ;
+            },
+            child: const Icon(
+              CupertinoIcons.back,
+              size: 30,
+            )),
+        actions: [
         ReuseableWidgets().buildStackNotificationIcon(
             63,
             const Icon(CupertinoIcons.chat_bubble_text_fill),
@@ -32,7 +41,6 @@ class ProfileScreen extends StatelessWidget {
             )
         ),
       ],
-        backArrowVisible: false,
       ),
       body: SafeArea(
         child: SingleChildScrollView(

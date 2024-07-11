@@ -1,9 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:high_fashion/features/product/product-detail.dart';
 
 import 'core/theme/theme.dart';
+import 'features/home/screens/home.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       darkTheme: highFashionDarkTheme(),
       theme: highFashionLightTheme(),
-      home: const ProductDetailScreen(),
+      home: const Home(),
     );
   }
 }
