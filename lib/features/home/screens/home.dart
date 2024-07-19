@@ -19,9 +19,9 @@ class Home extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: Obx(
         () => CurvedNavigationBar(
-            backgroundColor: isLightMode(context) ? Colors.white : Colors.black,
+            backgroundColor: isLightMode(context) ? Colors.white : darkBackground,
             color: isLightMode(context) ? Colors.black : Colors.white,
-            buttonBackgroundColor: lightWidgetColorBackground,
+            buttonBackgroundColor: isLightMode(context) ? lightWidgetColorBackground : darkWidgetColorBackground,
             animationCurve: Curves.easeIn,
             animationDuration: const Duration(milliseconds: 350),
             index: controller.selectedIndex.value,

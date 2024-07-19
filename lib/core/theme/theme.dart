@@ -8,6 +8,8 @@ ThemeData highFashionLightTheme() {
   return ThemeData.light(
     useMaterial3: true,
   ).copyWith(
+
+
       appBarTheme: const AppBarTheme().copyWith(
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.transparent,
@@ -138,7 +140,8 @@ ThemeData highFashionLightTheme() {
 ///   DARK THEME
 ThemeData highFashionDarkTheme() {
   return ThemeData.dark(useMaterial3: true).copyWith(
-      scaffoldBackgroundColor: Colors.black,
+      scaffoldBackgroundColor: darkBackground,
+
 
       appBarTheme: const AppBarTheme().copyWith(
         backgroundColor: Colors.transparent,
@@ -220,8 +223,7 @@ ThemeData highFashionDarkTheme() {
             fontSize: 22, fontWeight: FontWeight.w600, color: Colors.white),
         bodyLarge: const TextStyle().copyWith(
             fontSize: 18, fontWeight: FontWeight.w500, color: Colors.black),
-        bodyMedium:
-            const TextStyle().copyWith(fontSize: 16, color: Colors.white),
+        bodyMedium: const TextStyle().copyWith(fontSize: 16, color: Colors.white),
         bodySmall: const TextStyle().copyWith(
             fontSize: 14, fontWeight: FontWeight.normal, color: Colors.white),
         titleLarge: const TextStyle().copyWith(
@@ -237,6 +239,7 @@ ThemeData highFashionDarkTheme() {
         labelSmall: const TextStyle().copyWith(
             fontSize: 12, fontWeight: FontWeight.normal, color: Colors.white),
       ),
+
       inputDecorationTheme: const InputDecorationTheme().copyWith(
         prefixIconColor: Colors.white,
         suffixIconColor: Colors.white,
@@ -255,7 +258,7 @@ ThemeData highFashionDarkTheme() {
         focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
             borderSide:
-                const BorderSide(color: darkWidgetColorBackground, width: 1.5)),
+                const BorderSide(color: Colors.white, width: 1.5)),
         errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(16),
             borderSide: const BorderSide(color: Colors.red, width: 1)),

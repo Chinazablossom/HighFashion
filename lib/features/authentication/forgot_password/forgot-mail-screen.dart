@@ -23,7 +23,7 @@ class ForgotMailScreen extends StatelessWidget {
             bgRightPos: 0,
             bgBottomPos: 0,
             child: ReuseableWidgets().buildBackgroundContainer(
-              lightBackground,
+              isLightMode(context) ? lightBackground : darkBackground,
               90,
               0,
               0,

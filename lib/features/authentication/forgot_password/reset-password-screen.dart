@@ -1,17 +1,18 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:high_fashion/core/utils/constanst/colors.dart';
-import 'package:high_fashion/features/authentication/verification/otp/otp-ui.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../core/utils/constanst/assetsPaths.dart';
+import '../../../core/utils/constanst/colors.dart';
 import '../../../core/utils/helper-functions/helper-functions.dart';
 import '../../shared-widgets/sharedWidgets.dart';
 import '../ui/loginScreen.dart';
 
-class ForgotPhoneScreen extends StatelessWidget {
-  const ForgotPhoneScreen({super.key});
+class ResetPasswordScreen extends StatelessWidget {
+  const ResetPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -47,22 +48,33 @@ class ForgotPhoneScreen extends StatelessWidget {
                             height: 4,
                           ),
                           const Text(
-                              "Enter your Phone number below to receive a One-Time Password to reset your password.",
+                              "Your new password must be different from your previously used passwords.",
                               style: TextStyle(
-                                  fontSize: 15, fontFamily: interRegular)),
+                                  fontSize: 15, fontFamily: interRegular,color: Colors.grey)),
                           const SizedBox(
                             height: 30,
                           ),
                           TextFormField(
                             decoration: const InputDecoration(
-                                prefixIcon: Icon(Iconsax.call_copy)),
+                                suffixIcon: Icon(Iconsax.eye_slash_copy),
+                            labelText: "New Password"
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 25,
+                          ),
+                          TextFormField(
+                            decoration: const InputDecoration(
+                                prefixIcon: Icon(Iconsax.eye_slash_copy),
+                                labelText: "Repeat Password"
+                            ),
                           ),
                           const SizedBox(
                             height: 25,
                           ),
                           ReuseableWidgets()
-                              .largeAppBtn("Next", () {OTPBottomSheet()
-                                .buildShowModalBottomSheet(context, "phone");
+                              .largeAppBtn("Create New Password", () {
+
                           },isLightMode(context)
                               ? lightWidgetColorBackground
                               : darkWidgetColorBackground,Colors.white
@@ -96,4 +108,3 @@ class ForgotPhoneScreen extends StatelessWidget {
             )));
   }
 }
-

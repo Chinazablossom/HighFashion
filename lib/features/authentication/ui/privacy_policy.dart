@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:high_fashion/core/utils/constanst/assetsPaths.dart';
 import 'package:high_fashion/core/utils/constanst/colors.dart';
@@ -13,6 +14,15 @@ class PrivacyPolicyScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
+        automaticallyImplyLeading: false,
+        leading: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: const Icon(
+              CupertinoIcons.back,
+              size: 30,
+            )),
         title: const Text(
           "Privacy Policy",
           style: TextStyle(fontFamily: interExtraBold, fontSize: 22),

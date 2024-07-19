@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:high_fashion/core/utils/constanst/colors.dart';
+import 'package:high_fashion/core/utils/constanst/texts.dart';
 import 'package:high_fashion/features/product/reviews-screen.dart';
 import 'package:high_fashion/features/shared-widgets/sharedWidgets.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
@@ -18,20 +19,28 @@ class ProductDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final FavoritesController favoritesController = Get.put(FavoritesController());
-    final ProductDetailController productDetailController = Get.put(ProductDetailController());
+    final FavoritesController favoritesController =
+        Get.put(FavoritesController());
+    final ProductDetailController productDetailController =
+        Get.put(ProductDetailController());
 
     return Scaffold(
       bottomNavigationBar: Container(
         height: 90,
         decoration: BoxDecoration(
-            borderRadius: const BorderRadius.only(topLeft: Radius.circular(40), topRight: Radius.circular(0),bottomLeft: Radius.circular(0),bottomRight: Radius.circular(0)  ),
+            borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(40),
+                topRight: Radius.circular(0),
+                bottomLeft: Radius.circular(0),
+                bottomRight: Radius.circular(0)),
             boxShadow: [
-              BoxShadow(color: isLightMode(context) ? Colors.black54 : Colors.white,blurRadius: 10.0,spreadRadius: 0.5,blurStyle: BlurStyle.outer)
-            ],color: isLightMode(context) ? Colors.white : Colors.white10
-
-        ),
-
+              BoxShadow(
+                  color: isLightMode(context) ? Colors.black54 : Colors.white,
+                  blurRadius: 10.0,
+                  spreadRadius: 0.5,
+                  blurStyle: BlurStyle.outer)
+            ],
+            color: isLightMode(context) ? Colors.white : Colors.white10),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Row(
@@ -40,20 +49,38 @@ class ProductDetailScreen extends StatelessWidget {
               const Expanded(
                 child: Column(
                   children: [
-                    Text("Total Price",style: TextStyle(color: Colors.grey),),
-                    Text("₦${84}",style: TextStyle(fontSize: 22,fontWeight: FontWeight.w500,),),
+                    Text(
+                      "Total Price",
+                      style: TextStyle(color: Colors.grey),
+                    ),
+                    Text(
+                      "₦${84}",
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
                   ],
                 ),
               ),
-              const SizedBox(width: 50,),
+              const SizedBox(
+                width: 50,
+              ),
               Expanded(
-                flex: 2,
+                  flex: 2,
                   child: FilledButton.icon(
-                      onPressed: () {},
-                      icon: const Icon(Iconsax.bag_2),
-                      label: const Text("Add to Cart"), style: const ButtonStyle(iconSize: MaterialStatePropertyAll(30),
-                  fixedSize: MaterialStatePropertyAll(Size(double.infinity,50)),backgroundColor:  MaterialStatePropertyAll(lightWidgetColorBackground),foregroundColor: MaterialStatePropertyAll(Colors.white)
-                  ),))
+                    onPressed: () {},
+                    icon: const Icon(Iconsax.bag_2),
+                    label: const Text("Add to Cart"),
+                    style: const ButtonStyle(
+                        iconSize: MaterialStatePropertyAll(30),
+                        fixedSize:
+                            MaterialStatePropertyAll(Size(double.infinity, 50)),
+                        backgroundColor: MaterialStatePropertyAll(
+                            lightWidgetColorBackground),
+                        foregroundColor:
+                            MaterialStatePropertyAll(Colors.white)),
+                  ))
             ],
           ),
         ),
@@ -180,7 +207,17 @@ class ProductDetailScreen extends StatelessWidget {
                           width: 6,
                         ),
                         Text(
-                          "${[1.5,2.0,3.4,3.5,5.0,4.0,4.5,3.0,2.5].elementAt(Random().nextInt(9))}",
+                          "${[
+                            1.5,
+                            2.0,
+                            3.4,
+                            3.5,
+                            5.0,
+                            4.0,
+                            4.5,
+                            3.0,
+                            2.5
+                          ].elementAt(Random().nextInt(9))}",
                           style: const TextStyle(fontWeight: FontWeight.w600),
                         )
                       ],
@@ -198,23 +235,15 @@ class ProductDetailScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(right: 8, left: 8),
                   child: Obx(
                     () => Text(
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam in scelerisque sem. Mauris"
-                          "volutpat, dolor id interdum ullamcorper, risus dolor egestas lectus, sit amet mattis purus"
-                          "dui nec risus. Maecenas non sodales nisi, vel dictum dolor. Class aptent taciti sociosqu ad"
-                          "litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse blandit eleifend"
-                          "diam, vel rutrum tellus vulputate quis. Aliquam eget libero aliquet, imperdiet nisl a,"
-                          "ornare ex. Sed rhoncus est ut libero porta lobortis. Fusce in dictum tellus.\n"
-                          "Suspendisse interdum ornare ante. Aliquam nec cursus lorem. Morbi id magna felis. Vivamus"
-                          "egestas, est a condimentum egestas, turpis nisl iaculis ipsum, in dictum tellus dolor sed"
-                          "neque. Morbi tellus erat, dapibus ut sem a, iaculis tincidunt dui. Interdum et malesuada"
-                          "fames ac ante ipsum primis in faucibus. Curabitur et eros porttitor, ultricies urna vitae,"
-                          "molestie nibh. Phasellus at commodo eros, non aliquet metus. Sed maximus nisl nec dolor"
-                          "bibendum, vel congue leo egestas.",
-                      maxLines:
-                          productDetailController.isProductDetailNotExpanded.value ? 2 : 1000,
+                      defaultText,
+                      maxLines: productDetailController
+                              .isProductDetailNotExpanded.value
+                          ? 2
+                          : 1000,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                          color: productDetailController.isProductDetailNotExpanded.value
+                          color: productDetailController
+                                  .isProductDetailNotExpanded.value
                               ? Colors.grey
                               : Colors.black),
                     ),
@@ -227,7 +256,8 @@ class ProductDetailScreen extends StatelessWidget {
                     child: Obx(
                       () => InkWell(
                           child: Text(
-                              productDetailController.isProductDetailNotExpanded.value
+                              productDetailController
+                                      .isProductDetailNotExpanded.value
                                   ? "Read more"
                                   : "Read less",
                               style: TextStyle(
@@ -236,8 +266,10 @@ class ProductDetailScreen extends StatelessWidget {
                                       : darkWidgetColorBackground,
                                   decoration: TextDecoration.underline)),
                           onTap: () {
-                            productDetailController.isProductDetailNotExpanded.value =
-                                !productDetailController.isProductDetailNotExpanded.value;
+                            productDetailController
+                                    .isProductDetailNotExpanded.value =
+                                !productDetailController
+                                    .isProductDetailNotExpanded.value;
                           }),
                     ),
                   ),
@@ -264,30 +296,39 @@ class ProductDetailScreen extends StatelessWidget {
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                 ),
                 const Row(
-                    children: [
-                      Expanded(
-                          child: SizedBox(
-                              height: 50,
-                              child: SizesList(
-                                  itemsList: [
-
-                                    SizesChoicesChip(label: "XS", toolTip: "Extra Small", index: 0),
-                                    SizesChoicesChip(label: "S", toolTip: "Small", index: 1),
-                                    SizesChoicesChip(label: "M", toolTip: "Medium", index: 2),
-                                    SizesChoicesChip(label: "L", toolTip: "Large", index: 3),
-                                    SizesChoicesChip(label: "XL", toolTip: "Extra Large", index: 4),
-                                    SizesChoicesChip(label: "XXL", toolTip: "Extra Extra Large", index: 5),
-
-
-                                  ],
-                                  ))),
-                    ],
-                  ),
+                  children: [
+                    Expanded(
+                        child: SizedBox(
+                            height: 50,
+                            child: SizesList(
+                              itemsList: [
+                                SizesChoicesChip(
+                                    label: "XS",
+                                    toolTip: "Extra Small",
+                                    index: 0),
+                                SizesChoicesChip(
+                                    label: "S", toolTip: "Small", index: 1),
+                                SizesChoicesChip(
+                                    label: "M", toolTip: "Medium", index: 2),
+                                SizesChoicesChip(
+                                    label: "L", toolTip: "Large", index: 3),
+                                SizesChoicesChip(
+                                    label: "XL",
+                                    toolTip: "Extra Large",
+                                    index: 4),
+                                SizesChoicesChip(
+                                    label: "XXL",
+                                    toolTip: "Extra Extra Large",
+                                    index: 5),
+                              ],
+                            ))),
+                  ],
+                ),
                 const SizedBox(
                   height: 16,
                 ),
                 Obx(
-                    () => RichText(
+                  () => RichText(
                       text: TextSpan(children: [
                     TextSpan(
                         text: "Select Color: ",
@@ -298,29 +339,23 @@ class ProductDetailScreen extends StatelessWidget {
                                 ? Colors.black
                                 : Colors.white)),
                     TextSpan(
-                        text: productDetailController.selectedColor.value ,
+                        text: productDetailController.selectedColor.value,
                         style: const TextStyle(
                             fontSize: 17,
                             fontWeight: FontWeight.w500,
                             color: Colors.grey)),
                   ])),
                 ),
-                const Row(
-                    children: [
-                      Expanded(
-                          child: SizedBox(
-                              height: 50,
-                              child: SizesList(
-                                  itemsList: [
-                                    ColorChoicesChip(),
-                                    ColorChoicesChip(),
-                                    ColorChoicesChip(),
-                                    ColorChoicesChip(),
-                                    ColorChoicesChip(),
-                                  ],
-                                  ))),
-                    ],
-                  ),
+                 Row(
+                  children: [
+                    Expanded(
+                        child: SizedBox(
+                            height: 50,
+                            child: SizesList(
+                              itemsList:  List.generate(5, (index) =>  ColorChoicesChip()),
+                            ))),
+                  ],
+                ),
                 const SizedBox(
                   height: 12,
                 ),
@@ -335,75 +370,20 @@ class ProductDetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                const SizedBox(height: 12,),
-                ReuseableWidgets().buildTextRow((){
-                  Get.to(() => const ReviewsAndRatings(), transition: Transition.rightToLeft, duration: const Duration(seconds: 1));
-
-                },CupertinoIcons.checkmark_seal_fill,"Reviews (99+)",CupertinoIcons.forward,isLightMode(context)),
-
-
+                const SizedBox(
+                  height: 12,
+                ),
+                ReuseableWidgets().buildTextRow(() {
+                  Get.to(() => const ReviewsAndRatings(),
+                      transition: Transition.rightToLeft,
+                      duration: const Duration(seconds: 1));
+                }, CupertinoIcons.checkmark_seal_fill, "Reviews (99+)",
+                    CupertinoIcons.forward, isLightMode(context)),
               ],
             ),
           )
         ],
       )),
-    );
-  }
-}
-
-class ColorChoicesChip extends StatelessWidget {
-  const ColorChoicesChip({
-    super.key,
-  });
-
-
-
-
-  @override
-  Widget build(BuildContext context) {
-    final ProductDetailController productDetailController = Get.put(ProductDetailController());
-    final index = Random().nextInt(30);
-
-    return Obx(
-      () => ChoiceChip(selected: productDetailController.selectedColor.value == colorNames[index],
-          labelStyle: TextStyle(fontSize: 18,color: productDetailController.selectedColor.value == colorNames[index] ? Colors.white : null ),
-           onSelected: (size){
-             productDetailController.selectedColor.value = colorNames[index];
-           },
-          selectedColor: colorList[index] ,
-        backgroundColor:colorList[index]  ,
-          shape: const CircleBorder(),
-          labelPadding: const EdgeInsets.all(0), label: const Text(""),
-
-
-
-      ),
-    );
-  }
-}
-
-
-class SizesChoicesChip extends StatelessWidget {
-  const SizesChoicesChip({
-    super.key, required this.label, required this.toolTip, required this.index,
-  });
-
-  final String label;
-  final String toolTip;
-  final int index;
-
-
-  @override
-  Widget build(BuildContext context) {
-    final ProductDetailController productDetailController = Get.put(ProductDetailController());
-
-    return Obx(
-      () =>  ChoiceChip(label: Text(label), selected: productDetailController.selectedSize.value == label,
-          labelStyle: TextStyle(fontSize: 18,color: productDetailController.selectedSize.value == label ? Colors.white : null ),
-           onSelected: (size){
-             productDetailController.selectedSize.value = label;
-           }, tooltip: toolTip,
-      ),
     );
   }
 }

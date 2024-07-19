@@ -22,7 +22,7 @@ class UserProfileScreen extends StatelessWidget {
         bgRightPos: 0,
         bgBottomPos: 0,
         child: ReuseableWidgets().buildBackgroundContainer(
-            isLightMode(context) ? Colors.white : Colors.black,
+            isLightMode(context) ? Colors.white : darkBackground,
             65,
             0,
             0,

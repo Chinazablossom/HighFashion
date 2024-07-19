@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:high_fashion/features/authentication/ui/loginScreen.dart';
 
 import 'core/theme/theme.dart';
 import 'features/home/screens/home.dart';
@@ -25,7 +26,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       darkTheme: highFashionDarkTheme(),
       theme: highFashionLightTheme(),
-      home: const Home(),
+      home: const LoginScreen(),
     );
   }
 }

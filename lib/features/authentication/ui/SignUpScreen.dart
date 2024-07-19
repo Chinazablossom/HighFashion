@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:high_fashion/features/authentication/ui/loginScreen.dart';
+import 'package:high_fashion/features/authentication/ui/privacy_policy.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../core/utils/constanst/assetsPaths.dart';
@@ -84,7 +85,9 @@ class SignUpScreen extends StatelessWidget {
                             width: 4,
                           ),
                           GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              Get.to( () => PrivacyPolicyScreen(),transition: Transition.native,duration: Duration(seconds: 1));
+                            },
                             child: Text(
                               "Terms & Condition",
                               style: TextStyle(

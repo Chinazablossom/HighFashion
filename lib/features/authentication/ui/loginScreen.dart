@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:high_fashion/features/home/screens/home.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../core/utils/constanst/assetsPaths.dart';
@@ -23,7 +24,7 @@ class LoginScreen extends StatelessWidget {
           bgRightPos: 0,
           bgBottomPos: 0,
           child: ReuseableWidgets().buildBackgroundContainer(
-            lightBackground,
+            isLightMode(context) ? lightBackground : darkBackground,
             75,
             0,
             0,
@@ -107,10 +108,14 @@ class LoginScreen extends StatelessWidget {
                         height: 20,
                       ),
                       ReuseableWidgets().largeAppBtn("Login", () {
-                        },isLightMode(context)
-                          ? lightWidgetColorBackground
-                          : darkWidgetColorBackground,Colors.white
-                      ),
+                        Get.to(() => const Home(),
+                            transition: Transition.native,
+                            duration: const Duration(seconds: 1));
+                      },
+                          isLightMode(context)
+                              ? lightWidgetColorBackground
+                              : darkWidgetColorBackground,
+                          Colors.white),
                       const SizedBox(
                         height: 35,
                       ),
@@ -191,7 +196,9 @@ class LoginScreen extends StatelessWidget {
                           ),
                           GestureDetector(
                             onTap: () {
-                              Get.offAll(() => const SignUpScreen(),transition: Transition.native,duration: const Duration(seconds: 1 ));
+                              Get.offAll(() => const SignUpScreen(),
+                                  transition: Transition.native,
+                                  duration: const Duration(seconds: 1));
                             },
                             child: Text("Sign Up",
                                 style: TextStyle(

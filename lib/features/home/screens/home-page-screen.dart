@@ -7,6 +7,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
 import 'package:high_fashion/core/models/product_model.dart';
 import 'package:high_fashion/core/utils/constanst/assetsPaths.dart';
+import 'package:high_fashion/core/utils/constanst/colors.dart';
 import 'package:high_fashion/features/chat/chat-screen.dart';
 import 'package:high_fashion/features/home/controllers/count-down-controller.dart';
 import 'package:high_fashion/features/shared-widgets/sharedWidgets.dart';
@@ -30,7 +31,7 @@ class HomePageScreen extends StatelessWidget {
       bgRightPos: 0,
       bgBottomPos: -0.1,
       child: ReuseableWidgets().buildBackgroundContainer(
-          isLightMode(context) ? Colors.white : Colors.black,
+          isLightMode(context) ? Colors.white : darkBackground,
           40,
           40,
           0,
