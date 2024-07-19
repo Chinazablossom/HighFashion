@@ -954,7 +954,7 @@ class buildUserComment extends StatelessWidget {
   const buildUserComment({
     super.key,
     this.userName = "Anonymous",
-    this.userImage = "assets/images/image 500.png",
+    this.userImage = nullUser,
     this.userComment = defaultText,
     required this.context,
     required this.hasResponse,

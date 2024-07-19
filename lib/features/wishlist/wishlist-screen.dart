@@ -20,7 +20,7 @@ class WishListScreen extends StatelessWidget {
           automaticallyImplyLeading: false,
           title: Text(
             "Wishlist",
-            style: TextStyle(fontFamily: interExtraBold, fontSize: 22),
+            style: TextStyle(fontFamily: interBold, fontSize: 22),
           ),
           leading: GestureDetector(
               onTap: (){

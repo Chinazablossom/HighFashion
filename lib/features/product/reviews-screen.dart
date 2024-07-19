@@ -14,7 +14,7 @@ class ReviewsAndRatings extends StatelessWidget {
         centerTitle: false,
         title: const Text(
           "Reviews And Ratings",
-          style: TextStyle(fontFamily: interExtraBold, fontSize: 22),
+          style: TextStyle(fontFamily: interBold, fontSize: 22),
         ),
         automaticallyImplyLeading: false,
         leading: GestureDetector(

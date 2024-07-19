@@ -38,6 +38,23 @@ class UserProfileScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children:[
                       // User Image
+                      Container(height: 150,decoration: const BoxDecoration(
+                          image: DecorationImage(image: AssetImage(nullUser))
+                      ),),
+                      Positioned(
+                          top: 95,
+                          left: 185,
+                          right: 85,
+                          bottom: 5,
+                          child: Card(
+                            color: isLightMode(context) ? lightWidgetColorBackground : darkBackground,
+                            shape: CircleBorder(),
+                            elevation: 3,
+                            child: Container(
+                              child: IconButton(onPressed: (){},
+                                  icon: const Icon(Iconsax.edit_2_copy,color: Colors.white,size: 25,)),
+                            ),
+                          )),
                       const Center(
 
                         child:

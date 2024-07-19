@@ -5,6 +5,7 @@ const jewelryAndNailImgPath = "assets/images/IMG_5144.png";
 const maxiSkirtImgPath = "assets/images/IMG_5147.jpg";
 const classyLookImgPath = "assets/images/IMG_5148.jpg";
 const header = "assets/images/headerColored.png";
+const nullUser = "assets/images/image 500.png";
 const headerBlack = "assets/images/headerBlack.png";
 const headerLight = "assets/images/header_light.png";
 const headerColoredBlur = "assets/images/header_blurred_Color.png";
@@ -20,6 +21,8 @@ const appleIcon = "assets/icons/apple_icon.png";
 const appleIconDark = "assets/icons/apple_icon_dark.png";
 const googleIcon = "assets/icons/g_icon.png";
 const faceBookIcon = "assets/icons/facebook_icon.png";
+
+
 
 const bagsIcon  =  "assets/icons/bags.png";
 const bikiniIcon =  "assets/icons/bikini.png";
