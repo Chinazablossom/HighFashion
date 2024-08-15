@@ -72,7 +72,9 @@ class EmailVerificationScreen extends StatelessWidget {
               //   RESEND VERIFICATION LINK BTN
               TextButton.icon(
                 icon: const Icon(CupertinoIcons.arrow_clockwise,color: blueColor,),
-                onPressed: () {},
+                onPressed: () {
+                  // TODO: RESEND VERIFICATION LINK
+                },
                 label: const Text(
                   "Resend Verification Link",
                   style: TextStyle(

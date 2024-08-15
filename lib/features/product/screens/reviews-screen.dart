@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../core/utils/constanst/assetsPaths.dart';
-import '../shared-widgets/sharedWidgets.dart';
+import '../../../core/utils/constanst/assetsPaths.dart';
+import '../../shared-widgets/sharedWidgets.dart';
 
 class ReviewsAndRatings extends StatelessWidget {
   const ReviewsAndRatings({super.key});

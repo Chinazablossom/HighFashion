@@ -56,7 +56,10 @@ class OTPBottomSheet {
 
               //  VERIFICATION BTN
               ReuseableWidgets()
-                  .largeAppBtn("Verify", () => null /*ResetPasswordScreen()*/,isLightMode(context)
+                  .largeAppBtn("Verify", () => null
+                  /*
+                   TODO: VERIFY THE OTP
+                   ResetPasswordScreen()*/,isLightMode(context)
                   ? lightWidgetColorBackground
                   : darkWidgetColorBackground,Colors.white),
             ],

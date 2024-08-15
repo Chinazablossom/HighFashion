@@ -5,7 +5,7 @@ import 'package:high_fashion/features/authentication/ui/loginScreen.dart';
 
 import 'core/theme/theme.dart';
 import 'features/home/screens/user-location-screen.dart';
-import 'features/home/screens/home.dart';
+import 'features/home/screens/nav_screen.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       darkTheme: highFashionDarkTheme(),
       theme: highFashionLightTheme(),
-      home: const CompleteYourProfile(),
+      home: const NavScreen(),
     );
   }
 }

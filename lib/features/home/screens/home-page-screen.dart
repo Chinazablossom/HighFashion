@@ -13,7 +13,7 @@ import 'package:high_fashion/features/home/controllers/count-down-controller.dar
 import 'package:high_fashion/features/shared-widgets/sharedWidgets.dart';
 
 import '../../../core/utils/helper-functions/helper-functions.dart';
-import '../../product/product-detail.dart';
+import '../../product/screens/product-detail.dart';
 import '../../search/search-screen.dart';
 
 class HomePageScreen extends StatelessWidget {
@@ -85,7 +85,9 @@ class HomePageScreen extends StatelessWidget {
                             height: 100,
                             child: CategoriesList(
                               itemsList: catList,
-                              todo: () {},
+                              todo: () {
+                                // TODO: GO TO THE CAT SCREEN FOR THE PARTICULAR ITEM
+                              },
                               radius: 100,
                             ))),
                   ],

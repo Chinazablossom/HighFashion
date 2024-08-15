@@ -13,7 +13,7 @@ import '../../core/models/product_model.dart';
 import '../../core/utils/constanst/assetsPaths.dart';
 import '../../core/utils/constanst/colors.dart';
 import '../../core/utils/constanst/texts.dart';
-import '../product/product-detail-controller.dart';
+import '../product/controllers/product-detail-controller.dart';
 import '../wishlist/controller/wishlist_controller.dart';
 
 class ReuseableWidgets {
@@ -726,6 +726,7 @@ final Map<String, List<Map<String, String>>> brandCategories = {
     {"Mirkd": mirkdLogo},
   ],
 };
+
 final List<Map<String, String>> brands = [
   {"Kixx Shoes": kixxLogo},
   {"Loriem Wears": loriemLogo},
@@ -805,6 +806,7 @@ final logos = [
   tallalywLogo,
   mirkdLogo
 ];
+
 final brandName = [
   "Kixx Shoes",
   "Loriem Wears",
@@ -947,7 +949,6 @@ List<String> colorNames = [
   "DarkViolet",
   "DarkTeal",
 ];
-
 
 
 class buildUserComment extends StatelessWidget {
@@ -1262,59 +1263,5 @@ class ratingRow extends StatelessWidget {
   }
 }
 
-class ColorChoicesChip extends StatelessWidget {
-  const ColorChoicesChip({
-    super.key,
-  });
 
 
-
-
-  @override
-  Widget build(BuildContext context) {
-    final ProductDetailController productDetailController = Get.put(ProductDetailController());
-    final index = Random().nextInt(30);
-
-    return Obx(
-          () => ChoiceChip(selected: productDetailController.selectedColor.value == colorNames[index],
-        labelStyle: TextStyle(fontSize: 18,color: productDetailController.selectedColor.value == colorNames[index] ? Colors.white : null ),
-        onSelected: (size){
-          productDetailController.selectedColor.value = colorNames[index];
-        },
-        selectedColor: colorList[index] ,
-        backgroundColor:colorList[index]  ,
-        shape: const CircleBorder(),
-        labelPadding: const EdgeInsets.all(0), label: const Text(""),
-
-
-
-      ),
-    );
-  }
-}
-
-
-class SizesChoicesChip extends StatelessWidget {
-  const SizesChoicesChip({
-    super.key, required this.label, required this.toolTip, required this.index,
-  });
-
-  final String label;
-  final String toolTip;
-  final int index;
-
-
-  @override
-  Widget build(BuildContext context) {
-    final ProductDetailController productDetailController = Get.put(ProductDetailController());
-
-    return Obx(
-          () =>  ChoiceChip(label: Text(label), selected: productDetailController.selectedSize.value == label,
-        labelStyle: TextStyle(fontSize: 18,color: productDetailController.selectedSize.value == label ? Colors.white : null ),
-        onSelected: (size){
-          productDetailController.selectedSize.value = label;
-        }, tooltip: toolTip,
-      ),
-    );
-  }
-}

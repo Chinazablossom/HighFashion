@@ -64,7 +64,9 @@ class SearchScreen extends StatelessWidget {
                                     fontSize: 18, fontWeight: FontWeight.w600),
                               ),
                               TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  // TODO: GOTO ALL BRANDS SCREEN AND ALL THE BRANDS WILL BE LISTED OUT
+                                },
                                 child: Text("View all",
                                     style: TextStyle(
                                         color: isLightMode(context)
@@ -113,15 +115,15 @@ class SearchScreen extends StatelessWidget {
                             indicatorColor: isLightMode(context)
                                 ? lightWidgetColorBackground
                                 : darkWidgetColorBackground,
-                            tabs: [
-                              const Tab(text: "Accessories"),
-                              const Tab(text: "Beach Wear"),
-                              const Tab(text: "Bags"),
-                              const Tab(text: "Dresses"),
-                              const Tab(text: "Jewelry"),
-                              const Tab(text: "Shoes"),
-                              const Tab(text: "Shirts"),
-                              const Tab(text: "Skirts"),
+                            tabs: const [
+                              Tab(text: "Accessories"),
+                              Tab(text: "Beach Wear"),
+                              Tab(text: "Bags"),
+                              Tab(text: "Dresses"),
+                              Tab(text: "Jewelry"),
+                              Tab(text: "Shoes"),
+                              Tab(text: "Shirts"),
+                              Tab(text: "Skirts"),
                             ]),
                       ),
                     )),

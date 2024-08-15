@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:high_fashion/features/home/screens/home.dart';
+import 'package:high_fashion/features/home/screens/nav_screen.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../../core/utils/constanst/assetsPaths.dart';
@@ -108,7 +108,7 @@ class LoginScreen extends StatelessWidget {
                         height: 20,
                       ),
                       ReuseableWidgets().largeAppBtn("Login", () {
-                        Get.to(() => const Home(),
+                        Get.to(() => const NavScreen(),
                             transition: Transition.native,
                             duration: const Duration(seconds: 1));
                       },
@@ -151,14 +151,18 @@ class LoginScreen extends StatelessWidget {
                         children: [
                           Flexible(
                             child: IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                // TODO: GOOGLE LOGIN
+                              },
                               icon: const Image(
                                   height: 55, image: AssetImage(googleIcon)),
                             ),
                           ),
                           Flexible(
                             child: IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                // TODO: FACEBOOK LOGIN
+                              },
                               icon: const Image(
                                   height: 55, image: AssetImage(faceBookIcon)),
                             ),

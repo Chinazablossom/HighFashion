@@ -9,8 +9,8 @@ import '../../../core/utils/constanst/colors.dart';
 import '../../../core/utils/helper-functions/helper-functions.dart';
 import '../controllers/navigation-controller.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class NavScreen extends StatelessWidget {
+  const NavScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -107,7 +107,10 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   ReuseableWidgets().largeAppBtn(
                     "Sign Up",
-                    () {},isLightMode(context)
+                    () {
+                      // TODO: SEND SIGN NEW USER REQUEST
+
+                    },isLightMode(context)
                       ? lightWidgetColorBackground
                       : darkWidgetColorBackground,Colors.white
                   ),
@@ -146,14 +149,18 @@ class SignUpScreen extends StatelessWidget {
                     children: [
                       Flexible(
                         child: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            // TODO: GOOGLE SIGN UP
+                          },
                           icon: const Image(
                               height: 50, image: AssetImage(googleIcon)),
                         ),
                       ),
                       Flexible(
                         child: IconButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            // TODO: FACEBOOK SIGN UP
+                          },
                           icon: const Image(
                               height: 50, image: AssetImage(faceBookIcon)),
                         ),

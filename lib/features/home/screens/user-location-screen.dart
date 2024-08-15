@@ -50,7 +50,9 @@ class CompleteYourProfile extends StatelessWidget {
                   ),
                   ReuseableWidgets().largeAppBtn(
                       "Allow Location Access",
-                      () {},
+                      () {
+                        // TODO: SEND LOCATION PERMISSION
+                      },
                       isLightMode(context)
                           ? lightWidgetColorBackground
                           : darkWidgetColorBackground,
@@ -59,7 +61,9 @@ class CompleteYourProfile extends StatelessWidget {
                     height: 16,
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      // TODO ADD MAP FEATURE TO SELECT LOCATION
+                    },
                     style: ButtonStyle(
                         textStyle: const MaterialStatePropertyAll(TextStyle(
                             fontSize: 18, fontWeight: FontWeight.w500)),

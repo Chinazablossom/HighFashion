@@ -5,14 +5,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:high_fashion/core/utils/constanst/colors.dart';
 import 'package:high_fashion/core/utils/constanst/texts.dart';
-import 'package:high_fashion/features/product/reviews-screen.dart';
+import 'package:high_fashion/features/product/screens/reviews-screen.dart';
 import 'package:high_fashion/features/shared-widgets/sharedWidgets.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
-import '../../core/utils/constanst/assetsPaths.dart';
-import '../../core/utils/helper-functions/helper-functions.dart';
-import '../wishlist/controller/wishlist_controller.dart';
-import 'product-detail-controller.dart';
+import '../../../core/utils/constanst/assetsPaths.dart';
+import '../../../core/utils/helper-functions/helper-functions.dart';
+import '../../wishlist/controller/wishlist_controller.dart';
+import '../controllers/product-detail-controller.dart';
+import '../widets/color-choice-chip.dart';
+import '../widets/sizes-chip.dart';
 
 class ProductDetailScreen extends StatelessWidget {
   const ProductDetailScreen({super.key});
@@ -69,7 +71,9 @@ class ProductDetailScreen extends StatelessWidget {
               Expanded(
                   flex: 2,
                   child: FilledButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      // TODO: ADD TO USER'S CART
+                    },
                     icon: const Icon(Iconsax.bag_2),
                     label: const Text("Add to Cart"),
                     style: const ButtonStyle(
@@ -115,7 +119,9 @@ class ProductDetailScreen extends StatelessWidget {
                     right: 12,
                     top: 35,
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        // TODO: IF IN FAVOURITES IT SHOULD STILL BE MARKED FAVOURITE HERE OR REMOVE
+                      },
                       child: Container(
                         height: 55,
                         width: 55,

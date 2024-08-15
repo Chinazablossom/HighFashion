@@ -27,36 +27,40 @@ class UserProfileScreen extends StatelessWidget {
             0,
             0,
             0,
-            SafeArea(
-                child: SingleChildScrollView(
+            SafeArea(child: SingleChildScrollView(
                   padding: EdgeInsets.only(
                       left: isSmallScreen(context) ? 16 : 50,
                       right: isSmallScreen(context) ? 16 : 50,
                       top: isSmallScreen(context) ? 0 : 20,
-                      bottom: isSmallScreen(context) ? 0 : 30),
+                      bottom: isSmallScreen(context) ? 20 : 30),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children:[
                       // User Image
-                      Container(height: 150,decoration: const BoxDecoration(
-                          image: DecorationImage(image: AssetImage(nullUser))
-                      ),),
-                      Positioned(
-                          top: 95,
-                          left: 185,
-                          right: 85,
-                          bottom: 5,
-                          child: Card(
-                            color: isLightMode(context) ? lightWidgetColorBackground : darkBackground,
-                            shape: CircleBorder(),
-                            elevation: 3,
-                            child: Container(
-                              child: IconButton(onPressed: (){},
-                                  icon: const Icon(Iconsax.edit_2_copy,color: Colors.white,size: 25,)),
-                            ),
-                          )),
+                      Stack(
+                        children: [
+                          Container(height: 130,decoration: const BoxDecoration(
+                              image: DecorationImage(image: AssetImage(nullUser))
+                          ),),
+                          Positioned(
+                              right: isSmallScreen(context) ? 116 : 260,
+                              bottom: 5,
+                              child: Card(
+                                color: isLightMode(context) ? lightWidgetColorBackground : darkBackground,
+                                shape: CircleBorder(),
+                                elevation: 3,
+                                child: Container(
+                                  height: 40,width: 40,
+                                  child: IconButton(onPressed: (){
+                                    // TODO: WILL OPEN CAMERA TO CHANGE USER IMAGE
+                                  },iconSize: 23,
+                                      icon: const Icon(Iconsax.edit_2_copy,color: Colors.white,)),
+                                ),
+                              )),
+                        ],
+                      ),
+                      const SizedBox(height: 6,),
                       const Center(
-
                         child:
                           Text("User Name",style: TextStyle(fontSize: 24,fontWeight: FontWeight.w600)),
 
@@ -156,8 +160,7 @@ class UserProfileScreen extends StatelessWidget {
   }
 
   InkWell buildInkWellText(Function() todo,String label,String data,IconData endIcon,BuildContext context) {
-    return InkWell(
-                      onTap: todo,
+    return InkWell(onTap: todo,
                       splashColor: lightWidgetColorBackground.withOpacity(0.1),
                       borderRadius: BorderRadius.circular(20),
                       child: Column(
