@@ -1,9 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:high_fashion/core/utils/constanst/colors.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
-import '../../../core/utils/helper-functions/helper-functions.dart';
-import '../../shared-widgets/sharedWidgets.dart';
+import '../../core/utils/helper-functions/helper-functions.dart';
+import '../shared-widgets/sharedWidgets.dart';
 
 class CompleteYourProfile extends StatelessWidget {
   const CompleteYourProfile({super.key});
@@ -22,10 +23,10 @@ class CompleteYourProfile extends StatelessWidget {
                   Container(
                     height: 150,
                     width: 150,
-                    decoration: const BoxDecoration(
-                        color: Colors.grey, shape: BoxShape.circle),
+                    decoration:  BoxDecoration(
+                        color: Colors.grey.shade400, shape: BoxShape.circle),
                     child: const Icon(
-                      Iconsax.location,
+                      CupertinoIcons.location_solid,
                       size: 60,
                       color: lightWidgetColorBackground,
                     ),

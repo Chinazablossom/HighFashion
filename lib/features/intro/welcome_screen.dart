@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:high_fashion/features/authentication/ui/loginScreen.dart';
 
-import '../../../core/utils/constanst/assetsPaths.dart';
-import '../../../core/utils/constanst/colors.dart';
-import '../../../core/utils/helper-functions/helper-functions.dart';
-import '../../shared-widgets/sharedWidgets.dart';
+import '../../core/utils/constanst/assetsPaths.dart';
+import '../../core/utils/constanst/colors.dart';
+import '../../core/utils/helper-functions/helper-functions.dart';
+import '../shared-widgets/sharedWidgets.dart';
 import 'onBoardingScreen.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -96,7 +96,7 @@ class WelcomeScreen extends StatelessWidget {
                           )),
                     ])),
                 const SizedBox(
-                  height: 20,
+                  height: 18,
                 ),
                 const Text(
                   "Elevate Your Wardrobe with Exclusive Designs.\nShop Now And Transform Your Looks!",
@@ -104,7 +104,7 @@ class WelcomeScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 16,
                 ),
                 ReuseableWidgets()
                     .largeAppBtn("Lets Get Started", () {
@@ -116,7 +116,7 @@ class WelcomeScreen extends StatelessWidget {
                     ? Colors.white
                     : Colors.black,),
                 const SizedBox(
-                  height: 25,
+                  height: 17,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

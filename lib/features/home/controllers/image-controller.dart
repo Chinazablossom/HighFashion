@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 
 class ImageController extends GetxController {
+  static ImageController get instance => Get.find();
+
   var imageUrlList = <String>[].obs;
 
   @override

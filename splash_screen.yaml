@@ -1,13 +1,13 @@
 flutter_native_splash:
   color: "#ffffff"
-  image: assets/icons/fashion_icon.png
+  image: assets/icons/hf-splash.png
   color_dark: "#000000"
-  image_dark: assets/icons/fashion_icon_dark.png
+  image_dark: assets/icons/hf-splash-dark.png
 
   android_12:
-    image: assets/icons/fashion_icon.png
+    image: assets/icons/hf-splash.png
     icon_background_color: "#ffffff"
-    image_dark: assets/icons/fashion_icon_dark.png
+    image_dark: assets/icons/hf-splash-dark.png
     icon_background_color_dark: "#000000"
 
   web: false

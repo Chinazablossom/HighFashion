@@ -4,6 +4,7 @@ import 'dart:async';
 import 'package:get/get.dart';
 
 class CountDownController extends GetxController{
+  static CountDownController get instance => Get.find();
 
   late Timer _timer;
   var remaingTime = const Duration(days: 5,).obs;

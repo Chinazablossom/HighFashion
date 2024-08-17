@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:high_fashion/core/utils/helper-functions/helper-functions.dart';
 import 'package:high_fashion/features/authentication/ui/privacy_policy.dart';
 import 'package:high_fashion/features/chat/chat-screen.dart';
-import 'package:high_fashion/features/profile/addresses/addrsses.dart';
+import 'package:high_fashion/features/profile/addresses/all-addrsses-screen.dart';
 import 'package:high_fashion/features/profile/payment-methods/payment-screen.dart';
 import 'package:high_fashion/features/profile/settings/settings-screen.dart';
 import 'package:high_fashion/features/profile/user-profile/user-profile-screen.dart';

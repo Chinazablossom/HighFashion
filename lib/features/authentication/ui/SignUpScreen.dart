@@ -17,13 +17,13 @@ class SignUpScreen extends StatelessWidget {
     return Scaffold(
         body: ReuseableWidgets().buildAppScreenBackGround(
       headerImg: headerColoredBlur,
-      bgTopPos: 120,
+      bgTopPos: 110,
       bgLeftPos: 0,
       bgRightPos: 0,
       bgBottomPos: 0,
       child: ReuseableWidgets().buildBackgroundContainer(
         lightBackground,
-        75,
+        70,
         0,
         0,
         0,
@@ -31,7 +31,8 @@ class SignUpScreen extends StatelessWidget {
           child: SingleChildScrollView(
             padding: EdgeInsets.only(
                 left: isSmallScreen(context) ? 18 : 50,
-                top: 25,
+                top: 16,
+                bottom: isSmallScreen(context) ? 8 : 30,
                 right: isSmallScreen(context) ? 12 : 50),
             child: Form(
               child: Column(
@@ -218,7 +219,7 @@ class SignUpScreen extends StatelessWidget {
       ),
       childOp: Stack(children: [
         Positioned(
-            top: 40,
+            top: 38,
             left: 0,
             right: 0,
             child: Column(

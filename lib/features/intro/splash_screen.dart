@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
-import '../../../core/utils/constanst/assetsPaths.dart';
-import '../../../core/utils/helper-functions/helper-functions.dart';
+import '../../core/utils/constanst/assetsPaths.dart';
+import '../../core/utils/helper-functions/helper-functions.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -22,9 +22,7 @@ class _SplashScreenState extends State<SplashScreen>
   void initState() {
     super.initState();
 
-    _controller =
-        AnimationController(vsync: this, duration: const Duration(seconds: 3))
-          ..forward();
+    _controller = AnimationController(vsync: this, duration: const Duration(seconds: 3))..forward();
 
     _animationLeftToRight = Tween<Offset>(
       begin: const Offset(-1.5, 0.0),
@@ -87,7 +85,8 @@ class _SplashScreenState extends State<SplashScreen>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SlideTransition(
+            Image(image: AssetImage("assets/animations/high-fashion-splash.gif"),),
+          /*  SlideTransition(
               position: _animationLeftToRight,
               child: Lottie.asset(isLightMode(context) ? appIcon : appIconDark,
                   width: isSmallScreen(context) ? 300 : 200,
@@ -104,7 +103,7 @@ class _SplashScreenState extends State<SplashScreen>
                     style: TextStyle(
                         fontFamily: rubik,
                         fontWeight: FontWeight.bold,
-                        fontSize: 36))),
+                        fontSize: 36))),*/
           ],
         ),
       ),

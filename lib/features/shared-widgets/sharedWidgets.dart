@@ -26,7 +26,7 @@ class ReuseableWidgets {
         width: double.infinity,
         decoration: BoxDecoration(
           color: color,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(12),
         ),
         child: Center(
             child: Text(label,
