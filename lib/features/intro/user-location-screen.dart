@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:high_fashion/core/utils/constanst/colors.dart';
+import 'package:high_fashion/features/intro/enter-location-screen.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
 import '../../core/utils/helper-functions/helper-functions.dart';
@@ -63,7 +65,9 @@ class CompleteYourProfile extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      // TODO ADD MAP FEATURE TO SELECT LOCATION
+                      Get.to(() => const EnterLocationScreen(),
+                          transition: Transition.native,
+                          duration: const Duration(seconds: 1));
                     },
                     style: ButtonStyle(
                         textStyle: const MaterialStatePropertyAll(TextStyle(

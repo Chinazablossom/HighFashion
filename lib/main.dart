@@ -6,6 +6,7 @@ import 'package:high_fashion/features/authentication/ui/loginScreen.dart';
 import 'core/theme/theme.dart';
 import 'features/intro/user-location-screen.dart';
 import 'features/home/screens/nav_screen.dart';
+import 'features/product/controllers/product-global-controllers.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
@@ -13,6 +14,7 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  Get.put(GlobalController());
   runApp(const MyApp());
 }
 
@@ -27,7 +29,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       darkTheme: highFashionDarkTheme(),
       theme: highFashionLightTheme(),
-      home: const CompleteYourProfile(),
+      home: const NavScreen(),
     );
   }
 }

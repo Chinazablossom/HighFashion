@@ -172,7 +172,9 @@ class AddNewAddressesScreen extends StatelessWidget {
               ),
               ReuseableWidgets().largeAppBtn(
                   "Add New Shipping Address",
-                  () => null,
+                  (){
+                    // TODO: ADD NEW ADDRESS
+                  },
                   isLightMode(context)
                       ? lightWidgetColorBackground
                       : darkWidgetColorBackground,

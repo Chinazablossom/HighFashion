@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:high_fashion/core/utils/constanst/colors.dart';
 import 'package:high_fashion/core/utils/helper-functions/helper-functions.dart';
 import 'package:high_fashion/features/profile/addresses/add-new-address.dart';
-import 'package:high_fashion/features/profile/addresses/addresses-controller.dart';
+import 'package:high_fashion/features/profile/addresses/controllers/new-addresses-controller.dart';
 import 'package:high_fashion/features/profile/addresses/widget/single-address-widget.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
@@ -119,8 +119,8 @@ class AddressesScreen extends StatelessWidget {
                 child: DottedBorder(
                   borderType: BorderType.RRect,
                   strokeCap: StrokeCap.round,color: isLightMode(context) ? lightWidgetColorBackground : Colors.white,
-                  radius: Radius.circular(8),
-                  dashPattern: [8, 5],
+                  radius: const Radius.circular(8),
+                  dashPattern: const [8, 5],
                   strokeWidth: 2,
                   child: Center(
                     child: Text(

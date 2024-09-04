@@ -1,37 +1,38 @@
 ///     IMAGES
-const ankaraImgPath = "assets/images/IMG_5141.png";
-const corsetImgPath = "assets/images/IMG_5142.png";
-const jewelryAndNailImgPath = "assets/images/IMG_5144.png";
+const ankaraImgPath = "assets/images/IMG_5141.webp";
+const corsetImgPath = "assets/images/IMG_5142.webp";
+const jewelryAndNailImgPath = "assets/images/IMG_5144.webp";
 const maxiSkirtImgPath = "assets/images/IMG_5147.jpg";
 const classyLookImgPath = "assets/images/IMG_5148.jpg";
-const header = "assets/images/headerColored.png";
-const nullUser = "assets/images/image 500.png";
-const headerBlack = "assets/images/headerBlack.png";
-const headerLight = "assets/images/header_light.png";
-const headerColoredBlur = "assets/images/header_blurred_Color.png";
-const newShoesCollectionImg = "assets/images/shoe_collection_img.png";
-const newSummerCollectionImg = "assets/images/summer_sales.png";
-const newWinterCollectionImg = "assets/images/winter_sales.png";
-const newBeachCollectionImg = "assets/images/beach_sales.png";
+const header = "assets/images/headerColored.webp";
+const nullUser = "assets/images/image 500.webp";
+const headerBlack = "assets/images/headerBlack.webp";
+const headerLight = "assets/images/header_light.webp";
+const headerColoredBlur = "assets/images/header_blurred_Color.webp";
+const newShoesCollectionImg = "assets/images/shoe_collection_img.webp";
+const newSummerCollectionImg = "assets/images/summer_sales.webp";
+const newWinterCollectionImg = "assets/images/winter_sales.webp";
+const newBeachCollectionImg = "assets/images/beach_sales.webp";
+const demoWear = "assets/images/image 115.webp";
 
 //    ICONS
-const appIcon = "assets/icons/fashion_icon.png";
-const appIconDark = "assets/icons/fashion_ion_dark.png";
-const appleIcon = "assets/icons/apple_icon.png";
-const appleIconDark = "assets/icons/apple_icon_dark.png";
-const googleIcon = "assets/icons/g_icon.png";
-const faceBookIcon = "assets/icons/facebook_icon.png";
+const appIcon = "assets/icons/fashion_icon.webp";
+const appIconDark = "assets/icons/fashion_ion_dark.webp";
+const appleIcon = "assets/icons/apple_icon.webp";
+const appleIconDark = "assets/icons/apple_icon_dark.webp";
+const googleIcon = "assets/icons/g_icon.webp";
+const faceBookIcon = "assets/icons/facebook_icon.webp";
 
 
 
-const bagsIcon  =  "assets/icons/bags.png";
-const bikiniIcon =  "assets/icons/bikini.png";
-const dressIcon =  "assets/icons/dress.png";
-const earringsIcon =  "assets/icons/earrings.png";
-const eyeglassIcon =  "assets/icons/eyeglasses.png";
-const shirtIcon =  "assets/icons/shirt.png";
-const shoeIcon =  "assets/icons/shoe.png";
-const skirtIcon  =  "assets/icons/skirt.png";
+const bagsIcon  =  "assets/icons/bags.webp";
+const bikiniIcon =  "assets/icons/bikini.webp";
+const dressIcon =  "assets/icons/dress.webp";
+const earringsIcon =  "assets/icons/earrings.webp";
+const eyeglassIcon =  "assets/icons/eyeglasses.webp";
+const shirtIcon =  "assets/icons/shirt.webp";
+const shoeIcon =  "assets/icons/shoe.webp";
+const skirtIcon  =  "assets/icons/skirt.webp";
 
 
 
@@ -56,41 +57,41 @@ const rubik = "Rubik";
 
 
 ///    LOGOS
-const kixxLogo = "assets/logos/kixx_logo.png";
-const loriemLogo = "assets/logos/loriem_logo.png";
-const magientyLogo = "assets/logos/magienty_logo.png";
-const sumxxLogo = "assets/logos/sumxx_logo.png";
+const kixxLogo = "assets/logos/kixx_logo.webp";
+const loriemLogo = "assets/logos/loriem_logo.webp";
+const magientyLogo = "assets/logos/magienty_logo.webp";
+const sumxxLogo = "assets/logos/sumxx_logo.webp";
 
-const bohhoLogo = "assets/logos/bohho.png";
-const bohoJewelLogo = "assets/logos/boho_jewel.png";
-const cikeeLikoLogo = "assets/logos/cikee_liko.png";
-const euhosLogo = "assets/logos/euhos.png";
-const hakeTopsLogo = "assets/logos/hake_tops.png";
-const ho44Logo = "assets/logos/ho44.png";
-const kikiTopsLogo = "assets/logos/kiki_tops.png";
-const laraLogo = "assets/logos/lara.png";
-const likokLogo = "assets/logos/likok_tops.png";
-const lizzorLogo = "assets/logos/lizzor.png";
-const lorealJewlsLogo = "assets/logos/loreal_jewels.png";
-const lyydiaLogo = "assets/logos/lyydia.png";
-const makiLogo = "assets/logos/maki.png";
-const miloTopsLogo = "assets/logos/milo_tops.png";
-const monicaLogo = "assets/logos/monica.png";
-const namerShoesLogo = "assets/logos/namer_shoes.png";
-const nazzaLogo = "assets/logos/nazza.png";
-const pokiLogo = "assets/logos/poki_img.png";
-const pomiiLogo = "assets/logos/pomii.png";
-const quantDressesLogo = "assets/logos/quant_dresses.png";
-const queLogo = "assets/logos/que.png";
-const qw4Logo = "assets/logos/qw4.png";
-const shannelLogo = "assets/logos/shannel.png";
-const sintezaLogo = "assets/logos/sinteza_img.png";
-const subTopsLogo = "assets/logos/sub_tops.png";
-const tantsLogo = "assets/logos/tants_beach.png";
-const toniLogo = "assets/logos/toni.png";
-const weamdesLogo = "assets/logos/weamde's.png";
-const hobioLogo = "assets/logos/hobio.png";
-const skrtntLogo = "assets/logos/skrtnt.png";
-const tlulleiLogo = "assets/logos/tlullei.png";
-const tallalywLogo = "assets/logos/tallalyw.png";
-const mirkdLogo = "assets/logos/mirkd.png";
+const bohhoLogo = "assets/logos/bohho.webp";
+const bohoJewelLogo = "assets/logos/boho_jewel.webp";
+const cikeeLikoLogo = "assets/logos/cikee_liko.webp";
+const euhosLogo = "assets/logos/euhos.webp";
+const hakeTopsLogo = "assets/logos/hake_tops.webp";
+const ho44Logo = "assets/logos/ho44.webp";
+const kikiTopsLogo = "assets/logos/kiki_tops.webp";
+const laraLogo = "assets/logos/lara.webp";
+const likokLogo = "assets/logos/likok_tops.webp";
+const lizzorLogo = "assets/logos/lizzor.webp";
+const lorealJewlsLogo = "assets/logos/loreal_jewels.webp";
+const lyydiaLogo = "assets/logos/lyydia.webp";
+const makiLogo = "assets/logos/maki.webp";
+const miloTopsLogo = "assets/logos/milo_tops.webp";
+const monicaLogo = "assets/logos/monica.webp";
+const namerShoesLogo = "assets/logos/namer_shoes.webp";
+const nazzaLogo = "assets/logos/nazza.webp";
+const pokiLogo = "assets/logos/poki_img.webp";
+const pomiiLogo = "assets/logos/pomii.webp";
+const quantDressesLogo = "assets/logos/quant_dresses.webp";
+const queLogo = "assets/logos/que.webp";
+const qw4Logo = "assets/logos/qw4.webp";
+const shannelLogo = "assets/logos/shannel.webp";
+const sintezaLogo = "assets/logos/sinteza_img.webp";
+const subTopsLogo = "assets/logos/sub_tops.webp";
+const tantsLogo = "assets/logos/tants_beach.webp";
+const toniLogo = "assets/logos/toni.webp";
+const weamdesLogo = "assets/logos/weamde's.webp";
+const hobioLogo = "assets/logos/hobio.webp";
+const skrtntLogo = "assets/logos/skrtnt.webp";
+const tlulleiLogo = "assets/logos/tlullei.webp";
+const tallalywLogo = "assets/logos/tallalyw.webp";
+const mirkdLogo = "assets/logos/mirkd.webp";

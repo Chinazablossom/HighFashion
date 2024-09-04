@@ -14,7 +14,8 @@ import '../../core/utils/constanst/assetsPaths.dart';
 import '../../core/utils/constanst/colors.dart';
 import '../../core/utils/constanst/texts.dart';
 import '../product/controllers/product-detail-controller.dart';
-import '../wishlist/controller/wishlist_controller.dart';
+import '../product/controllers/product-global-controllers.dart';
+import '../product/widets/sizes-chip.dart';
 
 class ReuseableWidgets {
   GestureDetector largeAppBtn(
@@ -197,7 +198,7 @@ class ReuseableWidgets {
   }
 
   SearchBar buildSearchBar(
-      Function()? onTap, Function()? onChange, bool isLightMode) {
+      Function()? onTap, Function(String value)? onChange, bool isLightMode) {
     return SearchBar(
       backgroundColor: MaterialStatePropertyAll<Color>(isLightMode
           ? lightBackground.withOpacity(0.9)
@@ -207,7 +208,9 @@ class ReuseableWidgets {
           color: isLightMode ? const Color(0xff646060) : Colors.white)),
       onTap: onTap,
       onChanged: (value) {
-        onChange;
+        if (onChange != null) {
+          onChange(value);
+        }
       },
       leading: Icon(CupertinoIcons.search,
           color: isLightMode ? lightWidgetColorBackground : Colors.white),
@@ -257,7 +260,6 @@ class ReuseableWidgets {
       IconData iconEnd, bool isLightMode) {
     return InkWell(
       onTap: todo,
-      splashColor: lightWidgetColorBackground.withOpacity(0.1),
       borderRadius: BorderRadius.circular(20),
       child: Column(
         children: [
@@ -458,17 +460,16 @@ class ProductItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final FavoritesController favoritesController =
-        Get.put(FavoritesController());
+    final GlobalController globalController = Get.find();
 
     return InkWell(
       onTap: onTap,
       onLongPress: () {
-        if (!favoritesController.isFavorite(product)) {
-          favoritesController.addToFavorites(product);
+        if (!globalController.isFavorite(product)) {
+          globalController.addToFavorites(product);
           Get.snackbar("Item Added", "${product.name} added to favorites.");
         } else {
-          favoritesController.removeFromFavorites(product);
+          globalController.removeFromFavorites(product);
           Get.snackbar(
               "Item Removed", "${product.name} removed from favorites.");
         }
@@ -513,7 +514,7 @@ class ProductItemCard extends StatelessWidget {
                   child: Obx(() => CircleAvatar(
                         backgroundColor: Colors.white54,
                         child: Icon(
-                          favoritesController.isFavorite(product)
+                          globalController.isFavorite(product)
                               ? Iconsax.heart
                               : Iconsax.heart_copy,
                           color: lightWidgetColorBackground,
@@ -642,27 +643,29 @@ class CategoriesList extends StatelessWidget {
   }
 }
 
+
 class SizesList extends StatelessWidget {
   const SizesList({
     super.key,
     required this.itemsList,
   });
 
-  final List<Widget> itemsList;
+  final List<Widget>? itemsList;
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: itemsList.length,
+      itemCount: itemsList?.length,
       scrollDirection: Axis.horizontal,
       shrinkWrap: true,
       itemBuilder: (context, index) => Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: itemsList[index],
+        child: itemsList?[index],
       ),
     );
   }
 }
+
 
 const catList = {
   "Accessories": eyeglassIcon,
@@ -950,6 +953,79 @@ List<String> colorNames = [
   "DarkTeal",
 ];
 
+List<Product> demoProducts = [
+  Product(
+    name: "Classic Leather Jacket",
+    price: 120.0,
+    image: "assets/images/image 52.webp",
+    detail: "A timeless black leather jacket made from genuine leather.",
+    sizes: ["XS", "S", "M", "L", "XL","XXL"],
+  ),
+  Product(
+    name: "Casual Sneakers",
+    price: 75.0,
+    image: "assets/images/image 52.webp",
+    detail: "Comfortable and stylish sneakers perfect for everyday wear.",
+    sizes: ["XS", "S", "M", "L", "XL"],
+  ),
+  Product(
+    name: "Denim Jeans",
+    price: 50.0,
+    image: "assets/images/image 52.webp",
+    detail: "Slim-fit denim jeans with a classic blue wash.",
+    sizes: ["XS", "S", "M", "L", "XL","XXL"],
+  ),
+  Product(
+    name: "Summer Dress",
+    price: 40.0,
+    image: "assets/images/image 52.webp",
+    detail: "A light and airy summer dress with floral prints.",
+    sizes: ["XS", "S", "M", "L", "XL","XXL"],
+  ),
+  Product(
+    name: "Woolen Sweater",
+    price: 65.0,
+    image: "assets/images/image 52.webp",
+    detail: "A cozy woolen sweater to keep you warm during winter.",
+    sizes: ["XS", "S", "M", "L", "XL","XXL"],
+  ),
+  Product(
+    name: "Formal Shirt",
+    price: 35.0,
+    image: "assets/images/image 52.webp",
+    detail: "A crisp white formal shirt, perfect for office wear.",
+    sizes: ["XS", "S", "M", "L", "XL","XXL"],
+  ),
+  Product(
+    name: "Running Shoes",
+    price: 85.0,
+    image: "assets/images/image 52.webp",
+    detail: "High-performance running shoes with excellent cushioning.",
+    sizes: ["33", "36", "38", "40", "44","46"],
+  ),
+  Product(
+    name: "Designer Handbag",
+    price: 150.0,
+    image: "assets/images/image 52.webp",
+    detail: "A luxury handbag crafted from high-quality materials.",
+    sizes: null,
+  ),
+  Product(
+    name: "Aviator Sunglasses",
+    price: 20.0,
+    image: "assets/images/image 52.webp",
+    detail: "Classic aviator sunglasses with UV protection.",
+    sizes: null,
+  ),
+  Product(
+    name: "Silk Scarf",
+    price: 30.0,
+    image: "assets/images/image 52.webp",
+    detail: "A luxurious silk scarf with intricate patterns.",
+    sizes: null,
+  ),
+];
+
 
 class buildUserComment extends StatelessWidget {
   const buildUserComment({
@@ -970,7 +1046,7 @@ class buildUserComment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ProductDetailController productDetailController =
-    Get.put(ProductDetailController());
+        Get.put(ProductDetailController());
     final randomNum = [1.0, 1.5, 2.0, 3.5, 5.0, 4.0, 4.5, 3.0, 2.5]
         .elementAt(Random().nextInt(9));
     final randomDate = DateTime(
@@ -1039,7 +1115,7 @@ class buildUserComment extends StatelessWidget {
                 rate: randomNum,
                 items: List.generate(
                   5,
-                      (index) => const RatingWidget(
+                  (index) => const RatingWidget(
                     selectedColor: CupertinoColors.systemYellow,
                     unSelectedColor: Colors.grey,
                     child: Icon(
@@ -1066,9 +1142,9 @@ class buildUserComment extends StatelessWidget {
           ),
           hasResponse
               ? buildCompanyReply(
-              context: context,
-              randomDate: randomDate,
-              productDetailController: productDetailController)
+                  context: context,
+                  randomDate: randomDate,
+                  productDetailController: productDetailController)
               : Container(),
         ],
       ),
@@ -1078,9 +1154,9 @@ class buildUserComment extends StatelessWidget {
 
 Container buildCompanyReply(
     {String reply = defaultText,
-      required BuildContext context,
-      required DateTime randomDate,
-      required ProductDetailController productDetailController}) {
+    required BuildContext context,
+    required DateTime randomDate,
+    required ProductDetailController productDetailController}) {
   return Container(
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(15),
@@ -1123,15 +1199,15 @@ Container buildCompanyReply(
 
 Column spannableText(
     {String text = defaultText,
-      required ProductDetailController productDetailController,
-      required BuildContext context,
-      required AlignmentGeometry position}) {
+    required ProductDetailController productDetailController,
+    required BuildContext context,
+    required AlignmentGeometry position}) {
   return Column(
     children: [
       Padding(
         padding: const EdgeInsets.only(right: 8, left: 8),
         child: Obx(
-              () => Text(
+          () => Text(
             text,
             textAlign: TextAlign.start,
             maxLines: productDetailController.isProductDetailNotExpanded.value
@@ -1142,8 +1218,8 @@ Column spannableText(
                 color: productDetailController.isProductDetailNotExpanded.value
                     ? Colors.grey
                     : isLightMode(context)
-                    ? Colors.black
-                    : Colors.white),
+                        ? Colors.black
+                        : Colors.white),
           ),
         ),
       ),
@@ -1154,24 +1230,24 @@ Column spannableText(
           child: text.length < 50
               ? null
               : Obx(
-                () => InkWell(
-                child: Text(
-                    productDetailController
-                        .isProductDetailNotExpanded.value
-                        ? "Read more"
-                        : "Read less",
-                    style: TextStyle(
-                        color: isLightMode(context)
-                            ? lightWidgetColorBackground
-                            : darkWidgetColorBackground,
-                        decoration: TextDecoration.underline)),
-                onTap: () {
-                  productDetailController
-                      .isProductDetailNotExpanded.value =
-                  !productDetailController
-                      .isProductDetailNotExpanded.value;
-                }),
-          ),
+                  () => InkWell(
+                      child: Text(
+                          productDetailController
+                                  .isProductDetailNotExpanded.value
+                              ? "Read more"
+                              : "Read less",
+                          style: TextStyle(
+                              color: isLightMode(context)
+                                  ? lightWidgetColorBackground
+                                  : darkWidgetColorBackground,
+                              decoration: TextDecoration.underline)),
+                      onTap: () {
+                        productDetailController
+                                .isProductDetailNotExpanded.value =
+                            !productDetailController
+                                .isProductDetailNotExpanded.value;
+                      }),
+                ),
         ),
       ),
     ],
@@ -1197,13 +1273,13 @@ class itemRating extends StatelessWidget {
               Text(
                 "${randomNum}",
                 style:
-                const TextStyle(fontWeight: FontWeight.w500, fontSize: 55),
+                    const TextStyle(fontWeight: FontWeight.w500, fontSize: 55),
               ),
               PannableRatingBar(
                 rate: randomNum,
                 items: List.generate(
                   5,
-                      (index) => const RatingWidget(
+                  (index) => const RatingWidget(
                     selectedColor: CupertinoColors.systemYellow,
                     unSelectedColor: Colors.grey,
                     child: Icon(
@@ -1253,7 +1329,7 @@ class ratingRow extends StatelessWidget {
               minHeight: 10,
               backgroundColor: Colors.grey,
               valueColor:
-              const AlwaysStoppedAnimation(lightWidgetColorBackground),
+                  const AlwaysStoppedAnimation(lightWidgetColorBackground),
               borderRadius: BorderRadius.circular(8),
             ),
           ),
@@ -1262,6 +1338,3 @@ class ratingRow extends StatelessWidget {
     );
   }
 }
-
-
-

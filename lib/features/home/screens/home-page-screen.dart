@@ -24,6 +24,7 @@ class HomePageScreen extends StatelessWidget {
     final CountDownController countDownTimerController =
         Get.put(CountDownController());
 
+
     return ReuseableWidgets().buildAppScreenBackGround(
       headerImg: isLightMode(context) ? headerBlack : headerLight,
       bgTopPos: 85,
@@ -189,19 +190,17 @@ class HomePageScreen extends StatelessWidget {
                         const StairedGridTile(0.5, 1),
                       ]),
                   childrenDelegate: SliverChildBuilderDelegate(
-                    childCount: 14,
+                    childCount: demoProducts.length,
                     addAutomaticKeepAlives: true,
                     (context, index) {
-                      return ProductItemCard(
-                          onTap: () {
-                            Get.to(() => ProductDetailScreen(),
-                                transition: Transition.fadeIn,
+                      final product = demoProducts[index];
+
+                      return ProductItemCard(onTap: () {
+                            Get.to(() => ProductDetailScreen(product: product),
+                                transition: Transition.native,
                                 duration: const Duration(seconds: 1));
-                          },
-                          product: Product(
-                              image: "assets/images/image 52.png",
-                              name: "Classy Top",
-                              price: Random().nextInt(1000).toDouble()));
+                          }, product: product
+                      );
                     },
                   ),
                   shrinkWrap: true,
@@ -218,7 +217,7 @@ class HomePageScreen extends StatelessWidget {
             title: ReuseableWidgets().buildSearchBar(
                 () => Get.to(() => const SearchScreen(),
                     transition: Transition.rightToLeft,
-                    duration: const Duration(seconds: 1)), () {
+                    duration: const Duration(seconds: 1)), (value) {
               Get.to(() => const SearchScreen(),
                   transition: Transition.rightToLeft,
                   duration: const Duration(seconds: 1));

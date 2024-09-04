@@ -5,20 +5,22 @@ import 'package:get/get.dart';
 import 'package:high_fashion/core/utils/constanst/assetsPaths.dart';
 import 'package:high_fashion/features/shared-widgets/sharedWidgets.dart';
 
-import 'controller/wishlist_controller.dart';
+import '../product/controllers/product-global-controllers.dart';
+import '../product/screens/product-detail.dart';
 
 class WishListScreen extends StatelessWidget {
   const WishListScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final FavoritesController favoritesController = Get.put(FavoritesController());
+    final GlobalController globalController = Get.find();
+
 
     return Scaffold(
         appBar:  AppBar(
           centerTitle: false,
           automaticallyImplyLeading: false,
-          title: Text(
+          title: const Text(
             "Wishlist",
             style: TextStyle(fontFamily: interBold, fontSize: 22),
           ),
@@ -33,7 +35,7 @@ class WishListScreen extends StatelessWidget {
 
         ),
         body: Obx(() {
-          return favoritesController.favorites.isEmpty
+          return globalController.favorites.isEmpty
               ? const Center(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -60,11 +62,14 @@ class WishListScreen extends StatelessWidget {
                               const StairedGridTile(0.5, 1),
                             ]),
                         childrenDelegate: SliverChildBuilderDelegate(
-                          childCount: favoritesController.favorites.length,
+                          childCount: globalController.favorites.length,
                           addAutomaticKeepAlives: true,
                           (context, index) {
-                            final product = favoritesController.favorites[index];
-                            return ProductItemCard(product: product);
+                            final product = globalController.favorites[index];
+//                            return ProductItemCard(product: product);
+                            return ProductItemCard(product: product, onTap: () {
+                              Get.to(ProductDetailScreen(product: product));
+                            });
                           },
                         ),
                         shrinkWrap: true,

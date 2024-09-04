@@ -49,7 +49,7 @@ class SearchScreen extends StatelessWidget {
                         children: [
                           //    SEARCH BAR
                           ReuseableWidgets().buildSearchBar(
-                              null, () {}, isLightMode(context)),
+                              null, (value) {}, isLightMode(context)),
                           const SizedBox(
                             height: 8,
                           ),
@@ -138,7 +138,7 @@ class SearchScreen extends StatelessWidget {
                     children: [
                       const Text("Top Selling",style: TextStyle(fontFamily: interBold,fontSize: 20,),),
                       ReuseableWidgets().buildProductDisplay(() => null, "Accessories", [
-                        "assets/images/image 52.png","assets/images/image 108.png",jewelryAndNailImgPath,maxiSkirtImgPath
+                        "assets/images/image 52.webp","assets/images/image 108.webp",jewelryAndNailImgPath,maxiSkirtImgPath
                       ]),
                       const Text("Trending",style: TextStyle(fontFamily: interBold,fontSize: 20,),),
                       const SizedBox(height: 8,),
@@ -153,11 +153,10 @@ class SearchScreen extends StatelessWidget {
                             ]),
                         childrenDelegate: SliverChildBuilderDelegate(
                           childCount: 14,
-                          addAutomaticKeepAlives: true,
-                              (context, index) {
-                            return ProductItemCard(
-                                product: Product(image: "assets/images/image 52.png",name: "Classy Top",price:Random().nextInt(1000).toDouble()
-                                )
+                          addAutomaticKeepAlives: true, (context, index) {
+                          final product = demoProducts[index];
+                          return ProductItemCard(
+                                product: product
                             );
                           },
                         ),
@@ -192,8 +191,9 @@ class SearchScreen extends StatelessWidget {
                           childCount: 14,
                           addAutomaticKeepAlives: true,
                               (context, index) {
-                            return ProductItemCard(
-                                product: Product(image: "assets/images/image 115.png",name: "Classy Top",price:Random().nextInt(1000).toDouble())
+                                final product = demoProducts[index];
+                                return ProductItemCard(
+                                product: product ,
                             );
                           },
                         ),
@@ -228,8 +228,10 @@ class SearchScreen extends StatelessWidget {
                           childCount: 14,
                           addAutomaticKeepAlives: true,
                               (context, index) {
-                            return ProductItemCard(
-                                product: Product(image: "assets/images/image 52.png",name: "Classy Top",price:Random().nextInt(1000).toDouble())
+                                final product = demoProducts[index];
+
+                                return ProductItemCard(
+                                product: product,
                             );
                           },
                         ),
@@ -262,10 +264,10 @@ class SearchScreen extends StatelessWidget {
                             ]),
                         childrenDelegate: SliverChildBuilderDelegate(
                           childCount: 14,
-                          addAutomaticKeepAlives: true,
-                              (context, index) {
-                            return ProductItemCard(
-                                product: Product(image: "assets/images/image 52.png",name: "Classy Top",price:Random().nextInt(1000).toDouble())
+                          addAutomaticKeepAlives: true, (context, index) {
+                                final product = demoProducts[index];
+                                return ProductItemCard(
+                                product: product,
                             );
                           },
                         ),
@@ -300,8 +302,10 @@ class SearchScreen extends StatelessWidget {
                           childCount: 14,
                           addAutomaticKeepAlives: true,
                               (context, index) {
-                            return ProductItemCard(
-                                product: Product(image: "assets/images/image 52.png",name: "Classy Top",price:Random().nextInt(1000).toDouble())
+                                final product = demoProducts[index];
+
+                                return ProductItemCard(
+                                product: product,
                             );
                           },
                         ),
@@ -336,15 +340,16 @@ class SearchScreen extends StatelessWidget {
                           childCount: 14,
                           addAutomaticKeepAlives: true,
                               (context, index) {
-                            return ProductItemCard(
-                                product: Product(image: "assets/images/image 52.png",name: "Classy Top",price:Random().nextInt(1000).toDouble())
+                                final product = demoProducts[index];
+
+                                return ProductItemCard(
+                                product: product,
                             );
                           },
                         ),
                         shrinkWrap: true,
                         physics: const NeverScrollableScrollPhysics(),
                       )
-
                     ],
                   ),
                 ),
@@ -372,8 +377,9 @@ class SearchScreen extends StatelessWidget {
                           childCount: 14,
                           addAutomaticKeepAlives: true,
                               (context, index) {
-                            return ProductItemCard(
-                                product: Product(image: "assets/images/image 52.png",name: "Classy Top",price:Random().nextInt(1000).toDouble())
+                                final product = demoProducts[index];
+                                return ProductItemCard(
+                                product: product,
                             );
                           },
                         ),
@@ -408,8 +414,9 @@ class SearchScreen extends StatelessWidget {
                           childCount: 14,
                           addAutomaticKeepAlives: true,
                               (context, index) {
-                            return ProductItemCard(
-                                product: Product(image: "assets/images/image 52.png",name: "Classy Top",price:Random().nextInt(1000).toDouble())
+                                final product = demoProducts[index];
+                                return ProductItemCard(
+                                product: product,
                             );
                           },
                         ),
@@ -420,24 +427,10 @@ class SearchScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-
-
               ],
             )),
       ),
     );
   }
 
-
-
-
-
-
 }
-
-
-
-
-
-
-

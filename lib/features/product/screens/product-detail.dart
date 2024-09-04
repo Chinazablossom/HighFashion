@@ -9,22 +9,23 @@ import 'package:high_fashion/features/product/screens/reviews-screen.dart';
 import 'package:high_fashion/features/shared-widgets/sharedWidgets.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 
+import '../../../core/models/product_model.dart';
 import '../../../core/utils/constanst/assetsPaths.dart';
 import '../../../core/utils/helper-functions/helper-functions.dart';
-import '../../wishlist/controller/wishlist_controller.dart';
 import '../controllers/product-detail-controller.dart';
+import '../controllers/product-global-controllers.dart';
 import '../widets/color-choice-chip.dart';
 import '../widets/sizes-chip.dart';
 
 class ProductDetailScreen extends StatelessWidget {
-  const ProductDetailScreen({super.key});
+  const ProductDetailScreen({super.key, required this.product});
+
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
-    final FavoritesController favoritesController =
-        Get.put(FavoritesController());
-    final ProductDetailController productDetailController =
-        Get.put(ProductDetailController());
+    final ProductDetailController productDetailController = Get.put(ProductDetailController());
+    final GlobalController globalController = Get.find();
 
     return Scaffold(
       bottomNavigationBar: Container(
@@ -48,16 +49,26 @@ class ProductDetailScreen extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              const Expanded(
+              Expanded(
                 child: Column(
                   children: [
-                    Text(
+                    const Text(
                       "Total Price",
                       style: TextStyle(color: Colors.grey),
                     ),
                     Text(
-                      "₦${84}",
-                      style: TextStyle(
+                      "₦${[
+                        89,
+                        959,
+                        23,
+                        65,
+                        876,
+                        546,
+                        21,
+                        56,
+                        88,
+                      ].elementAt(Random().nextInt(9))}",
+                      style: const TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.w500,
                       ),
@@ -69,13 +80,15 @@ class ProductDetailScreen extends StatelessWidget {
                 width: 50,
               ),
               Expanded(
-                  flex: 2,
-                  child: FilledButton.icon(
+                flex: 2,
+                child: Obx(() => FilledButton.icon(
                     onPressed: () {
-                      // TODO: ADD TO USER'S CART
+                      globalController.addToCart(product);
                     },
                     icon: const Icon(Iconsax.bag_2),
-                    label: const Text("Add to Cart"),
+                    label: Text(globalController.isInCart(product)
+                        ? "Remove from Cart"
+                        : "Add to Cart"),
                     style: const ButtonStyle(
                         iconSize: MaterialStatePropertyAll(30),
                         fixedSize:
@@ -84,7 +97,9 @@ class ProductDetailScreen extends StatelessWidget {
                             lightWidgetColorBackground),
                         foregroundColor:
                             MaterialStatePropertyAll(Colors.white)),
-                  ))
+                  ),
+                ),
+              )
             ],
           ),
         ),
@@ -120,7 +135,25 @@ class ProductDetailScreen extends StatelessWidget {
                     top: 35,
                     child: GestureDetector(
                       onTap: () {
-                        // TODO: IF IN FAVOURITES IT SHOULD STILL BE MARKED FAVOURITE HERE OR REMOVE
+                        if (globalController.isFavorite(product)) {
+                          globalController.removeFromFavorites(product);
+                          Get.snackbar(
+                            "Removed from Favorites",
+                            "${product.name} has been removed from your favorites.",
+                            snackPosition: SnackPosition.BOTTOM,
+                            backgroundColor: Colors.redAccent,
+                            colorText: Colors.white,
+                          );
+                        } else {
+                          globalController.addToFavorites(product);
+                          Get.snackbar(
+                            "Added to Favorites",
+                            "${product.name} has been added to your favorites.",
+                            snackPosition: SnackPosition.BOTTOM,
+                            backgroundColor: Colors.green,
+                            colorText: Colors.white,
+                          );
+                        }
                       },
                       child: Container(
                         height: 55,
@@ -128,16 +161,14 @@ class ProductDetailScreen extends StatelessWidget {
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(100),
                             color: Colors.grey.shade200),
-                        child: /*Obx(() =>*/ const CircleAvatar(
+                        child: Obx(() => CircleAvatar(
                             backgroundColor: Colors.white54,
                             child: Icon(
-                              /*  favoritesController.isFavorite(product)
-                              ? Iconsax.heart
-                              : Iconsax.heart_copy,*/
-                              Iconsax.heart_copy,
+                              globalController.isFavorite(product)
+                                  ? Iconsax.heart
+                                  : Iconsax.heart_copy,
                               color: lightWidgetColorBackground,
-                              // ),
-                            )),
+                            ))),
                       ),
                     )),
                 const Positioned(
@@ -150,7 +181,7 @@ class ProductDetailScreen extends StatelessWidget {
                         height: 400,
                         width: 300,
                         child: Image(
-                            image: AssetImage("assets/images/image 108.png"),
+                            image: AssetImage("assets/images/image 108.webp"),
                             fit: BoxFit.cover)),
                   ),
                 ),
@@ -301,33 +332,32 @@ class ProductDetailScreen extends StatelessWidget {
                   "Select Size",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                 ),
-                const Row(
+                 Row(
                   children: [
-                    Expanded(
+                    if (product.sizes != null && product.sizes!.isNotEmpty)
+                      Expanded(
                         child: SizedBox(
-                            height: 50,
-                            child: SizesList(
-                              itemsList: [
-                                SizesChoicesChip(
-                                    label: "XS",
-                                    toolTip: "Extra Small",
-                                    index: 0),
-                                SizesChoicesChip(
-                                    label: "S", toolTip: "Small", index: 1),
-                                SizesChoicesChip(
-                                    label: "M", toolTip: "Medium", index: 2),
-                                SizesChoicesChip(
-                                    label: "L", toolTip: "Large", index: 3),
-                                SizesChoicesChip(
-                                    label: "XL",
-                                    toolTip: "Extra Large",
-                                    index: 4),
-                                SizesChoicesChip(
-                                    label: "XXL",
-                                    toolTip: "Extra Extra Large",
-                                    index: 5),
-                              ],
-                            ))),
+                          height: 50,
+                          child: SizesList(
+                            itemsList: product.sizes!.map((size) {
+                              final isNumeric = int.tryParse(size) != null;
+                              final tooltip = isNumeric ? "Size $size" : {
+                                "XS": "Extra Small",
+                                "S": "Small",
+                                "M": "Medium",
+                                "L": "Large",
+                                "XL": "Extra Large",
+                                "XXL": "Extra Extra Large"
+                              }[size] ?? "Size $size";
+                              return SizesChoicesChip(
+                                label: size,
+                                toolTip: tooltip,
+                                index: product.sizes!.indexOf(size),
+                              );
+                            }).toList(),
+                          ),
+                        ),
+                      ),
                   ],
                 ),
                 const SizedBox(
@@ -352,13 +382,14 @@ class ProductDetailScreen extends StatelessWidget {
                             color: Colors.grey)),
                   ])),
                 ),
-                 Row(
+                Row(
                   children: [
                     Expanded(
                         child: SizedBox(
                             height: 50,
                             child: SizesList(
-                              itemsList:  List.generate(5, (index) =>  ColorChoicesChip()),
+                              itemsList: List.generate(
+                                  5, (index) => const ColorChoicesChip()),
                             ))),
                   ],
                 ),
@@ -382,7 +413,7 @@ class ProductDetailScreen extends StatelessWidget {
                 ReuseableWidgets().buildTextRow(() {
                   Get.to(() => const ReviewsAndRatings(),
                       transition: Transition.rightToLeft,
-                      duration: const Duration(seconds: 1));
+                      duration: const Duration(milliseconds: 600));
                 }, CupertinoIcons.checkmark_seal_fill, "Reviews (99+)",
                     CupertinoIcons.forward, isLightMode(context)),
               ],
