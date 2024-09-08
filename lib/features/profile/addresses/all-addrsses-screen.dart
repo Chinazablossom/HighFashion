@@ -18,8 +18,8 @@ class AddressesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AddressesController addressesController =
-        Get.put(AddressesController());
+    final AddressesController addressesController = Get.put(AddressesController());
+    addressesController.addressesList.addAll(demoAddresses);
 
     return Scaffold(
       appBar: AppBar(

@@ -500,7 +500,7 @@ class ProductItemCard extends StatelessWidget {
                   child: Container(
                     height: 160,
                     width: double.infinity,
-                    color: colorList[Random().nextInt(30)],
+                    color: colorList[Random().nextInt(29)],
                     child: FadeInImage(
                         fit: BoxFit.contain,
                         placeholder: MemoryImage(kTransparentImage),
@@ -573,6 +573,7 @@ class carouselImg extends StatelessWidget {
         height: height,
         width: width,
         decoration: BoxDecoration(
+          color: Colors.grey.shade400,
           borderRadius: BorderRadius.circular(18),
         ),
         child: ClipRRect(
@@ -872,7 +873,7 @@ class displayedClothes extends StatelessWidget {
               blurStyle: BlurStyle.outer),
         ], borderRadius: BorderRadius.all(Radius.circular(9))),
         child: ReuseableWidgets().buildBackgroundContainer(
-          colorList[Random().nextInt(30)],
+          colorList[Random().nextInt(29)],
           10,
           10,
           25,
@@ -888,7 +889,6 @@ class displayedClothes extends StatelessWidget {
 }
 
 List<Color> colorList = [
-  const Color(0xFF421220),
   const Color(0xFF203157),
   const Color(0xFF48281E),
   const Color(0xFF083041),
@@ -910,7 +910,7 @@ List<Color> colorList = [
   const Color(0xFF69270F),
   const Color(0xFF5F7C24),
   const Color(0xFF460E48),
-  const Color(0xFF541F1F),
+  const Color(0xFFA8B052),
   const Color(0xFFAB966C),
   const Color(0xFFC49E71),
   const Color(0xFFA25048),

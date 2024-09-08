@@ -33,7 +33,7 @@ class SingleAddress extends StatelessWidget {
                 : Colors.grey,
             width: 2),
         color: isSelected
-            ? darkWidgetColorBackground
+            ? lightWidgetColorBackground
             .withOpacity(isLightMode(context) ? 0.1 : 0.5)
             : Colors.transparent,
       ),
@@ -92,3 +92,9 @@ class SingleAddress extends StatelessWidget {
     );
   }
 }
+
+List<SingleAddress> demoAddresses = [
+  const SingleAddress(isSelected: true, userName: "John Doe", phoneNumber: "+1 (234) (5678)", address: "123 Main St, Anytown, CA 12345"),
+  const SingleAddress(isSelected: false, userName: "Jenna Doe", phoneNumber: "+1 (901) (2345)", address: "456 Elm St, Othertown, NY 67890"),
+  const SingleAddress(isSelected: false, userName: "Timmy Doe", phoneNumber: "+22 (901) (2345)", address: "42 Rue de la Paix, Paris, France 75002"),
+];

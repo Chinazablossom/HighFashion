@@ -89,14 +89,14 @@ class ProductDetailScreen extends StatelessWidget {
                     label: Text(globalController.isInCart(product)
                         ? "Remove from Cart"
                         : "Add to Cart"),
-                    style: const ButtonStyle(
-                        iconSize: MaterialStatePropertyAll(30),
+                    style:  ButtonStyle(
+                        iconSize: const MaterialStatePropertyAll(30),
                         fixedSize:
-                            MaterialStatePropertyAll(Size(double.infinity, 50)),
+                            const MaterialStatePropertyAll(Size(double.infinity, 50)),
                         backgroundColor: MaterialStatePropertyAll(
-                            lightWidgetColorBackground),
+                            isLightMode(context) ? lightWidgetColorBackground : darkWidgetColorBackground),
                         foregroundColor:
-                            MaterialStatePropertyAll(Colors.white)),
+                            const MaterialStatePropertyAll(Colors.white)),
                   ),
                 ),
               )
@@ -109,7 +109,7 @@ class ProductDetailScreen extends StatelessWidget {
         children: [
           Container(
             height: 400,
-            color: colorList[Random().nextInt(30)],
+            color: colorList[Random().nextInt(29)],
             child: Stack(
               children: [
                 Positioned(
@@ -141,7 +141,7 @@ class ProductDetailScreen extends StatelessWidget {
                             "Removed from Favorites",
                             "${product.name} has been removed from your favorites.",
                             snackPosition: SnackPosition.BOTTOM,
-                            backgroundColor: Colors.redAccent,
+                            backgroundColor: darkWidgetColorBackground,
                             colorText: Colors.white,
                           );
                         } else {
@@ -151,7 +151,7 @@ class ProductDetailScreen extends StatelessWidget {
                             "${product.name} has been added to your favorites.",
                             snackPosition: SnackPosition.BOTTOM,
                             backgroundColor: Colors.green,
-                            colorText: Colors.white,
+                            colorText: Colors.black,
                           );
                         }
                       },
@@ -171,7 +171,7 @@ class ProductDetailScreen extends StatelessWidget {
                             ))),
                       ),
                     )),
-                const Positioned(
+                 Positioned(
                   top: 50,
                   left: 0,
                   right: 0,
@@ -181,7 +181,7 @@ class ProductDetailScreen extends StatelessWidget {
                         height: 400,
                         width: 300,
                         child: Image(
-                            image: AssetImage("assets/images/image 108.webp"),
+                            image: AssetImage(product.image),
                             fit: BoxFit.cover)),
                   ),
                 ),
@@ -200,8 +200,8 @@ class ProductDetailScreen extends StatelessWidget {
                           padding: const EdgeInsets.only(
                               left: 4, top: 2, bottom: 2, right: 4),
                           itemBuilder: (context, index) {
-                            return const carouselImg(
-                              url: ankaraImgPath,
+                            return  carouselImg(
+                              url: product.image,
                               height: 80,
                               width: 80,
                             );
@@ -226,11 +226,11 @@ class ProductDetailScreen extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    const Expanded(
+                     Expanded(
                       flex: 3,
                       child: Text(
-                        "Pretty Gown",
-                        style: TextStyle(
+                        product.name,
+                        style: const TextStyle(
                             fontSize: 24, fontWeight: FontWeight.w700),
                       ),
                     ),
@@ -262,7 +262,7 @@ class ProductDetailScreen extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(
-                  height: 16,
+                  height: 14,
                 ),
                 const Text(
                   "Product Detail",
