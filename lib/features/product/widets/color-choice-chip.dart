@@ -12,18 +12,23 @@ class ColorChoicesChip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ProductDetailController productDetailController = Get.put(ProductDetailController());
-    final index = Random().nextInt(30);
+    final index = Random().nextInt(29);
 
     return Obx(
-          () => ChoiceChip(selected: productDetailController.selectedColor.value == colorNames[index],
+          () => ChoiceChip(
+            selected: productDetailController.selectedColor.value == colorNames[index],
         labelStyle: TextStyle(fontSize: 18,color: productDetailController.selectedColor.value == colorNames[index] ? Colors.white : null ),
-        onSelected: (size){
-          productDetailController.selectedColor.value = colorNames[index];
+        onSelected: (isSelected){
+          if (isSelected) {
+            productDetailController.selectedColor.value = colorNames[index];
+          } else {
+            productDetailController.selectedColor.value = "";
+          }
         },
         selectedColor: colorList[index] ,
         backgroundColor:colorList[index]  ,
         shape: const CircleBorder(),
-        labelPadding: const EdgeInsets.all(0), label: const Text(""),
+        labelPadding: const EdgeInsets.all(0), label: const Text("") ,
 
 
 

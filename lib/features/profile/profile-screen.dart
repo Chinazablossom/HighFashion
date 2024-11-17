@@ -29,7 +29,7 @@ class ProfileScreen extends StatelessWidget {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 8.0),
-            child: ReuseableWidgets().buildStackNotificationIcon(
+            child: ReusableWidgets().buildStackNotificationIcon(
                 63,
                 const Icon(CupertinoIcons.chat_bubble_text_fill),
                 () => Get.to(() => const ChatScreen(),
@@ -50,36 +50,36 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(
                 height: 30,
               ),
-              ReuseableWidgets().buildTextRow(() {
+              ReusableWidgets().buildTextRow(() {
                 Get.to(() => const UserProfileScreen(),
                     transition: Transition.native,
                     duration: const Duration(seconds: 1));
               }, CupertinoIcons.person, "Your Profile", CupertinoIcons.forward,
                   isLightMode(context)),
-              ReuseableWidgets().buildTextRow(() {
+              ReusableWidgets().buildTextRow(() {
                 Get.to(() => const PaymentMethodScreen(),
                     transition: Transition.native,
                     duration: const Duration(seconds: 1));
               }, CupertinoIcons.creditcard, "Payment Method",
                   CupertinoIcons.forward, isLightMode(context)),
-              ReuseableWidgets().buildTextRow(() {
+              ReusableWidgets().buildTextRow(() {
                 // TODO: ADD ORDERS SCREEN
 
               }, Iconsax.clipboard_copy,
                   "My Orders", CupertinoIcons.forward, isLightMode(context)),
-              ReuseableWidgets().buildTextRow(() {
+              ReusableWidgets().buildTextRow(() {
                 Get.to(() => const AddressesScreen(),
                     transition: Transition.native,
                     duration: const Duration(seconds: 1));
               }, Iconsax.truck_copy, "Shipping Addresses",
                   CupertinoIcons.forward, isLightMode(context)),
-              ReuseableWidgets().buildTextRow(() {
+              ReusableWidgets().buildTextRow(() {
                 Get.to(() => const SettingsScreen(),
                     transition: Transition.native,
                     duration: const Duration(seconds: 1));
               }, Iconsax.setting_2_copy, "Settings", CupertinoIcons.forward,
                   isLightMode(context)),
-              ReuseableWidgets().buildTextRow(
+              ReusableWidgets().buildTextRow(
                   () {
                     // TODO: ADD HELP CENTER SCREEN
                   },
@@ -87,13 +87,13 @@ class ProfileScreen extends StatelessWidget {
                   "Help Center",
                   CupertinoIcons.forward,
                   isLightMode(context)),
-              ReuseableWidgets().buildTextRow(() {
+              ReusableWidgets().buildTextRow(() {
                 Get.to(() => const PrivacyPolicyScreen(),
                     transition: Transition.native,
                     duration: const Duration(seconds: 1));
               }, CupertinoIcons.lock_shield, "Privacy Policy",
                   CupertinoIcons.forward, isLightMode(context)),
-              ReuseableWidgets().buildTextRow(
+              ReusableWidgets().buildTextRow(
                   () {
                     // TODO: SHARE APP
                   },
@@ -101,7 +101,7 @@ class ProfileScreen extends StatelessWidget {
                   "Invite Friends",
                   CupertinoIcons.forward,
                   isLightMode(context)),
-              ReuseableWidgets().buildTextRow(() {
+              ReusableWidgets().buildTextRow(() {
                 // TODO: LOG USER OUT
               }, Iconsax.logout_copy,
                   "Log Out", CupertinoIcons.forward, isLightMode(context)),

@@ -17,13 +17,13 @@ class ResetPasswordScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: ReuseableWidgets().buildAppScreenBackGround(
+        body: ReusableWidgets().buildAppScreenBackGround(
             headerImg: header,
             bgTopPos: 120,
             bgLeftPos: 0,
             bgRightPos: 0,
             bgBottomPos: 0,
-            child: ReuseableWidgets().buildBackgroundContainer(
+            child: ReusableWidgets().buildBackgroundContainer(
                 isLightMode(context) ? lightBackground : darkBackground,
                 70,
                 0,
@@ -72,7 +72,7 @@ class ResetPasswordScreen extends StatelessWidget {
                           const SizedBox(
                             height: 25,
                           ),
-                          ReuseableWidgets()
+                          ReusableWidgets()
                               .largeAppBtn("Create New Password", () {
 
                           },isLightMode(context)

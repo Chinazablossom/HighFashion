@@ -17,7 +17,7 @@ import '../product/controllers/product-detail-controller.dart';
 import '../product/controllers/product-global-controllers.dart';
 import '../product/widets/sizes-chip.dart';
 
-class ReuseableWidgets {
+class ReusableWidgets {
   GestureDetector largeAppBtn(
       String label, Function() todo, Color color, Color txtColor) {
     return GestureDetector(
@@ -70,7 +70,7 @@ class ReuseableWidgets {
     required Widget childOp,
   }) {
     return Stack(children: [
-      ReuseableWidgets().buildHeader(headerImg, null),
+      ReusableWidgets().buildHeader(headerImg, null),
       Positioned(
           top: bgTopPos,
           left: bgLeftPos,
@@ -380,7 +380,7 @@ class ReuseableWidgets {
                       padding: const EdgeInsets.all(8.0),
                       child: Row(
                           children: imgs
-                              .map((image) => displayedClothes(img: image))
+                              .map((image) => DisplayedClothes(img: image))
                               .toList()),
                     )
                   ],
@@ -552,8 +552,8 @@ class ProductItemCard extends StatelessWidget {
   }
 }
 
-class carouselImg extends StatelessWidget {
-  const carouselImg({
+class CarouselImg extends StatelessWidget {
+  const CarouselImg({
     super.key,
     required this.url,
     this.todo,
@@ -851,8 +851,8 @@ final brandName = [
   "Mirkd"
 ];
 
-class displayedClothes extends StatelessWidget {
-  const displayedClothes({
+class DisplayedClothes extends StatelessWidget {
+  const DisplayedClothes({
     super.key,
     required this.img,
   });
@@ -872,7 +872,7 @@ class displayedClothes extends StatelessWidget {
               spreadRadius: 0.5,
               blurStyle: BlurStyle.outer),
         ], borderRadius: BorderRadius.all(Radius.circular(9))),
-        child: ReuseableWidgets().buildBackgroundContainer(
+        child: ReusableWidgets().buildBackgroundContainer(
           colorList[Random().nextInt(29)],
           10,
           10,
@@ -921,37 +921,37 @@ List<Color> colorList = [
 ];
 
 List<String> colorNames = [
-  "Burgundy",
-  "NavyBlue",
-  "DarkBrown",
-  "Teal",
-  "Plum",
-  "Charcoal",
-  "GoldenBrown",
-  "DarkGray",
-  "DarkRed",
-  "LightBrown",
-  "ForestGreen",
-  "DarkGreen",
-  "DarkBlue",
-  "Mauve",
-  "Sienna",
-  "Maroon",
-  "SeaGreen",
-  "SteelBlue",
-  "Violet",
-  "BurntOrange",
-  "Sage",
-  "DarkPurple",
-  "DarkMaroon",
-  "LightGolden",
-  "LightCream",
-  "Terracotta",
-  "LightGray",
-  "DarkCyan",
-  "DarkViolet",
-  "DarkTeal",
+  "Navy Blue",
+  "Dark Chestnut",
+  "Deep Teal",
+  "Raspberry",
+  "Dark Purple",
+  "Burnt Orange",
+  "Olive Green",
+  "Dark Rosewood",
+  "Avocado Green",
+  "Emerald Green",
+  "Moss Green",
+  "Deep Indigo",
+  "Dusty Rose",
+  "Copper",
+  "Mahogany",
+  "Forest Green",
+  "Denim Blue",
+  "Royal Purple",
+  "Rust",
+  "Fern Green",
+  "Mulberry",
+  "Avocado Green",
+  "Sandstone",
+  "Wheat",
+  "Crimson",
+  "Slate Gray",
+  "Steel Gray",
+  "Indigo",
+  "Deep Sea Green",
 ];
+
 
 List<Product> demoProducts = [
   Product(
@@ -1027,8 +1027,8 @@ List<Product> demoProducts = [
 ];
 
 
-class buildUserComment extends StatelessWidget {
-  const buildUserComment({
+class BuildUserComment extends StatelessWidget {
+  const BuildUserComment({
     super.key,
     this.userName = "Anonymous",
     this.userImage = nullUser,
@@ -1254,8 +1254,8 @@ Column spannableText(
   );
 }
 
-class itemRating extends StatelessWidget {
-  const itemRating({
+class ItemRating extends StatelessWidget {
+  const ItemRating({
     super.key,
   });
 
@@ -1296,15 +1296,15 @@ class itemRating extends StatelessWidget {
             flex: 6,
             child: Column(
               children: List.generate(
-                  5, (index) => ratingRow(amountOfRaters: "${-index + 5}")),
+                  5, (index) => RatingRow(amountOfRaters: "${-index + 5}")),
             ))
       ],
     );
   }
 }
 
-class ratingRow extends StatelessWidget {
-  const ratingRow({
+class RatingRow extends StatelessWidget {
+  const RatingRow({
     super.key,
     required this.amountOfRaters,
   });

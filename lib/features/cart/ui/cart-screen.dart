@@ -44,9 +44,9 @@ class CartScreen extends StatelessWidget {
               ),
             );
           }
-          return Expanded(
-            child: Stack(children: [
-              ListView.builder(
+          return Column(children: [
+            Expanded(
+              child: ListView.builder(
                 itemCount: controller.cart.length,
                 itemBuilder: (context, index) {
                   Product product = controller.cart[index];
@@ -75,16 +75,12 @@ class CartScreen extends StatelessWidget {
                       child: CartProduct(product: product));
                 },
               ),
-              Positioned(
-                bottom: 16,
-                left: 12,
-                right: 12,
-                child: ReuseableWidgets().largeAppBtn("Checkout", () {
-                  ProductBottomSheet().buildProductBottomSheet(context);
-                }, isLightMode(context) ? lightWidgetColorBackground : darkWidgetColorBackground, Colors.white),
-              )
-            ]),
-          );
+            ),
+            const SizedBox(height: 16,),
+            ReusableWidgets().largeAppBtn("Checkout", () {
+              ProductBottomSheet().buildProductBottomSheet(context);
+            }, isLightMode(context) ? lightWidgetColorBackground : darkWidgetColorBackground, Colors.white)
+          ]);
         }),
       ),
     );

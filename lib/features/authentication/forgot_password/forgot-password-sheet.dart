@@ -28,7 +28,7 @@ class ForgotPasswordBottomSheet {
                   const SizedBox(
                     height: 40,
                   ),
-                  ReuseableWidgets()
+                  ReusableWidgets()
                       .largeAppIconBtn(isLightMode(context), Iconsax.call, () {
                     Navigator.pop(context);
                     Get.to(() => const ForgotPhoneScreen(),transition: Transition.rightToLeft,duration: const Duration(seconds: 1 ));
@@ -36,7 +36,7 @@ class ForgotPasswordBottomSheet {
                   const SizedBox(
                     height: 30,
                   ),
-                  ReuseableWidgets()
+                  ReusableWidgets()
                       .largeAppIconBtn(isLightMode(context), Iconsax.sms, () {
                     Navigator.pop(context);
                     Get.to(() => const ForgotMailScreen(),transition: Transition.rightToLeft,duration: const Duration(seconds: 1 ));

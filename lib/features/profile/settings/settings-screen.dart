@@ -33,19 +33,19 @@ class SettingsScreen extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           child: Column(
             children: [
-              ReuseableWidgets().buildTextRow(
+              ReusableWidgets().buildTextRow(
                   () {},
                   CupertinoIcons.info,
                   "Notification Settings",
                   CupertinoIcons.forward,
                   isLightMode(context)),
-              ReuseableWidgets().buildTextRow(
+              ReusableWidgets().buildTextRow(
                   () {},
                   Iconsax.key_copy,
                   "Password Manager",
                   CupertinoIcons.forward,
                   isLightMode(context)),
-              ReuseableWidgets().buildTextRow(
+              ReusableWidgets().buildTextRow(
                   () {},
                   Iconsax.profile_delete_copy,
                   "Delete Account",

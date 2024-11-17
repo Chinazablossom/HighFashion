@@ -37,7 +37,7 @@ class EnterLocationScreen extends StatelessWidget {
         padding: EdgeInsets.all(16),
         child: Column(
           children: [
-            ReuseableWidgets().buildSearchBar(null,(value) {
+            ReusableWidgets().buildSearchBar(null,(value) {
               addressSearchController.searchAddress(value);
             }, isLightMode(context)),
             SizedBox(height: 16,),

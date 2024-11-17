@@ -30,7 +30,7 @@ class OnBoardingScreen extends StatelessWidget {
       showSkipButton: true,
       skipOrBackFlex: 0,
       nextFlex: 0,
-      next: ReuseableWidgets().iconContainer(
+      next: ReusableWidgets().iconContainer(
           45, 45, Icons.arrow_forward_rounded, isLightMode(context)),
       done: Text(
         "Lets Go",
@@ -52,7 +52,7 @@ class OnBoardingScreen extends StatelessWidget {
       pages: [
         PageViewModel(
             title: "",
-            bodyWidget: ReuseableWidgets().pageView(
+            bodyWidget: ReusableWidgets().pageView(
                 isLightMode(context),
                 "Welcome to ",
                 "High Fashion",
@@ -61,7 +61,7 @@ class OnBoardingScreen extends StatelessWidget {
                 0)),
         PageViewModel(
             title: "",
-            bodyWidget: ReuseableWidgets().pageView(
+            bodyWidget: ReusableWidgets().pageView(
                 isLightMode(context),
                 "Swift and Reliable ",
                 "Delivery",
@@ -70,7 +70,7 @@ class OnBoardingScreen extends StatelessWidget {
                 1)),
         PageViewModel(
             title: "",
-            bodyWidget: ReuseableWidgets().pageView(
+            bodyWidget: ReusableWidgets().pageView(
                 isLightMode(context),
                 "Start Your Style ",
                 "Journey",

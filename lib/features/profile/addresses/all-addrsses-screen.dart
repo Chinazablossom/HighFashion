@@ -40,7 +40,7 @@ class AddressesScreen extends StatelessWidget {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 8.0),
-            child: ReuseableWidgets().buildStackNotificationIcon(
+            child: ReusableWidgets().buildStackNotificationIcon(
                 63,
                 const Icon(CupertinoIcons.chat_bubble_text_fill),
                     () => Get.to(() => const ChatScreen(),

@@ -38,21 +38,21 @@ class ReviewsAndRatings extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            itemRating(),
+            ItemRating(),
             const SizedBox(
               height: 35,
             ),
-            buildUserComment(context: context, hasResponse: true),
-            buildUserComment(
+            BuildUserComment(context: context, hasResponse: true),
+            BuildUserComment(
                 userName: "Ann Doe",
                 userImage: toniLogo,
                 userComment:
                     "Wow I love this Store the dress came in less than a week",
                 context: context,
                 hasResponse: false),
-            buildUserComment(context: context, hasResponse: false),
-            buildUserComment(context: context, hasResponse: true),
-            buildUserComment(
+            BuildUserComment(context: context, hasResponse: false),
+            BuildUserComment(context: context, hasResponse: true),
+            BuildUserComment(
                 userName: "Jane Doe",
                 userImage: toniLogo,
                 userComment: "Item looks exactly as in Photo so happy 😊",

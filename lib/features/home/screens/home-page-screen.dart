@@ -25,13 +25,13 @@ class HomePageScreen extends StatelessWidget {
         Get.put(CountDownController());
 
 
-    return ReuseableWidgets().buildAppScreenBackGround(
+    return ReusableWidgets().buildAppScreenBackGround(
       headerImg: isLightMode(context) ? headerBlack : headerLight,
       bgTopPos: 85,
       bgLeftPos: 0,
       bgRightPos: 0,
       bgBottomPos: -0.1,
-      child: ReuseableWidgets().buildBackgroundContainer(
+      child: ReusableWidgets().buildBackgroundContainer(
           isLightMode(context) ? Colors.white : darkBackground,
           40,
           40,
@@ -57,7 +57,7 @@ class HomePageScreen extends StatelessWidget {
                     enableInfiniteScroll: true,
                   ),
                   items: [0, 1, 2, 3].map((i) {
-                    return carouselImg(
+                    return CarouselImg(
                       url: i == 0
                           ? newShoesCollectionImg
                           : i == 1
@@ -214,7 +214,7 @@ class HomePageScreen extends StatelessWidget {
           HAppBar(
             centerTiltle: false,
             automaticallyImplyLeading: false,
-            title: ReuseableWidgets().buildSearchBar(
+            title: ReusableWidgets().buildSearchBar(
                 () => Get.to(() => const SearchScreen(),
                     transition: Transition.rightToLeft,
                     duration: const Duration(seconds: 1)), (value) {
@@ -223,7 +223,7 @@ class HomePageScreen extends StatelessWidget {
                   duration: const Duration(seconds: 1));
             }, isLightMode(context)),
             actions: [
-              ReuseableWidgets().buildStackNotificationIcon(
+              ReusableWidgets().buildStackNotificationIcon(
                   63,
                   const Icon(CupertinoIcons.chat_bubble_text_fill,
                       color: Colors.white),

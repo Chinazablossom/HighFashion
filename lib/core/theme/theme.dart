@@ -33,7 +33,7 @@ ThemeData highFashionLightTheme() {
 
       bottomSheetTheme: const BottomSheetThemeData().copyWith(
         backgroundColor: Colors.black,
-        modalBackgroundColor: const Color(0xfff6f3f3),
+        modalBackgroundColor: const Color(0xfff3fbff),
         showDragHandle: true,
         dragHandleColor: Colors.black,
         dragHandleSize: const Size(100, 6),

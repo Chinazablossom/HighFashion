@@ -57,7 +57,7 @@ class EmailVerificationScreen extends StatelessWidget {
                 height: 50,
               ),
 
-              ReuseableWidgets().largeAppBtn("Continue",
+              ReusableWidgets().largeAppBtn("Continue",
                   () {
                 /// if successful verify user
                 EmailSuccessSheet().buildShowModalBottomSheet(context);

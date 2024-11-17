@@ -35,7 +35,7 @@ class EmailSuccessSheet {
                     const SizedBox(
                       height: 20,
                     ),
-                    ReuseableWidgets().largeAppBtn(
+                    ReusableWidgets().largeAppBtn(
                          "Start Shopping", () => null, isLightMode(context)
                         ? lightWidgetColorBackground
                         : darkWidgetColorBackground,

@@ -55,7 +55,7 @@ class OTPBottomSheet {
               ),
 
               //  VERIFICATION BTN
-              ReuseableWidgets()
+              ReusableWidgets()
                   .largeAppBtn("Verify", () => null
                   /*
                    TODO: VERIFY THE OTP

@@ -27,6 +27,7 @@ class ProductDetailScreen extends StatelessWidget {
     final ProductDetailController productDetailController = Get.put(ProductDetailController());
     final GlobalController globalController = Get.find();
 
+
     return Scaffold(
       bottomNavigationBar: Container(
         height: 90,
@@ -57,17 +58,7 @@ class ProductDetailScreen extends StatelessWidget {
                       style: TextStyle(color: Colors.grey),
                     ),
                     Text(
-                      "₦${[
-                        89,
-                        959,
-                        23,
-                        65,
-                        876,
-                        546,
-                        21,
-                        56,
-                        88,
-                      ].elementAt(Random().nextInt(9))}",
+                      "\$${product.price}",
                       style: const TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.w500,
@@ -83,7 +74,7 @@ class ProductDetailScreen extends StatelessWidget {
                 flex: 2,
                 child: Obx(() => FilledButton.icon(
                     onPressed: () {
-                      globalController.addToCart(product);
+                     globalController.isInCart(product) ? globalController.removeFromCart(product) : globalController.addToCart(product);
                     },
                     icon: const Icon(Iconsax.bag_2),
                     label: Text(globalController.isInCart(product)
@@ -141,7 +132,7 @@ class ProductDetailScreen extends StatelessWidget {
                             "Removed from Favorites",
                             "${product.name} has been removed from your favorites.",
                             snackPosition: SnackPosition.BOTTOM,
-                            backgroundColor: darkWidgetColorBackground,
+                            backgroundColor: const Color(0xecc93d3d),
                             colorText: Colors.white,
                           );
                         } else {
@@ -150,7 +141,7 @@ class ProductDetailScreen extends StatelessWidget {
                             "Added to Favorites",
                             "${product.name} has been added to your favorites.",
                             snackPosition: SnackPosition.BOTTOM,
-                            backgroundColor: Colors.green,
+                            backgroundColor: const Color(0xE5A4D04E),
                             colorText: Colors.black,
                           );
                         }
@@ -200,7 +191,7 @@ class ProductDetailScreen extends StatelessWidget {
                           padding: const EdgeInsets.only(
                               left: 4, top: 2, bottom: 2, right: 4),
                           itemBuilder: (context, index) {
-                            return  carouselImg(
+                            return  CarouselImg(
                               url: product.image,
                               height: 80,
                               width: 80,
@@ -352,7 +343,6 @@ class ProductDetailScreen extends StatelessWidget {
                               return SizesChoicesChip(
                                 label: size,
                                 toolTip: tooltip,
-                                index: product.sizes!.indexOf(size),
                               );
                             }).toList(),
                           ),
@@ -376,10 +366,10 @@ class ProductDetailScreen extends StatelessWidget {
                                 : Colors.white)),
                     TextSpan(
                         text: productDetailController.selectedColor.value,
-                        style: const TextStyle(
+                        style:  TextStyle(
                             fontSize: 17,
                             fontWeight: FontWeight.w500,
-                            color: Colors.grey)),
+                            color: Colors.grey.shade800)),
                   ])),
                 ),
                 Row(
@@ -410,7 +400,7 @@ class ProductDetailScreen extends StatelessWidget {
                 const SizedBox(
                   height: 12,
                 ),
-                ReuseableWidgets().buildTextRow(() {
+                ReusableWidgets().buildTextRow(() {
                   Get.to(() => const ReviewsAndRatings(),
                       transition: Transition.rightToLeft,
                       duration: const Duration(milliseconds: 600));

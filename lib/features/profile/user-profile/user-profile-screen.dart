@@ -15,13 +15,13 @@ class UserProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ReuseableWidgets().buildAppScreenBackGround(
+      body: ReusableWidgets().buildAppScreenBackGround(
         headerImg: headerBlack ,
         bgTopPos: 85,
         bgLeftPos: 0,
         bgRightPos: 0,
         bgBottomPos: 0,
-        child: ReuseableWidgets().buildBackgroundContainer(
+        child: ReusableWidgets().buildBackgroundContainer(
             isLightMode(context) ? Colors.white : darkBackground,
             65,
             0,
@@ -123,7 +123,7 @@ class UserProfileScreen extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 30,),
-                      ReuseableWidgets().largeAppBtn("Logout", () => null,
+                      ReusableWidgets().largeAppBtn("Logout", () => null,
                       isLightMode(context) ? lightWidgetColorBackground : darkWidgetColorBackground,
                       Colors.white
                       ),

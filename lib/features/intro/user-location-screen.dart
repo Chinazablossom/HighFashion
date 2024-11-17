@@ -51,7 +51,7 @@ class CompleteYourProfile extends StatelessWidget {
                   const SizedBox(
                     height: 50,
                   ),
-                  ReuseableWidgets().largeAppBtn(
+                  ReusableWidgets().largeAppBtn(
                       "Allow Location Access",
                       () {
                         // TODO: SEND LOCATION PERMISSION

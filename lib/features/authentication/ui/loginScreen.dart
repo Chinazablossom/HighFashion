@@ -17,13 +17,13 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ReuseableWidgets().buildAppScreenBackGround(
+      body: ReusableWidgets().buildAppScreenBackGround(
           headerImg: header,
           bgTopPos: 120,
           bgLeftPos: 0,
           bgRightPos: 0,
           bgBottomPos: 0,
-          child: ReuseableWidgets().buildBackgroundContainer(
+          child: ReusableWidgets().buildBackgroundContainer(
             isLightMode(context) ? lightBackground : darkBackground,
             75,
             0,
@@ -107,7 +107,7 @@ class LoginScreen extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      ReuseableWidgets().largeAppBtn("Login", () {
+                      ReusableWidgets().largeAppBtn("Login", () {
                         Get.to(() => const NavScreen(),
                             transition: Transition.native,
                             duration: const Duration(seconds: 1));

@@ -170,7 +170,7 @@ class AddNewAddressesScreen extends StatelessWidget {
               const SizedBox(
                 height: 40,
               ),
-              ReuseableWidgets().largeAppBtn(
+              ReusableWidgets().largeAppBtn(
                   "Add New Shipping Address",
                   (){
                     // TODO: ADD NEW ADDRESS

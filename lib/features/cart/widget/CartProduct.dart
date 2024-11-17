@@ -7,6 +7,7 @@ import 'package:transparent_image/transparent_image.dart';
 import '../../../core/models/product_model.dart';
 import '../../../core/utils/constanst/colors.dart';
 import '../../../core/utils/helper-functions/helper-functions.dart';
+import '../../product/controllers/product-detail-controller.dart';
 import '../../product/controllers/product-global-controllers.dart';
 import '../../shared-widgets/sharedWidgets.dart';
 
@@ -21,6 +22,7 @@ class CartProduct extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GlobalController controller = GlobalController.instance;
+    final ProductDetailController productDetailController = Get.put(ProductDetailController());
 
 
     return Padding(
@@ -76,7 +78,7 @@ class CartProduct extends StatelessWidget {
                         const SizedBox(
                           height: 6,
                         ),
-                        const Text("Size: XS"),
+                       Obx(() => Text("Size: ${productDetailController.selectedSize.value}")),
                         const SizedBox(
                           height: 6,
                         ),

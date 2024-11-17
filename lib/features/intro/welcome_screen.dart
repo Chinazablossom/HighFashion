@@ -34,12 +34,12 @@ class WelcomeScreen extends StatelessWidget {
                           padding: const EdgeInsets.only(right: 16.0),
                           child: Column(
                             children: [
-                              ReuseableWidgets()
+                              ReusableWidgets()
                                   .imgContainer(250, 200, 70, ankaraImgPath),
                               const SizedBox(
                                 height: 16,
                               ),
-                              ReuseableWidgets()
+                              ReusableWidgets()
                                   .imgContainer(180, 200, 70, maxiSkirtImgPath),
                             ],
                           ),
@@ -47,7 +47,7 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                       Flexible(
                           flex: 1,
-                          child: ReuseableWidgets()
+                          child: ReusableWidgets()
                               .imgContainer(350, 200, 70, classyLookImgPath)),
                       const SizedBox(
                         width: 16,
@@ -56,12 +56,12 @@ class WelcomeScreen extends StatelessWidget {
                         flex: 1,
                         child: Column(
                           children: [
-                            ReuseableWidgets().imgContainer(
+                            ReusableWidgets().imgContainer(
                                 230, 200, 70, jewelryAndNailImgPath),
                             const SizedBox(
                               height: 16,
                             ),
-                            ReuseableWidgets()
+                            ReusableWidgets()
                                 .imgContainer(180, 180, 70, corsetImgPath),
                           ],
                         ),
@@ -106,7 +106,7 @@ class WelcomeScreen extends StatelessWidget {
                 const SizedBox(
                   height: 16,
                 ),
-                ReuseableWidgets()
+                ReusableWidgets()
                     .largeAppBtn("Lets Get Started", () {
                   Get.to(() => const OnBoardingScreen(),
                       transition: Transition.circularReveal);

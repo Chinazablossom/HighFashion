@@ -30,7 +30,7 @@ class ProductBottomSheet {
                       width: 4,
                     ),
                     Expanded(
-                        child: ReuseableWidgets().largeAppBtn("Apply", () => null,
+                        child: ReusableWidgets().largeAppBtn("Apply", () => null,
                             isLightMode(context) ? lightWidgetColorBackground : darkWidgetColorBackground,
                             Colors.white)
                     ),
@@ -70,7 +70,7 @@ class ProductBottomSheet {
                 ],
               ),
               const SizedBox(height: 50,),
-              ReuseableWidgets().largeAppBtn("Proceed To Checkout", () {
+              ReusableWidgets().largeAppBtn("Proceed To Checkout", () {
                 Get.to(() => const CheckOutScreen(),
                     transition: Transition.native,
                     duration: const Duration(seconds: 1));

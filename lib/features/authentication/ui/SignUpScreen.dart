@@ -15,13 +15,13 @@ class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: ReuseableWidgets().buildAppScreenBackGround(
+        body: ReusableWidgets().buildAppScreenBackGround(
       headerImg: headerColoredBlur,
       bgTopPos: 110,
       bgLeftPos: 0,
       bgRightPos: 0,
       bgBottomPos: 0,
-      child: ReuseableWidgets().buildBackgroundContainer(
+      child: ReusableWidgets().buildBackgroundContainer(
         lightBackground,
         70,
         0,
@@ -106,7 +106,7 @@ class SignUpScreen extends StatelessWidget {
                   const SizedBox(
                     height: 13,
                   ),
-                  ReuseableWidgets().largeAppBtn(
+                  ReusableWidgets().largeAppBtn(
                     "Sign Up",
                     () {
                       // TODO: SEND SIGN NEW USER REQUEST
