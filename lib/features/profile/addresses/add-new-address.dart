@@ -14,7 +14,7 @@ class AddNewAddressesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor:
-          isLightMode(context) ? const Color(0xfff5f6f8) : darkBackground,
+          isLightMode(context) ? const Color(0xfff7f9fa) : darkBackground,
       appBar: AppBar(
         centerTitle: false,
         automaticallyImplyLeading: false,
@@ -44,8 +44,8 @@ class AddNewAddressesScreen extends StatelessWidget {
                           color: isLightMode(context)
                               ? Colors.black54
                               : Colors.white.withOpacity(0.3),
-                          blurRadius: 4.0,
-                          spreadRadius: 2,
+                          blurRadius: 2.0,
+                          spreadRadius: 1,
                           blurStyle: BlurStyle.outer)
                     ],
                     color: isLightMode(context)
@@ -91,8 +91,8 @@ class AddNewAddressesScreen extends StatelessWidget {
                           color: isLightMode(context)
                               ? Colors.black54
                               : Colors.white.withOpacity(0.3),
-                          blurRadius: 4.0,
-                          spreadRadius: 2,
+                          blurRadius: 2.0,
+                          spreadRadius: 1,
                           blurStyle: BlurStyle.outer)
                     ],
                     color: isLightMode(context)

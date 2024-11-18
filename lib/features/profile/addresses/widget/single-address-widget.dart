@@ -32,10 +32,7 @@ class SingleAddress extends StatelessWidget {
                 : Colors.white
                 : Colors.grey,
             width: 2),
-        color: isSelected
-            ? lightWidgetColorBackground
-            .withOpacity(isLightMode(context) ? 0.1 : 0.5)
-            : Colors.transparent,
+        color:  Colors.transparent,
       ),
       child: Stack(
         children: [

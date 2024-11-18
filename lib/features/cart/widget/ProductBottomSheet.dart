@@ -23,7 +23,6 @@ class ProductBottomSheet {
                       flex: 3,
                       child: TextFormField(
                         decoration: const InputDecoration(hintText: "Have a promo code? Apply here"),
-
                       ),
                     ),
                     const SizedBox(
@@ -71,9 +70,8 @@ class ProductBottomSheet {
               ),
               const SizedBox(height: 50,),
               ReusableWidgets().largeAppBtn("Proceed To Checkout", () {
-                Get.to(() => const CheckOutScreen(),
-                    transition: Transition.native,
-                    duration: const Duration(seconds: 1));
+                Navigator.pop(context);
+                Get.to(() => const CheckOutScreen(), transition: Transition.native, duration: const Duration(seconds: 1));
               },
                   isLightMode(context) ? lightWidgetColorBackground : darkWidgetColorBackground,
                   Colors.white)
