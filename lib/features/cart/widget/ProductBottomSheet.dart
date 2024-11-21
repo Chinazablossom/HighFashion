@@ -22,7 +22,7 @@ class ProductBottomSheet {
                     Expanded(
                       flex: 3,
                       child: TextFormField(
-                        decoration: const InputDecoration(hintText: "Have a promo code? Apply here"),
+                        decoration: const InputDecoration(label: Text("Have a promo code? Apply here",style: TextStyle(fontSize: 15),)),
                       ),
                     ),
                     const SizedBox(

@@ -8,7 +8,7 @@ class GlobalController extends GetxController {
   static GlobalController get instance => Get.find();
 
   var favorites = <Product>[].obs;
-  var cart = <Product>[].obs;
+  final RxList<Product> cart = <Product>[].obs;
   var productQuantities = <String, int>{}.obs;
 
 

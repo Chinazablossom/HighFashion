@@ -260,7 +260,7 @@ class ReusableWidgets {
       IconData iconEnd, bool isLightMode) {
     return InkWell(
       onTap: todo,
-      borderRadius: BorderRadius.circular(20),
+      splashColor: Colors.transparent,
       child: Column(
         children: [
           const SizedBox(
