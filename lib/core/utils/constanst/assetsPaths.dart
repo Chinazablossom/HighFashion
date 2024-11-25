@@ -14,6 +14,7 @@ const newSummerCollectionImg = "assets/images/summer_sales.webp";
 const newWinterCollectionImg = "assets/images/winter_sales.webp";
 const newBeachCollectionImg = "assets/images/beach_sales.webp";
 const demoWear = "assets/images/image 115.webp";
+const debitCard = "assets/images/Card.jpg";
 
 //    ICONS
 const appIcon = "assets/icons/fashion_icon.webp";

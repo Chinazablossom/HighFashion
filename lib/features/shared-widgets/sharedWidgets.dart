@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_pannable_rating_bar/flutter_pannable_rating_bar.dart';
 import 'package:get/get.dart';
+import 'package:high_fashion/core/models/card-model.dart';
 import 'package:high_fashion/core/utils/helper-functions/helper-functions.dart';
 import 'package:iconsax_flutter/iconsax_flutter.dart';
 import 'package:intl/intl.dart';
@@ -18,8 +19,7 @@ import '../product/controllers/product-global-controllers.dart';
 import '../product/widets/sizes-chip.dart';
 
 class ReusableWidgets {
-  GestureDetector largeAppBtn(
-      String label, Function() todo, Color color, Color txtColor) {
+  GestureDetector largeAppBtn(String label, Function() todo, Color color, Color txtColor) {
     return GestureDetector(
       onTap: todo,
       child: Container(
@@ -31,17 +31,13 @@ class ReusableWidgets {
         ),
         child: Center(
             child: Text(label,
-                style: TextStyle(
-                    fontFamily: interExtraBold,
-                    color: txtColor,
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold))),
+                style:
+                    TextStyle(fontFamily: interExtraBold, color: txtColor, fontSize: 18, fontWeight: FontWeight.bold))),
       ),
     );
   }
 
-  GestureDetector largeAppIconBtn(
-      bool isLightMode, IconData icon, Function() todo) {
+  GestureDetector largeAppIconBtn(bool isLightMode, IconData icon, Function() todo) {
     return GestureDetector(
       onTap: todo,
       child: Container(
@@ -85,15 +81,12 @@ class ReusableWidgets {
 
   Container buildHeader(String imgPath, Widget? child) {
     return Container(
-      decoration: BoxDecoration(
-          image:
-              DecorationImage(image: AssetImage(imgPath), fit: BoxFit.cover)),
+      decoration: BoxDecoration(image: DecorationImage(image: AssetImage(imgPath), fit: BoxFit.cover)),
       child: child,
     );
   }
 
-  Container imgContainer(
-      double height, double width, double radius, String imgPath) {
+  Container imgContainer(double height, double width, double radius, String imgPath) {
     return Container(
       height: height,
       width: width,
@@ -113,15 +106,12 @@ class ReusableWidgets {
     );
   }
 
-  Container iconContainer(
-      double height, double width, IconData icon, bool isLightMode) {
+  Container iconContainer(double height, double width, IconData icon, bool isLightMode) {
     return Container(
       height: height,
       width: width,
       decoration: BoxDecoration(
-        color: isLightMode
-            ? lightWidgetColorBackground
-            : darkWidgetColorBackground,
+        color: isLightMode ? lightWidgetColorBackground : darkWidgetColorBackground,
         borderRadius: BorderRadius.circular(100),
       ),
       child: Icon(icon, color: Colors.white),
@@ -148,19 +138,15 @@ class ReusableWidgets {
           text: TextSpan(children: [
             TextSpan(
               text: title,
-              style: TextStyle(
-                  fontFamily: interExtraBold,
-                  fontSize: 24,
-                  color: isLightMode ? Colors.black : Colors.white),
+              style:
+                  TextStyle(fontFamily: interExtraBold, fontSize: 24, color: isLightMode ? Colors.black : Colors.white),
             ),
             TextSpan(
               text: highlightedTxt,
               style: TextStyle(
                 fontFamily: interExtraBold,
                 fontSize: 24,
-                color: isLightMode
-                    ? lightWidgetColorBackground
-                    : darkWidgetColorBackground,
+                color: isLightMode ? lightWidgetColorBackground : darkWidgetColorBackground,
               ),
             )
           ]),
@@ -197,34 +183,28 @@ class ReusableWidgets {
     );
   }
 
-  SearchBar buildSearchBar(
-      Function()? onTap, Function(String value)? onChange, bool isLightMode) {
+  SearchBar buildSearchBar(Function()? onTap, Function(String value)? onChange, bool isLightMode) {
     return SearchBar(
-      backgroundColor: MaterialStatePropertyAll<Color>(isLightMode
-          ? lightBackground.withOpacity(0.9)
-          : const Color(0xff1d1c1f)),
+      backgroundColor:
+          MaterialStatePropertyAll<Color>(isLightMode ? lightBackground.withOpacity(0.9) : const Color(0xff1d1c1f)),
       hintText: "Search...",
-      hintStyle: MaterialStatePropertyAll(TextStyle(
-          color: isLightMode ? const Color(0xff646060) : Colors.white)),
+      hintStyle: MaterialStatePropertyAll(TextStyle(color: isLightMode ? const Color(0xff646060) : Colors.white)),
       onTap: onTap,
       onChanged: (value) {
         if (onChange != null) {
           onChange(value);
         }
       },
-      leading: Icon(CupertinoIcons.search,
-          color: isLightMode ? lightWidgetColorBackground : Colors.white),
+      leading: Icon(CupertinoIcons.search, color: isLightMode ? lightWidgetColorBackground : Colors.white),
       trailing: [
         IconButton(
             onPressed: () {},
-            icon: Icon(CupertinoIcons.mic,
-                color: isLightMode ? lightWidgetColorBackground : Colors.white))
+            icon: Icon(CupertinoIcons.mic, color: isLightMode ? lightWidgetColorBackground : Colors.white))
       ],
     );
   }
 
-  Stack buildStackNotificationIcon(
-      int notifCount, Widget icon, Function() todo) {
+  Stack buildStackNotificationIcon(int notifCount, Widget icon, Function() todo) {
     return Stack(children: [
       Positioned(
           width: notifCount >= 100
@@ -240,15 +220,11 @@ class ReusableWidgets {
           right: 0,
           top: notifCount >= 100 ? 5 : 0,
           child: Container(
-            decoration: BoxDecoration(
-                color: Colors.red, borderRadius: BorderRadius.circular(100)),
+            decoration: BoxDecoration(color: Colors.red, borderRadius: BorderRadius.circular(100)),
             child: Center(
               child: Text(
                 notifCount >= 100 ? "" : notifCount.toString(),
-                style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 14),
+                style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 14),
               ),
             ),
           )),
@@ -256,8 +232,7 @@ class ReusableWidgets {
     ]);
   }
 
-  InkWell buildTextRow(Function() todo, IconData iconStart, String label,
-      IconData iconEnd, bool isLightMode) {
+  InkWell buildTextRow(Function() todo, IconData iconStart, String label, IconData iconEnd, bool isLightMode) {
     return InkWell(
       onTap: todo,
       splashColor: Colors.transparent,
@@ -268,11 +243,7 @@ class ReusableWidgets {
           ),
           Row(
             children: [
-              Icon(iconStart,
-                  color: isLightMode
-                      ? lightWidgetColorBackground
-                      : darkWidgetColorBackground,
-                  size: 28),
+              Icon(iconStart, color: isLightMode ? lightWidgetColorBackground : darkWidgetColorBackground, size: 28),
               const SizedBox(
                 width: 16,
               ),
@@ -282,11 +253,7 @@ class ReusableWidgets {
                     label,
                     style: const TextStyle(fontSize: 18),
                   )),
-              Icon(iconEnd,
-                  color: isLightMode
-                      ? lightWidgetColorBackground
-                      : darkWidgetColorBackground,
-                  size: 28),
+              Icon(iconEnd, color: isLightMode ? lightWidgetColorBackground : darkWidgetColorBackground, size: 28),
             ],
           ),
           const SizedBox(
@@ -316,9 +283,7 @@ class ReusableWidgets {
     Color borderColor,
   ) {
     return Container(
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15),
-          border: Border.all(color: borderColor)),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(15), border: Border.all(color: borderColor)),
       child: Padding(
         padding: const EdgeInsets.all(8),
         child: Row(
@@ -330,17 +295,12 @@ class ReusableWidgets {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(brandName,
-                    style: const TextStyle(
-                        fontSize: 14, fontWeight: FontWeight.w700)),
+                Text(brandName, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w700)),
                 SizedBox(
                     width: width,
                     child: Text(
                       "$productsAvailable products available",
-                      style: const TextStyle(
-                          fontSize: 12,
-                          color: Colors.grey,
-                          overflow: TextOverflow.ellipsis),
+                      style: const TextStyle(fontSize: 12, color: Colors.grey, overflow: TextOverflow.ellipsis),
                     ))
               ],
             )
@@ -366,22 +326,14 @@ class ReusableWidgets {
           children: [
             Container(
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    border: Border.all(color: lightWidgetColorBackground)),
+                    borderRadius: BorderRadius.circular(15), border: Border.all(color: lightWidgetColorBackground)),
                 child: Column(
                   children: [
-                    buildTopBrandContainer(
-                        brandCategories[tag]![random].values.first,
-                        brandCategories[tag]![random].keys.first,
-                        Random().nextInt(1000),
-                        200,
-                        Colors.transparent),
+                    buildTopBrandContainer(brandCategories[tag]![random].values.first,
+                        brandCategories[tag]![random].keys.first, Random().nextInt(1000), 200, Colors.transparent),
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                          children: imgs
-                              .map((image) => DisplayedClothes(img: image))
-                              .toList()),
+                      child: Row(children: imgs.map((image) => DisplayedClothes(img: image)).toList()),
                     )
                   ],
                 )),
@@ -435,9 +387,7 @@ Container buildCountTimer(String time, double width, bool isLightMode) {
     height: 30,
     width: width,
     decoration: BoxDecoration(
-        color: isLightMode
-            ? lightWidgetColorBackground.withOpacity(0.2)
-            : lightWidgetColorBackground.withOpacity(0.5),
+        color: isLightMode ? lightWidgetColorBackground.withOpacity(0.2) : lightWidgetColorBackground.withOpacity(0.5),
         shape: BoxShape.rectangle,
         borderRadius: BorderRadius.circular(8)),
     child: Center(
@@ -470,8 +420,7 @@ class ProductItemCard extends StatelessWidget {
           Get.snackbar("Item Added", "${product.name} added to favorites.");
         } else {
           globalController.removeFromFavorites(product);
-          Get.snackbar(
-              "Item Removed", "${product.name} removed from favorites.");
+          Get.snackbar("Item Removed", "${product.name} removed from favorites.");
         }
       },
       child: Container(
@@ -504,8 +453,7 @@ class ProductItemCard extends StatelessWidget {
                     child: FadeInImage(
                         fit: BoxFit.contain,
                         placeholder: MemoryImage(kTransparentImage),
-                        image: AssetImage(
-                            product.image) /* NetworkImage(meal.imageUrl)*/),
+                        image: AssetImage(product.image) /* NetworkImage(meal.imageUrl)*/),
                   ),
                 ),
                 Positioned(
@@ -514,9 +462,7 @@ class ProductItemCard extends StatelessWidget {
                   child: Obx(() => CircleAvatar(
                         backgroundColor: Colors.white54,
                         child: Icon(
-                          globalController.isFavorite(product)
-                              ? Iconsax.heart
-                              : Iconsax.heart_copy,
+                          globalController.isFavorite(product) ? Iconsax.heart : Iconsax.heart_copy,
                           color: lightWidgetColorBackground,
                         ),
                       )),
@@ -539,8 +485,7 @@ class ProductItemCard extends StatelessWidget {
                   ),
                   Text(
                     "\$${product.price}",
-                    style: const TextStyle(
-                        fontWeight: FontWeight.w700, fontSize: 20),
+                    style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 20),
                   ),
                 ],
               ),
@@ -578,10 +523,7 @@ class CarouselImg extends StatelessWidget {
         ),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(18),
-          child: Image(
-              image: AssetImage(url),
-              fit: BoxFit.cover,
-              filterQuality: FilterQuality.high),
+          child: Image(image: AssetImage(url), fit: BoxFit.cover, filterQuality: FilterQuality.high),
         ),
       ),
     );
@@ -619,14 +561,9 @@ class CategoriesList extends StatelessWidget {
                   height: 60,
                   width: 60,
                   padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                      color: const Color(0xffe7e7ec),
-                      borderRadius: BorderRadius.circular(radius)),
-                  child: Image(
-                      height: 40,
-                      width: 40,
-                      image:
-                          AssetImage(itemsList.entries.elementAt(index).value)),
+                  decoration:
+                      BoxDecoration(color: const Color(0xffe7e7ec), borderRadius: BorderRadius.circular(radius)),
+                  child: Image(height: 40, width: 40, image: AssetImage(itemsList.entries.elementAt(index).value)),
                 ),
                 const SizedBox(
                   height: 6,
@@ -643,7 +580,6 @@ class CategoriesList extends StatelessWidget {
     );
   }
 }
-
 
 class SizesList extends StatelessWidget {
   const SizesList({
@@ -666,7 +602,6 @@ class SizesList extends StatelessWidget {
     );
   }
 }
-
 
 const catList = {
   "Accessories": eyeglassIcon,
@@ -952,14 +887,13 @@ List<String> colorNames = [
   "Deep Sea Green",
 ];
 
-
 List<Product> demoProducts = [
   Product(
     name: "Classic Leather Jacket",
     price: 120.0,
     image: "assets/images/image 52.webp",
     detail: "A timeless black leather jacket made from genuine leather.",
-    sizes: ["XS", "S", "M", "L", "XL","XXL"],
+    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
   ),
   Product(
     name: "Casual Sneakers",
@@ -973,35 +907,35 @@ List<Product> demoProducts = [
     price: 50.0,
     image: "assets/images/image 52.webp",
     detail: "Slim-fit denim jeans with a classic blue wash.",
-    sizes: ["XS", "S", "M", "L", "XL","XXL"],
+    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
   ),
   Product(
     name: "Summer Dress",
     price: 40.0,
     image: "assets/images/image 52.webp",
     detail: "A light and airy summer dress with floral prints.",
-    sizes: ["XS", "S", "M", "L", "XL","XXL"],
+    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
   ),
   Product(
     name: "Woolen Sweater",
     price: 65.0,
     image: "assets/images/image 52.webp",
     detail: "A cozy woolen sweater to keep you warm during winter.",
-    sizes: ["XS", "S", "M", "L", "XL","XXL"],
+    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
   ),
   Product(
     name: "Formal Shirt",
     price: 35.0,
     image: "assets/images/image 52.webp",
     detail: "A crisp white formal shirt, perfect for office wear.",
-    sizes: ["XS", "S", "M", "L", "XL","XXL"],
+    sizes: ["XS", "S", "M", "L", "XL", "XXL"],
   ),
   Product(
     name: "Running Shoes",
     price: 85.0,
     image: "assets/images/image 52.webp",
     detail: "High-performance running shoes with excellent cushioning.",
-    sizes: ["33", "36", "38", "40", "44","46"],
+    sizes: ["33", "36", "38", "40", "44", "46"],
   ),
   Product(
     name: "Designer Handbag",
@@ -1027,6 +961,23 @@ List<Product> demoProducts = [
 ];
 
 
+List<DebitCard> demoCard = [
+  DebitCard(name: "Chinaza Blossom",
+      cardNumber: "5399 4122 9012 2002",
+      expDate: "05/25",
+      securityCode: "976"),
+
+  DebitCard(name: "John Doe",
+      cardNumber: "5399 4122 9042 8356",
+      expDate: "04/29",
+      securityCode: "111"),
+
+  DebitCard(name: "Jenna Doe",
+      cardNumber: "5399 4122 9068 8874",
+      expDate: "05/27",
+      securityCode: "345"),
+];
+
 class BuildUserComment extends StatelessWidget {
   const BuildUserComment({
     super.key,
@@ -1045,43 +996,13 @@ class BuildUserComment extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ProductDetailController productDetailController =
-        Get.put(ProductDetailController());
-    final randomNum = [1.0, 1.5, 2.0, 3.5, 5.0, 4.0, 4.5, 3.0, 2.5]
-        .elementAt(Random().nextInt(9));
+    final ProductDetailController productDetailController = Get.put(ProductDetailController());
+    final randomNum = [1.0, 1.5, 2.0, 3.5, 5.0, 4.0, 4.5, 3.0, 2.5].elementAt(Random().nextInt(9));
     final randomDate = DateTime(
         [2020, 2021, 2022, 2023, 2024].elementAt(Random().nextInt(5)),
         [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].elementAt(Random().nextInt(12)),
-        [
-          1,
-          2,
-          3,
-          4,
-          5,
-          6,
-          7,
-          8,
-          9,
-          10,
-          11,
-          12,
-          13,
-          14,
-          15,
-          16,
-          17,
-          18,
-          19,
-          20,
-          21,
-          22,
-          23,
-          24,
-          25,
-          26,
-          27,
-          28
-        ].elementAt(Random().nextInt(25)));
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
+            .elementAt(Random().nextInt(25)));
 
     return Padding(
       padding: const EdgeInsets.all(8.0),
@@ -1100,8 +1021,7 @@ class BuildUserComment extends StatelessWidget {
                   ),
                   Text(
                     userName,
-                    style: const TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.w500),
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                   )
                 ],
               ),
@@ -1128,8 +1048,7 @@ class BuildUserComment extends StatelessWidget {
               const SizedBox(
                 width: 16,
               ),
-              Text(
-                  "${randomDate.day} ${DateFormat("MMM").format(randomDate)}, ${randomDate.year}")
+              Text("${randomDate.day} ${DateFormat("MMM").format(randomDate)}, ${randomDate.year}")
             ],
           ),
           spannableText(
@@ -1142,9 +1061,7 @@ class BuildUserComment extends StatelessWidget {
           ),
           hasResponse
               ? buildCompanyReply(
-                  context: context,
-                  randomDate: randomDate,
-                  productDetailController: productDetailController)
+                  context: context, randomDate: randomDate, productDetailController: productDetailController)
               : Container(),
         ],
       ),
@@ -1176,10 +1093,8 @@ Container buildCompanyReply(
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text("H'Fash Store",
-                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16)),
-              Text(
-                  "${randomDate.day} ${DateFormat("MMM").format(randomDate)}, ${randomDate.year}",
+              const Text("H'Fash Store", style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16)),
+              Text("${randomDate.day} ${DateFormat("MMM").format(randomDate)}, ${randomDate.year}",
                   style: Theme.of(context).textTheme.titleMedium)
             ],
           ),
@@ -1210,9 +1125,7 @@ Column spannableText(
           () => Text(
             text,
             textAlign: TextAlign.start,
-            maxLines: productDetailController.isProductDetailNotExpanded.value
-                ? 2
-                : 1000,
+            maxLines: productDetailController.isProductDetailNotExpanded.value ? 2 : 1000,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
                 color: productDetailController.isProductDetailNotExpanded.value
@@ -1231,21 +1144,13 @@ Column spannableText(
               ? null
               : Obx(
                   () => InkWell(
-                      child: Text(
-                          productDetailController
-                                  .isProductDetailNotExpanded.value
-                              ? "Read more"
-                              : "Read less",
+                      child: Text(productDetailController.isProductDetailNotExpanded.value ? "Read more" : "Read less",
                           style: TextStyle(
-                              color: isLightMode(context)
-                                  ? lightWidgetColorBackground
-                                  : darkWidgetColorBackground,
+                              color: isLightMode(context) ? lightWidgetColorBackground : darkWidgetColorBackground,
                               decoration: TextDecoration.underline)),
                       onTap: () {
-                        productDetailController
-                                .isProductDetailNotExpanded.value =
-                            !productDetailController
-                                .isProductDetailNotExpanded.value;
+                        productDetailController.isProductDetailNotExpanded.value =
+                            !productDetailController.isProductDetailNotExpanded.value;
                       }),
                 ),
         ),
@@ -1261,8 +1166,7 @@ class ItemRating extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final randomNum = [1.0, 1.5, 2.0, 3.5, 5.0, 4.0, 4.5, 3.0, 2.5]
-        .elementAt(Random().nextInt(9));
+    final randomNum = [1.0, 1.5, 2.0, 3.5, 5.0, 4.0, 4.5, 3.0, 2.5].elementAt(Random().nextInt(9));
 
     return Row(
       children: [
@@ -1272,8 +1176,7 @@ class ItemRating extends StatelessWidget {
             children: [
               Text(
                 "${randomNum}",
-                style:
-                    const TextStyle(fontWeight: FontWeight.w500, fontSize: 55),
+                style: const TextStyle(fontWeight: FontWeight.w500, fontSize: 55),
               ),
               PannableRatingBar(
                 rate: randomNum,
@@ -1295,8 +1198,7 @@ class ItemRating extends StatelessWidget {
         Expanded(
             flex: 6,
             child: Column(
-              children: List.generate(
-                  5, (index) => RatingRow(amountOfRaters: "${-index + 5}")),
+              children: List.generate(5, (index) => RatingRow(amountOfRaters: "${-index + 5}")),
             ))
       ],
     );
@@ -1313,9 +1215,7 @@ class RatingRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final rate = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
-        .elementAt(Random().nextInt(11))
-        .toDouble();
+    final rate = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1].elementAt(Random().nextInt(11)).toDouble();
 
     return Row(
       children: [
@@ -1328,13 +1228,38 @@ class RatingRow extends StatelessWidget {
               value: rate,
               minHeight: 10,
               backgroundColor: Colors.grey,
-              valueColor:
-                  const AlwaysStoppedAnimation(lightWidgetColorBackground),
+              valueColor: const AlwaysStoppedAnimation(lightWidgetColorBackground),
               borderRadius: BorderRadius.circular(8),
             ),
           ),
         )
       ],
+    );
+  }
+}
+
+class WhiteOrBlckCardWidget extends StatelessWidget {
+  const WhiteOrBlckCardWidget({
+    super.key,
+    required this.child,
+  });
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+          borderRadius: const BorderRadius.all(Radius.circular(20)),
+          boxShadow: [
+            BoxShadow(
+                color: isLightMode(context) ? Colors.black54 : Colors.white.withOpacity(0.3),
+                blurRadius: 2.0,
+                spreadRadius: 1,
+                blurStyle: BlurStyle.outer)
+          ],
+          color: isLightMode(context) ? Colors.white12 : Colors.black.withOpacity(0.4)),
+      child: child,
     );
   }
 }
