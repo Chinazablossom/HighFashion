@@ -5,6 +5,7 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 import '../../../core/utils/constanst/assetsPaths.dart';
 import '../../../core/utils/helper-functions/helper-functions.dart';
 import '../../shared-widgets/sharedWidgets.dart';
+import '../widget/ProfileScreenWidgets.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -33,19 +34,19 @@ class SettingsScreen extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           child: Column(
             children: [
-              ReusableWidgets().buildTextRow(
+              const ProfileScreenWidgets().buildRowWidgets(
                   () {},
                   CupertinoIcons.info,
                   "Notification Settings",
                   CupertinoIcons.forward,
                   isLightMode(context)),
-              ReusableWidgets().buildTextRow(
+              const ProfileScreenWidgets().buildRowWidgets(
                   () {},
                   Iconsax.key_copy,
                   "Password Manager",
                   CupertinoIcons.forward,
                   isLightMode(context)),
-              ReusableWidgets().buildTextRow(
+              const ProfileScreenWidgets().buildRowWidgets(
                   () {},
                   Iconsax.profile_delete_copy,
                   "Delete Account",

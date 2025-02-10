@@ -9,7 +9,6 @@ ThemeData highFashionLightTheme() {
     useMaterial3: true,
   ).copyWith(
 
-
       appBarTheme: const AppBarTheme().copyWith(
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.transparent,

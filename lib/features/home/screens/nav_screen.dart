@@ -19,7 +19,7 @@ class NavScreen extends StatelessWidget {
     return Scaffold(
       bottomNavigationBar: Obx(
         () => CurvedNavigationBar(
-            backgroundColor: isLightMode(context) ? Colors.white : darkBackground,
+            backgroundColor:  Colors.transparent,
             color: isLightMode(context) ? Colors.black : Colors.white,
             buttonBackgroundColor: isLightMode(context) ? lightWidgetColorBackground : darkWidgetColorBackground,
             animationCurve: Curves.easeIn,

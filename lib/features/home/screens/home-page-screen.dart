@@ -1,11 +1,8 @@
-import 'dart:math';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:get/get.dart';
-import 'package:high_fashion/core/models/product_model.dart';
 import 'package:high_fashion/core/utils/constanst/assetsPaths.dart';
 import 'package:high_fashion/core/utils/constanst/colors.dart';
 import 'package:high_fashion/features/chat/chat-screen.dart';
@@ -27,7 +24,7 @@ class HomePageScreen extends StatelessWidget {
 
     return ReusableWidgets().buildAppScreenBackGround(
       headerImg: isLightMode(context) ? headerBlack : headerLight,
-      bgTopPos: 85,
+      bgTopPos: 90,
       bgLeftPos: 0,
       bgRightPos: 0,
       bgBottomPos: -0.1,
@@ -232,9 +229,7 @@ class HomePageScreen extends StatelessWidget {
                       duration: const Duration(seconds: 1))),
             ],
           ),
-          const SizedBox(
-            height: 6,
-          ),
+
         ],
       ),
     );

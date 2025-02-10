@@ -12,6 +12,7 @@ import 'package:iconsax_flutter/iconsax_flutter.dart';
 import '../../../core/models/product_model.dart';
 import '../../../core/utils/constanst/assetsPaths.dart';
 import '../../../core/utils/helper-functions/helper-functions.dart';
+import '../../profile/widget/ProfileScreenWidgets.dart';
 import '../controllers/product-detail-controller.dart';
 import '../controllers/product-global-controllers.dart';
 import '../widets/color-choice-chip.dart';
@@ -400,7 +401,7 @@ class ProductDetailScreen extends StatelessWidget {
                 const SizedBox(
                   height: 12,
                 ),
-                ReusableWidgets().buildTextRow(() {
+                const ProfileScreenWidgets().buildRowWidgets(() {
                   Get.to(() => const ReviewsAndRatings(),
                       transition: Transition.rightToLeft,
                       duration: const Duration(milliseconds: 600));
